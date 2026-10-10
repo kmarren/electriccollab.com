@@ -32,3 +32,7 @@ This project is strictly a migration, not a redesign. The scope does not include
 When technical improvements conflict with visual or functional fidelity, flag the tradeoff and request approval rather than independently changing the website.
 
 The final deliverable should be production-ready and available for client review, but must not replace the live Squarespace website until the client explicitly approves the transition.
+
+## Responsive Design and Cross-Device Fidelity
+
+The migrated website must faithfully reproduce the existing Squarespace site's appearance and functionality across all screen sizes, including desktop, tablet, and mobile. Responsive behavior should match the original website, including layouts, typography, spacing, navigation, images, and interactive elements. Do not optimize solely for desktop or assume that mobile layouts should simply scale down from desktop. Reference the existing site's behavior at multiple viewport sizes and test the Astro implementation across common screen widths to ensure visual consistency, usability, and functional accuracy. Any responsive design changes that deviate from the original site should be flagged for approval.
