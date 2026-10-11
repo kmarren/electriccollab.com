@@ -1,0 +1,205 @@
+{
+  "_comment": "Homepage assets on the Squarespace CDN and where they live in this repo.",
+  "files": [
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4a8d4ec1-357d-4e0d-8460-d1d75e2a3192/Transparent+Logo-Burg.png",
+      "dest": "src/assets/images/brand/logo-wordmark.png",
+      "note": "Header wordmark"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9f99b0a9-8f8c-4caa-aed1-d7dfa9617ac2/red%3Ablue.png",
+      "dest": "src/assets/images/brand/ec-monogram.png",
+      "note": "Footer e⚡c mark"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/94aa9318-b9d6-4884-975d-a077ab4ca011/CircleTier_Member_white%402x.png.678533e011b197400bdde93a63119a9a.png",
+      "dest": "src/assets/images/brand/badge-circle-gold-partner.png",
+      "note": "Footer badge"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c2abaf33-c93b-44eb-86f3-024efe219dbd/E100+2024+BADGE+-+WHITE.png",
+      "dest": "src/assets/images/brand/badge-entreprenista-100-2024.png",
+      "note": "Footer badge"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2f3f216c-4051-49ff-8209-b2e58ac26f6b/Best+2.jpg",
+      "dest": "src/assets/images/hero/portrait-red-suit.jpg",
+      "note": "Hero center tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/346b4e67-75a2-483e-9358-0807205bb41d/Mask+group-1.png",
+      "dest": "src/assets/images/press/better-homes-gardens.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/80599556-ea7c-42cd-9b3d-aac0c4d5305f/Mask+group-3.png",
+      "dest": "src/assets/images/press/brides.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/cb77d733-a8c8-4d25-8e92-cf94b6dfdccc/Mask+group-2.png",
+      "dest": "src/assets/images/press/today.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/6e6f7fef-187a-4c12-9a29-09df63a2c093/Mask+group-4.png",
+      "dest": "src/assets/images/press/instyle.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/74918598-4227-4062-9d22-faaef9e80465/Mask+group-5.png",
+      "dest": "src/assets/images/press/forbes.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3bd55ab0-41ca-4281-a1ba-ba889bf37efa/Mask+group-6.png",
+      "dest": "src/assets/images/press/parade.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/bc4c00f3-f3e4-488b-8d59-3d9ffa46e7af/Mask+group-7.png",
+      "dest": "src/assets/images/press/wsj.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/155f59d1-80d9-4770-90aa-85377afd8db0/Mask+group-8.png",
+      "dest": "src/assets/images/press/good-morning-america.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/dc8403df-0176-41fa-8603-5e04595748f2/Mask+group-9.png",
+      "dest": "src/assets/images/press/tedx.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/74ba43f6-38c6-49db-bda7-fa6329003cdd/Mask+group.png",
+      "dest": "src/assets/images/press/well-good.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/0750c9fc-00b3-43c0-a4ba-110c83feb12b/MOODBOARD+copy.jpg",
+      "dest": "src/assets/images/portfolio/suzanne-falk.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/12d3a2c8-0bf8-4f89-8697-617763cd8442/12.jpg",
+      "dest": "src/assets/images/portfolio/mb-graubard-consulting.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/74672b64-29b1-41e0-9a9d-b156b7211749/EMBOSS+PRIMARY.jpg",
+      "dest": "src/assets/images/portfolio/evgn.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/505ce221-2f77-4820-9ebc-c016e82305ed/PRIMARY+SOLID+%282%29.jpg",
+      "dest": "src/assets/images/portfolio/surrogacy-reimagined.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a533f304-c9e8-40b5-8ea0-5e6d784adc7d/9.png",
+      "dest": "src/assets/images/portfolio/l-advisors.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/33ddc68d-59bf-4d9d-86cb-5d983213bdbd/KATIELOVE_Headshots0224.jpg",
+      "dest": "src/assets/images/portfolio/love-social.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d839a4e7-ab4b-42dc-8520-4d603b402f89/SECONDARY.png",
+      "dest": "src/assets/images/portfolio/helloseo.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/bf045667-f8d0-49a3-84b6-de2e074ca7d0/QUOTE+%282%29.jpg",
+      "dest": "src/assets/images/portfolio/the-whisper-group.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/cc11f376-eb6b-40ff-b0fd-fcf37dd0ab28/SECONDARY+%283%29.png",
+      "dest": "src/assets/images/portfolio/sovera.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a1c91e07-f035-4763-add9-48da08aa41f6/EMBOSS+PRIMARY.png",
+      "dest": "src/assets/images/portfolio/kathryne-cole.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d7bf99b8-4695-46a3-a843-5927c3ba3363/14.jpg",
+      "dest": "src/assets/images/portfolio/ashlee-piper.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/69db26fe-ab78-4bf3-b4dc-c470bb5c6601/PRIMARY+LOGO+%281%29.png",
+      "dest": "src/assets/images/portfolio/jennifer-gennari.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7281250a-df99-4038-95b5-e6408c65b037/Paulsen___2026-7_websize.jpg",
+      "dest": "src/assets/images/founder/emily-paulsen.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/bf368b50-ffca-4c57-a390-cce9a6ccdd38/CarriexWhisper16036.jpg",
+      "dest": "src/assets/images/testimonials/carrie-kerpen.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b723eb1d-cad8-49ce-9fbe-0556f2eac502/Lauren+Bercuson+2.0-016.jpg",
+      "dest": "src/assets/images/testimonials/lauren-bercuson.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/693c6462-2b48-4527-9379-a400a6bf7a64/DSC_8032+%281%29.jpg",
+      "dest": "src/assets/images/testimonials/kelly-edmondson.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d0e7c03f-a041-4a1d-8fd3-822fc47f98a5/Screenshot+2026-07-20+at+12.26.05%E2%80%AFPM.png",
+      "dest": "src/assets/images/testimonials/lindsay-mahoney.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/921bb06d-f854-498d-8f59-48d6348d77ff/favicon.ico",
+      "dest": "public/favicon.ico",
+      "note": "Replaces the Astro starter favicon"
+    },
+    {
+      "url": "https://static1.squarespace.com/static/63feee1202ca0172318bd767/t/6ab988190315de5d83375dc7/1790543897376/EC+Social+%2B+Favicon+copy.jpg",
+      "dest": "public/images/og-default.jpg",
+      "note": "Default social share image"
+    },
+    {
+      "url": "https://static1.squarespace.com/static/63feee1202ca0172318bd767/t/6785a74020aec271ed4c688d/1736812353094/veryvogue-text-webfont.woff",
+      "dest": "public/fonts/very-vogue-text.woff",
+      "note": "Headings (licensed, confirmed)"
+    },
+    {
+      "url": "https://static1.squarespace.com/static/63feee1202ca0172318bd767/t/69338b5199b34038547e137f/1764985681660/EssentialSans-Regular.ttf",
+      "dest": "public/fonts/essential-sans-regular.ttf",
+      "note": "Eyebrow labels (licensed, confirmed)"
+    },
+    {
+      "url": "https://static1.squarespace.com/static/63feee1202ca0172318bd767/t/6910eb93c593272b237c15cd/1762716563585/SulphurPoint-Regular.ttf",
+      "dest": "public/fonts/sulphur-point-regular.ttf",
+      "note": "Footer links (SIL Open Font License)"
+    }
+  ],
+  "videos": [
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/dc272695-a580-4c89-8d99-2b760786253d/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/dc272695-a580-4c89-8d99-2b760786253d/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/hero-jewelry",
+      "note": "Hero tile 1",
+      "width": 540
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ea991f30-d607-4b2d-aec8-c45f928692dc/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ea991f30-d607-4b2d-aec8-c45f928692dc/thumbnail",
+      "variant": "1080:1506",
+      "dest": "public/videos/hero-record",
+      "note": "Hero tile 2",
+      "width": 540
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/23b7bb80-baf2-4b87-93ee-2acf944ddfd4/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/23b7bb80-baf2-4b87-93ee-2acf944ddfd4/thumbnail",
+      "variant": "1080:1440",
+      "dest": "public/videos/hero-olive-coat",
+      "note": "Hero tile 4",
+      "width": 540
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d375d67c-7660-429f-a42a-c23291b1f15c/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d375d67c-7660-429f-a42a-c23291b1f15c/thumbnail",
+      "variant": "1080:1432",
+      "dest": "public/videos/hero-palette",
+      "note": "Hero tile 5",
+      "width": 540
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/20f33f37-cae9-41d0-ae98-90fda6dc62d5/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/20f33f37-cae9-41d0-ae98-90fda6dc62d5/thumbnail",
+      "variant": "1080:1434",
+      "dest": "public/videos/services-portrait",
+      "note": "Services section",
+      "width": 720
+    }
+  ]
+}

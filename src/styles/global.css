@@ -1,0 +1,159 @@
+@import './tokens.css';
+@import './fonts.css';
+
+/* ---- Reset ---------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+/* ---- Base typography (Squarespace theme defaults) ------------------------- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+}
+
+/*
+ * Squarespace's "heading 4" style, used for eyebrows and labels. The live theme
+ * sets a heavy weight on a single-weight font, so browsers synthesize the bold.
+ */
+h4,
+.eyebrow {
+  font-family: var(--font-eyebrow);
+  font-weight: 700;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  letter-spacing: 1px;
+}
+
+/* ---- Rich text --------------------------------------------------------------- */
+/*
+ * Spacing inside Squarespace text blocks: 1rem between paragraphs, 2rem around
+ * headings. Sibling margins (not collapsing ones) so it also works in flex blocks.
+ */
+.rte > * + * {
+  margin-top: 1rem;
+}
+
+.rte > * + :is(h1, h2, h3, h4),
+.rte > :is(h1, h2, h3, h4) + * {
+  margin-top: 2rem;
+}
+
+.rte a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+/* ---- Section color themes -------------------------------------------------- */
+/* Mirrors Squarespace's "black-bold" (dark) and "white" (light) section themes. */
+.theme-dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+.theme-light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-on-light);
+}
+
+/* ---- Utilities ------------------------------------------------------------- */
+/* Media that fills its grid block without affecting row heights (like Squarespace image blocks). */
+.media-fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

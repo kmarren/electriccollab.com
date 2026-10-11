@@ -1,0 +1,111 @@
+---
+/**
+ * Homepage hero: a staggered row of five portrait tiles (four looping videos
+ * and one photo), the eyebrow line, and the H1 with its animated underline.
+ * On phones the photo leads, followed by the headline and a 2×2 video grid.
+ */
+import { Image } from 'astro:assets';
+import FluidSection from '../layout/FluidSection.astro';
+import FluidItem from '../layout/FluidItem.astro';
+import AutoplayVideo from '../ui/AutoplayVideo.astro';
+import portrait from '../../assets/images/hero/portrait-red-suit.jpg';
+
+/** Video tiles share one frame shape; differently shaped clips letterbox inside it. */
+const VIDEO_FRAME = '267.3 / 337.4';
+
+const videos = [
+  { src: '/videos/hero-jewelry', width: 540, height: 676, desktop: '2/2/12/7', mobile: '25/2/32/6', z: { desktop: 4, mobile: 3 } },
+  { src: '/videos/hero-record', width: 540, height: 754, desktop: '2/7/12/12', mobile: '25/6/32/10', z: { desktop: 5, mobile: 4 } },
+  { src: '/videos/hero-olive-coat', width: 540, height: 720, desktop: '2/16/12/21', mobile: '32/2/39/6', z: { desktop: 1, mobile: 6 } },
+  { src: '/videos/hero-palette', width: 540, height: 716, desktop: '2/21/11/26', mobile: '32/6/39/10', z: { desktop: 5, mobile: 4 } },
+];
+---
+
+<FluidSection rows={{ mobile: 38, desktop: 22 }} theme="dark" class="hero" aria-labelledby="hero-title">
+  <FluidItem desktop="2/12/11/16" mobile="2/2/15/10" z={7}>
+    <Image
+      class="media-fill"
+      src={portrait}
+      alt="Woman in a red velvet blazer and striped trousers seated in a vintage armchair"
+      widths={[212, 343, 424, 686, 1029]}
+      sizes="(max-width: 767px) 88vw, 15vw"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </FluidItem>
+
+  <FluidItem desktop="13/7/14/21" mobile="16/2/17/10" z={8} align="start">
+    <p class="eyebrow centered">PSYCHOLOGY-BASED, AMPLIFIED BY AI™</p>
+  </FluidItem>
+
+  <FluidItem desktop="14/6/21/22" mobile="17/1/24/11" z={{ desktop: 2, mobile: 1 }}>
+    <h1 id="hero-title" class="headline">
+      Turning premium service providers into <span class="draw-underline" data-draw-underline>premium brands</span>: solidify your distinct reputation, attract the clients your work is ready for.
+    </h1>
+  </FluidItem>
+
+  {
+    videos.map((video, i) => (
+      <FluidItem desktop={video.desktop} mobile={video.mobile} z={video.z} align="start">
+        <AutoplayVideo src={video.src} width={video.width} height={video.height} frame={VIDEO_FRAME} eager={i < 4} />
+      </FluidItem>
+    ))
+  }
+</FluidSection>
+
+<style>
+  .hero {
+    /* The transparent header overlays the top of the first section. */
+    padding-top: var(--header-height);
+  }
+
+  .centered {
+    text-align: center;
+  }
+
+  .headline {
+    padding-inline: 5%;
+    text-align: center;
+  }
+
+  /*
+   * Red underline that draws in left-to-right once the headline is in view
+   * (2s, ease-out-quad), recreating Squarespace's animated text highlight.
+   * A background gradient keeps it per-line when the phrase wraps.
+   */
+  .draw-underline {
+    background-image: linear-gradient(var(--color-red), var(--color-red));
+    background-repeat: no-repeat;
+    background-position: 0 92%;
+    background-size: 0% 0.05em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    /* Let the line run slightly past the glyphs, as the original does, without shifting text. */
+    padding-inline: 0.1em;
+    margin-inline: -0.1em;
+    transition: background-size 2s cubic-bezier(0.5, 1, 0.89, 1);
+  }
+
+  .draw-underline.is-drawn {
+    background-size: 100% 0.05em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .draw-underline {
+      background-size: 100% 0.05em;
+    }
+  }
+</style>
+
+<script>
+  const underline = document.querySelector<HTMLElement>('[data-draw-underline]');
+  if (underline) {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        underline.classList.add('is-drawn');
+        observer.disconnect();
+      }
+    });
+    observer.observe(underline);
+  }
+</script>

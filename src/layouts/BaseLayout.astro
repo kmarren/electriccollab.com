@@ -1,0 +1,81 @@
+---
+/**
+ * Root document shell shared by every page: <head> metadata, fonts, global
+ * styles, structured data, header/footer, consent banner and global scripts.
+ */
+import 'lenis/dist/lenis.css';
+import '../styles/global.css';
+import SEO from '../components/global/SEO.astro';
+import JsonLd from '../components/global/JsonLd.astro';
+import Header from '../components/global/Header.astro';
+import Footer from '../components/global/Footer.astro';
+import CookieConsent from '../components/global/CookieConsent.astro';
+import FlodeskPopup from '../components/global/FlodeskPopup.astro';
+import { integrations } from '../data/site';
+import { siteGraph } from '../lib/schema';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: { src: string; width: number; height: number };
+  noindex?: boolean;
+  ogType?: 'website' | 'article';
+}
+
+const props = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#40080d" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preload" href="/fonts/very-vogue-text.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/fonts/essential-sans-regular.ttf" as="font" type="font/ttf" crossorigin />
+    <SEO {...props} />
+    <JsonLd data={siteGraph()} />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to Content</a>
+    <Header />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+    <CookieConsent gaId={integrations.gaMeasurementId} />
+    <FlodeskPopup formId={integrations.flodeskFormId} />
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    top: 24px;
+    left: -16000px;
+    z-index: 100;
+    padding: 0.75em 1.5em;
+    background: var(--color-cream);
+    color: var(--color-burgundy);
+    font-family: var(--font-eyebrow);
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    left: 24px;
+  }
+
+  main:focus {
+    outline: none;
+  }
+</style>
+
+<script>
+  import { initSmoothScroll } from '../scripts/smooth-scroll';
+
+  initSmoothScroll();
+</script>

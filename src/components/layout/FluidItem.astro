@@ -1,0 +1,60 @@
+---
+/**
+ * A block placed on a <FluidSection> grid.
+ *
+ * `desktop` / `mobile` are CSS grid-area values ("row-start/col-start/row-end/col-end")
+ * copied from the live Squarespace layout. `align` is the block's vertical
+ * alignment within its area.
+ */
+import type { HTMLAttributes } from 'astro/types';
+
+type Align = 'start' | 'center' | 'end';
+
+export interface Props extends HTMLAttributes<'div'> {
+  desktop: string;
+  mobile: string;
+  /** Stacking order; Squarespace assigns these per breakpoint. */
+  z?: number | { mobile: number; desktop: number };
+  align?: Align | { mobile: Align; desktop: Align };
+  as?: 'div' | 'figure' | 'article' | 'header' | 'li' | 'nav';
+}
+
+const { desktop, mobile, z = 1, align = 'center', as: Tag = 'div', class: className, style, ...attrs } = Astro.props;
+
+const zIndex = typeof z === 'number' ? { mobile: z, desktop: z } : z;
+const alignment = typeof align === 'string' ? { mobile: align, desktop: align } : align;
+const flex = { start: 'flex-start', center: 'center', end: 'flex-end' } as const;
+
+const vars = [
+  `--area-m: ${mobile}`,
+  `--area-d: ${desktop}`,
+  `--z-m: ${zIndex.mobile}`,
+  `--z-d: ${zIndex.desktop}`,
+  `--align-m: ${flex[alignment.mobile]}`,
+  `--align-d: ${flex[alignment.desktop]}`,
+].join('; ');
+---
+
+<Tag class:list={['fluid-item', className]} style={`${vars};${style ?? ''}`} {...attrs}>
+  <slot />
+</Tag>
+
+<style>
+  .fluid-item {
+    grid-area: var(--area-m);
+    z-index: var(--z-m);
+    display: flex;
+    flex-direction: column;
+    justify-content: var(--align-m);
+    min-width: 0;
+    position: relative;
+  }
+
+  @media (min-width: 768px) {
+    .fluid-item {
+      grid-area: var(--area-d);
+      z-index: var(--z-d);
+      justify-content: var(--align-d);
+    }
+  }
+</style>

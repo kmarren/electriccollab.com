@@ -1,0 +1,114 @@
+---
+/**
+ * Featured work: twelve project covers in three grid sections (rows of four on
+ * desktop, two on mobile), then "explore more work". Hovering (or focusing) a
+ * cover reveals a burgundy overlay with the project name, category and link.
+ *
+ * Card content comes from the portfolio collection (`homepage` data); the grid
+ * placement below is carried over from the live layout.
+ */
+import { getCollection } from 'astro:content';
+import FluidSection from '../layout/FluidSection.astro';
+import FluidItem from '../layout/FluidItem.astro';
+import ProjectCard from './ProjectCard.astro';
+import Button from '../ui/Button.astro';
+
+interface Placement {
+  image: { desktop: string; mobile: string; z: { desktop: number; mobile: number } };
+  overlay: { desktop: string; mobile: string; z: { desktop: number; mobile: number } };
+}
+
+/** Live-site grid areas per project, grouped into the three original sections. */
+const sections: { rows: { mobile: number; desktop: number }; cards: Record<string, Placement> }[] = [
+  {
+    rows: { mobile: 17, desktop: 14 },
+    cards: {
+      'suzanne-falk': {
+        image: { desktop: '3/2/14/8', mobile: '2/2/10/6', z: { desktop: 3, mobile: 3 } },
+        overlay: { desktop: '3/2/14/8', mobile: '2/2/7/6', z: { desktop: 12, mobile: 13 } },
+      },
+      'mb-graubard-consulting': {
+        image: { desktop: '3/8/14/14', mobile: '2/6/10/10', z: { desktop: 8, mobile: 9 } },
+        overlay: { desktop: '3/8/14/14', mobile: '2/6/10/10', z: { desktop: 13, mobile: 14 } },
+      },
+      evgn: {
+        image: { desktop: '3/14/14/20', mobile: '10/2/17/6', z: { desktop: 5, mobile: 5 } },
+        overlay: { desktop: '3/14/14/20', mobile: '10/2/17/6', z: { desktop: 10, mobile: 11 } },
+      },
+      'surrogacy-reimagined': {
+        image: { desktop: '3/20/14/26', mobile: '10/6/17/10', z: { desktop: 5, mobile: 5 } },
+        overlay: { desktop: '3/20/14/26', mobile: '10/6/17/10', z: { desktop: 11, mobile: 12 } },
+      },
+    },
+  },
+  {
+    rows: { mobile: 17, desktop: 12 },
+    cards: {
+      'l-advisors': {
+        image: { desktop: '1/2/12/8', mobile: '1/2/9/6', z: { desktop: 5, mobile: 5 } },
+        overlay: { desktop: '1/2/12/8', mobile: '1/2/8/6', z: { desktop: 15, mobile: 16 } },
+      },
+      'love-social': {
+        image: { desktop: '1/8/12/14', mobile: '1/6/9/10', z: { desktop: 4, mobile: 2 } },
+        overlay: { desktop: '1/8/12/14', mobile: '1/6/9/10', z: { desktop: 14, mobile: 15 } },
+      },
+      helloseo: {
+        image: { desktop: '1/14/12/20', mobile: '9/2/17/6', z: { desktop: 4, mobile: 4 } },
+        overlay: { desktop: '1/14/12/20', mobile: '9/2/17/6', z: { desktop: 17, mobile: 18 } },
+      },
+      'the-whisper-group': {
+        image: { desktop: '1/20/12/26', mobile: '9/6/17/10', z: { desktop: 5, mobile: 6 } },
+        overlay: { desktop: '1/20/12/26', mobile: '9/6/15/10', z: { desktop: 16, mobile: 17 } },
+      },
+    },
+  },
+  {
+    rows: { mobile: 19, desktop: 15 },
+    cards: {
+      sovera: {
+        image: { desktop: '1/2/12/8', mobile: '1/2/9/6', z: { desktop: 6, mobile: 6 } },
+        overlay: { desktop: '1/2/12/8', mobile: '1/2/9/6', z: { desktop: 15, mobile: 16 } },
+      },
+      'kathryne-cole': {
+        image: { desktop: '1/8/12/14', mobile: '9/2/17/6', z: { desktop: 3, mobile: 3 } },
+        overlay: { desktop: '1/8/12/14', mobile: '9/2/16/6', z: { desktop: 16, mobile: 17 } },
+      },
+      'ashlee-piper': {
+        image: { desktop: '1/14/12/20', mobile: '9/6/17/10', z: { desktop: 5, mobile: 5 } },
+        overlay: { desktop: '1/14/12/20', mobile: '9/6/16/10', z: { desktop: 17, mobile: 18 } },
+      },
+      'jennifer-gennari': {
+        image: { desktop: '1/20/12/26', mobile: '1/6/9/10', z: { desktop: 4, mobile: 4 } },
+        overlay: { desktop: '1/20/12/26', mobile: '1/6/6/10', z: { desktop: 18, mobile: 19 } },
+      },
+    },
+  },
+];
+
+const projects = (await getCollection('portfolio', (entry) => Boolean(entry.data.homepage))).sort(
+  (a, b) => a.data.homepage!.order - b.data.homepage!.order,
+);
+const bySlug = new Map(projects.map((p) => [p.id, p]));
+---
+
+<div class="work" aria-labelledby="work-title">
+  <h2 id="work-title" class="visually-hidden">Our work</h2>
+  {
+    sections.map((section, index) => (
+      <FluidSection as="div" rows={section.rows} theme="dark">
+        {Object.entries(section.cards).map(([slug, placement]) => {
+          const project = bySlug.get(slug);
+          return project ? <ProjectCard project={project} {...placement} /> : null;
+        })}
+
+        {index === sections.length - 1 && (
+          <FluidItem desktop="13/9/15/19" mobile="17/3/19/9" z={{ desktop: 9, mobile: 5 }}>
+            <Button href="/portfolio" variant="underline" fill>
+              explore more work
+            </Button>
+          </FluidItem>
+        )}
+      </FluidSection>
+    ))
+  }
+</div>

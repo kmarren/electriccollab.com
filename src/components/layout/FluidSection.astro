@@ -1,0 +1,78 @@
+---
+/**
+ * A full-bleed page section laid out on the same grid Squarespace's Fluid
+ * Engine uses, so block positions can be carried over from the live site 1:1.
+ *
+ *   mobile (≤767px):  8 content columns, rows ≥ 24px
+ *   desktop (≥768px): 24 content columns, rows ≥ 2.15% of the content width
+ *
+ * Each side also gets a flexible gutter column, so a block spanning columns
+ * 1→-1 is full-bleed while 2→-2 aligns with the page gutters. Gaps are 11px
+ * unless the section overrides the column gap (as the live founder section does).
+ * Rows grow with their content ("auto"), exactly like the original.
+ *
+ * Place children with <FluidItem>.
+ */
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'section'> {
+  /** Row count on mobile and desktop (from the live section's grid). */
+  rows: { mobile: number; desktop: number };
+  theme?: 'dark' | 'light';
+  /**
+   * Column gap in px (default 11). Wide gaps are capped at 4vw so the 24-column
+   * grid can never overflow narrow viewports (a bug on the live site).
+   */
+  columnGap?: number;
+  /** Render as a different landmark (e.g. 'div' inside the footer). */
+  as?: 'section' | 'div';
+}
+
+const { rows, theme = 'dark', columnGap = 11, as: Tag = 'section', class: className, style, ...attrs } = Astro.props;
+---
+
+<Tag
+  class:list={['fluid-section', `theme-${theme}`, className]}
+  style={`--rows-mobile: ${rows.mobile}; --rows-desktop: ${rows.desktop}; --col-gap-base: ${columnGap}px;${style ?? ''}`}
+  {...attrs}
+>
+  <div class="fluid-grid">
+    <slot />
+  </div>
+</Tag>
+
+<style>
+  .fluid-section {
+    position: relative;
+  }
+
+  .fluid-grid {
+    --gap: var(--col-gap-base);
+    --grid-gutter: max(0px, calc(var(--page-gutter) - var(--gap)));
+    --cell-max-width: calc((var(--page-max-width) - var(--gap) * 7) / 8);
+
+    display: grid;
+    grid-template-columns:
+      minmax(var(--grid-gutter), 1fr)
+      repeat(8, minmax(0, var(--cell-max-width)))
+      minmax(var(--grid-gutter), 1fr);
+    grid-template-rows: repeat(var(--rows-mobile), minmax(24px, auto));
+    row-gap: 11px;
+    column-gap: var(--gap);
+    overflow-x: clip;
+  }
+
+  @media (min-width: 768px) {
+    .fluid-grid {
+      --gap: min(var(--col-gap-base), 4vw);
+      --cell-max-width: calc((var(--page-max-width) - var(--gap) * 23) / 24);
+      --container-width: min(var(--page-max-width), calc(100vw - var(--page-gutter) * 2));
+
+      grid-template-columns:
+        minmax(var(--grid-gutter), 1fr)
+        repeat(24, minmax(0, var(--cell-max-width)))
+        minmax(var(--grid-gutter), 1fr);
+      grid-template-rows: repeat(var(--rows-desktop), minmax(calc(var(--container-width) * 0.0215), auto));
+    }
+  }
+</style>

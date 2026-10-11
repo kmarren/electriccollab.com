@@ -1,0 +1,107 @@
+/*
+ * Design tokens
+ * -------------
+ * Values are taken directly from the live Squarespace theme (site.css) and
+ * verified against computed styles at 1440 / 1024 / 768 / 390px.
+ *
+ * Breakpoints (CSS custom properties can't be used inside media queries, so
+ * these are documented here and used literally throughout):
+ *   ≤ 767px  mobile layout: 8-column grid, mobile type sizes
+ *   ≤ 799px  header collapses to the hamburger menu
+ *   ≥ 768px  desktop layout: 24-column grid
+ */
+
+:root {
+  /* ---- Color ------------------------------------------------------------ */
+  /* Brand palette (also shown as the color strip in the footer). */
+  --color-burgundy: #40080d; /* Squarespace "black" — dark section bg, dark text */
+  --color-cream: #faf5f3; /* Squarespace "accent" — light section bg, light text */
+  --color-red: #cb060d; /* Squarespace "darkAccent" — underlines, rules, tagline */
+  --color-terracotta: #ba7d6d; /* Squarespace "lightAccent" — testimonials */
+  --color-periwinkle: #b2c0db; /* Squarespace "white" */
+  --color-blush: #f3e9e6;
+  --color-olive: #4c4417;
+
+  /* Semantic aliases */
+  --color-bg-dark: var(--color-burgundy);
+  --color-bg-light: var(--color-cream);
+  --color-text-on-dark: var(--color-cream);
+  --color-text-on-light: var(--color-burgundy);
+
+  /* ---- Typography: families --------------------------------------------- */
+  /* Font files are self-hosted; see src/styles/fonts.css. */
+  --font-heading: 'Vogue', 'Times New Roman', serif;
+  --font-eyebrow: 'EssentialSans', 'Work Sans', Arial, sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
+
+  /* ---- Typography: fluid scale ------------------------------------------ */
+  /*
+   * Squarespace's responsive type formula, reproduced exactly:
+   *   size = min((v − 1) × unit + 1rem, max((v − 1) × cap + 1rem, v × 1rem))
+   * where `v` is the theme's size multiplier, `unit` is 1.2vw, and `cap`
+   * freezes growth at the 1800px max page width. On portrait phones the unit
+   * switches to a viewport-height basis (overridden below).
+   */
+  --type-unit: 1.2vw;
+  --type-cap: calc(0.012 * 1800px);
+
+  --fs-h1: min(calc(2.4 * var(--type-unit) + 1rem), max(calc(2.4 * var(--type-cap) + 1rem), 3.4rem)); /* v = 3.4 */
+  --fs-h2: min(calc(1.8 * var(--type-unit) + 1rem), max(calc(1.8 * var(--type-cap) + 1rem), 2.8rem)); /* v = 2.8 */
+  --fs-h3: min(calc(1.2 * var(--type-unit) + 1rem), max(calc(1.2 * var(--type-cap) + 1rem), 2.2rem)); /* v = 2.2 */
+  --fs-h4: min(calc(0.1 * var(--type-unit) + 1rem), max(calc(0.1 * var(--type-cap) + 1rem), 1.1rem)); /* v = 1.1 */
+  --fs-large: min(calc(0.4 * var(--type-unit) + 1rem), max(calc(0.4 * var(--type-cap) + 1rem), 1.4rem)); /* v = 1.4 */
+  --fs-body: min(calc(0.1 * var(--type-unit) + 1rem), max(calc(0.1 * var(--type-cap) + 1rem), 1.1rem)); /* v = 1.1 */
+  --fs-small: 1rem; /* v = 1 */
+
+  /* Heading line-height also scales with size: 1.2 × (1 + (1 − v) / 25). */
+  --lh-h1: calc(1.2 * (1 + (1 - 3.4) / 25));
+  --lh-h2: calc(1.2 * (1 + (1 - 2.8) / 25));
+  --lh-h3: calc(1.2 * (1 + (1 - 2.2) / 25));
+  --lh-h4: calc(1.2 * (1 + (1 - 1.1) / 25));
+  --lh-body: 1.5;
+
+  /* ---- Layout ----------------------------------------------------------- */
+  --page-max-width: 1800px;
+  --page-gutter: 4vw; /* Squarespace --pagePadding */
+
+  /* Header: 60px-tall logo with 1vw of vertical padding (desktop). */
+  --logo-width: 277px;
+  --logo-height: 60px;
+  --header-padding-y: 1vw;
+  --header-padding-x: var(--page-gutter);
+  --header-height: calc(var(--logo-height) + var(--header-padding-y) * 2);
+
+  /* ---- Motion ----------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+}
+
+@media (max-width: 799px) {
+  :root {
+    /* Collapsed header: logo shrinks to fit beside the menu button on phones. */
+    --logo-width: min(277px, 60.3vw);
+    --logo-height: calc(var(--logo-width) * 60 / 277);
+    --header-padding-y: 6vw;
+    --header-padding-x: 6vw;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --page-gutter: 6vw; /* Squarespace --sqs-mobile-site-gutter */
+
+    /* The theme sets fixed mobile sizes for H1 and H2. */
+    --fs-h1: 38px;
+    --fs-h2: 35px;
+  }
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+  :root {
+    /* Phones scale type by viewport height (capped at 900px), not width. */
+    --type-unit: calc(0.012 * min(100vh, 900px));
+    /* Disable the desktop cap so only the first term of min() applies. */
+    --type-cap: 100vw;
+  }
+}

@@ -1,0 +1,83 @@
+---
+/**
+ * One work-grid tile: the project cover plus a hover/focus overlay with the
+ * project name, category and "view project" link. The two layers occupy their
+ * own grid areas, exactly as on the live site.
+ */
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FluidItem from '../layout/FluidItem.astro';
+
+type Area = { desktop: string; mobile: string; z: { desktop: number; mobile: number } };
+
+export interface Props {
+  project: CollectionEntry<'portfolio'>;
+  image: Area;
+  overlay: Area;
+}
+
+const { project, image, overlay } = Astro.props;
+const card = project.data.homepage!;
+---
+
+<FluidItem desktop={image.desktop} mobile={image.mobile} z={image.z}>
+  <Image
+    class="media-fill"
+    src={card.cover}
+    alt={card.coverAlt}
+    widths={[166, 323, 498, 646, 969]}
+    sizes="(max-width: 767px) 43vw, 23vw"
+    style={`object-position: ${card.coverPosition}`}
+  />
+</FluidItem>
+
+<FluidItem desktop={overlay.desktop} mobile={overlay.mobile} z={overlay.z} class="overlay" as="article">
+  <div class="overlay-content">
+    <h3>{card.title}</h3>
+    <p>{card.category}</p>
+    <p class="link">
+      <a href={`/portfolio/${project.id}`}>view project<span class="visually-hidden">: {project.data.title}</span></a>
+    </p>
+  </div>
+</FluidItem>
+
+<style>
+  .overlay {
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+  }
+
+  .overlay:hover,
+  .overlay:focus-within {
+    opacity: 1;
+  }
+
+  .overlay-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 3%;
+    background-color: rgb(64 8 13 / 0.63);
+    color: var(--color-cream);
+    text-align: center;
+  }
+
+  h3 {
+    margin-bottom: 2rem;
+  }
+
+  p + p {
+    margin-top: 1rem;
+  }
+
+  .link {
+    font-size: 1rem;
+  }
+
+  .link a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+</style>

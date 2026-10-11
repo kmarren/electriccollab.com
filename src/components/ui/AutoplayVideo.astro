@@ -1,0 +1,86 @@
+---
+/**
+ * Silent, looping background video (Squarespace "native video" block with
+ * autoplay + loop + no controls). Decorative: hidden from assistive tech.
+ *
+ * Videos below the fold are only loaded once they approach the viewport
+ * (see the script below); `eager` videos start downloading immediately.
+ * Playback pauses for visitors who prefer reduced motion.
+ */
+export interface Props {
+  /** Path under /public, without extension (e.g. "/videos/hero-record"). */
+  src: string;
+  width: number;
+  height: number;
+  /**
+   * Aspect ratio of the frame the video is fitted into ("contain"), when it
+   * differs from the video's own. Squarespace video blocks use a fixed frame
+   * per block, so differently shaped clips letterbox inside it.
+   */
+  frame?: string;
+  eager?: boolean;
+  class?: string;
+}
+
+const { src, width, height, frame, eager = false, class: className } = Astro.props;
+---
+
+<video
+  class:list={['autoplay-video', className]}
+  width={width}
+  height={height}
+  style={`aspect-ratio: ${frame ?? `${width} / ${height}`}`}
+  poster={`${src}.jpg`}
+  muted
+  loop
+  playsinline
+  autoplay={eager}
+  preload={eager ? 'auto' : 'none'}
+  data-lazy-video={eager ? undefined : ''}
+  aria-hidden="true"
+  tabindex="-1"
+  disablepictureinpicture
+>
+  <source src={`${src}.mp4`} type="video/mp4" />
+</video>
+
+<style>
+  .autoplay-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const play = (video: HTMLVideoElement) => {
+    if (reduceMotion.matches) return;
+    video.play().catch(() => {
+      /* Autoplay can be blocked (e.g. low-power mode); the poster remains. */
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const video = entry.target as HTMLVideoElement;
+        if (entry.isIntersecting) {
+          if (video.preload === 'none') video.preload = 'auto';
+          play(video);
+        } else if (!video.paused) {
+          video.pause();
+        }
+      }
+    },
+    { rootMargin: '200px 0px' },
+  );
+
+  document.querySelectorAll<HTMLVideoElement>('video.autoplay-video').forEach((video) => {
+    if (reduceMotion.matches) video.removeAttribute('autoplay');
+    observer.observe(video);
+  });
+</script>

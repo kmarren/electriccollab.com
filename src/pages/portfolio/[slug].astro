@@ -1,0 +1,20 @@
+---
+// Placeholder case-study pages, one per entry in src/content/portfolio/.
+// Case-study content is migrated in a later phase.
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('portfolio');
+  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+}
+
+interface Props {
+  project: CollectionEntry<'portfolio'>;
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout title={`${project.data.title} | Electric Collab`} noindex>
+</BaseLayout>

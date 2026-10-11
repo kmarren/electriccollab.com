@@ -1,0 +1,61 @@
+---
+/**
+ * Link styled as one of the site's buttons.
+ *
+ *   solid     — cream pill with burgundy text ("meet your team", footer CTA)
+ *   underline — transparent with a 2px bottom rule ("explore more work")
+ *
+ * `fill` stretches the button to its grid block, as Squarespace's
+ * fluid-engine buttons do. Labels are lowercased by CSS, as on the live site.
+ */
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'a'> {
+  href: string;
+  variant?: 'solid' | 'underline';
+  fill?: boolean;
+  weight?: 400 | 700;
+}
+
+const { href, variant = 'solid', fill = false, weight = 700, class: className, ...attrs } = Astro.props;
+---
+
+<a href={href} class:list={['button', `button--${variant}`, { 'button--fill': fill }, className]} style={`--weight: ${weight}`} {...attrs}>
+  <slot />
+</a>
+
+<style>
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    padding: 16px 1.3em;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: var(--weight);
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-transform: lowercase;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .button--fill {
+    align-self: stretch;
+    flex: 1;
+    padding-block: 0;
+  }
+
+  .button--solid {
+    background-color: var(--color-cream);
+    color: var(--color-burgundy);
+    border-radius: 10px;
+  }
+
+  .button--underline {
+    background: transparent;
+    color: inherit;
+    border-bottom: 2px solid currentColor;
+  }
+</style>

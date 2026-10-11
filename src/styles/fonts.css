@@ -1,0 +1,30 @@
+/*
+ * Self-hosted brand fonts (licensed by the client; files are the originals
+ * previously uploaded to Squarespace). Kept in their delivered formats.
+ * Vogue and EssentialSans are preloaded in BaseLayout.astro.
+ */
+
+@font-face {
+  font-family: 'Vogue';
+  src: url('/fonts/very-vogue-text.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'EssentialSans';
+  src: url('/fonts/essential-sans-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Used on other pages; not referenced by the homepage, so it isn't downloaded there. */
+@font-face {
+  font-family: 'Sulphur Point';
+  src: url('/fonts/sulphur-point-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
