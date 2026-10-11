@@ -1,12 +1,134 @@
 ---
-// Placeholder route so internal links resolve. Page content is migrated in a
-// later phase; title/description already match the live Squarespace page.
+/**
+ * "our services" — the Electric Brand Experience.
+ */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import JsonLd from '../components/global/JsonLd.astro';
+import Testimonial from '../components/global/Testimonial.astro';
+import FluidSection from '../components/layout/FluidSection.astro';
+import FluidItem from '../components/layout/FluidItem.astro';
+import ServicesHero from '../components/services/ServicesHero.astro';
+import WorkCarousel from '../components/services/WorkCarousel.astro';
+import Approach from '../components/services/Approach.astro';
+import Phase from '../components/services/Phase.astro';
+import HowItWorks from '../components/services/HowItWorks.astro';
+import Faq from '../components/services/Faq.astro';
+import { faqColumns, phases } from '../data/services';
+import { faqPage } from '../lib/schema';
+import brandBook from '../assets/images/services/brand-book-mockup.png';
+import stationery from '../assets/images/services/arrivee-stationery.png';
+import laptop from '../assets/images/services/laptop-mockup.png';
 ---
 
 <BaseLayout
   title="Branding and Web Design Services | Chicago, IL | Electric Collab"
   description="See how our Chicago studio builds cohesive, high-impact brand systems, from logo to website, that drive recognition and trust."
-  noindex
 >
+  <JsonLd slot="head" data={faqPage(faqColumns.flat())} />
+
+  <ServicesHero />
+  <WorkCarousel />
+  <Approach />
+
+  <Testimonial
+    id="devin-lee"
+    rows={{ mobile: 15, desktop: 10 }}
+    photo={{ desktop: '3/5/9/9', mobile: '3/2/7/5' }}
+    quote={{ desktop: '3/10/9/23', mobile: '7/2/14/10' }}
+  />
+
+  <FluidSection rows={{ mobile: 3, desktop: 4 }} theme="dark" aria-labelledby="process-title">
+    <FluidItem desktop="3/10/4/18" mobile="2/2/4/10" z={2} align={{ desktop: 'start', mobile: 'center' }}>
+      <h2 id="process-title" class="eyebrow process-title">A PROVEN PROCESS. ELECTRIC RESULTS.</h2>
+    </FluidItem>
+  </FluidSection>
+
+  <Phase
+    id="strategy"
+    phase={phases[0]}
+    image={brandBook}
+    imageAlt="Open brand book mockup showing a table of contents and brand foundation pages"
+    imagePosition="48.52% 35.2%"
+    rows={{ mobile: 23, desktop: 17 }}
+    layout={{
+      image: { desktop: '1/19/18/27', mobile: '2/2/9/10', z: { desktop: 7, mobile: 20 } },
+      label: { desktop: '3/2/4/7', mobile: '10/2/11/10', z: { desktop: 2, mobile: 19 } },
+      title: { desktop: '4/2/7/16', mobile: '11/2/13/10', z: { desktop: 1, mobile: 18 } },
+      body: { desktop: '7/2/10/16', mobile: '13/2/19/10', z: { desktop: 4, mobile: 1 } },
+      accordion: { desktop: '11/2/14/16', mobile: '19/2/22/10', z: { desktop: 8, mobile: 21 } },
+      rule: { desktop: '17/1/18/20', mobile: '23/2/24/10', z: { desktop: 6, mobile: 13 } },
+    }}
+  />
+
+  <Phase
+    id="design"
+    phase={phases[1]}
+    image={stationery}
+    imageAlt="Embossed Arrivée logo on deep green stationery"
+    rows={{ mobile: 25, desktop: 17 }}
+    layout={{
+      image: { desktop: '1/1/18/9', mobile: '2/2/10/10', z: { desktop: 7, mobile: 16 } },
+      label: { desktop: '4/11/5/15', mobile: '11/2/12/10', z: { desktop: 3, mobile: 15 } },
+      title: { desktop: '5/11/8/25', mobile: '12/2/14/10', z: { desktop: 1, mobile: 14 } },
+      body: { desktop: '8/11/11/25', mobile: '14/2/21/10', z: { desktop: 2, mobile: 1 } },
+      accordion: { desktop: '12/11/14/25', mobile: '21/2/24/10', z: { desktop: 9, mobile: 22 } },
+      rule: { desktop: '17/8/18/27', mobile: '25/2/26/10', z: { desktop: 6, mobile: 14 } },
+    }}
+  />
+
+  <Phase
+    id="digital-presence"
+    phase={phases[2]}
+    image={laptop}
+    imageAlt="Laptop on a rock displaying the Enchantée Travel website"
+    rows={{ mobile: 27, desktop: 18 }}
+    layout={{
+      image: { desktop: '1/19/19/27', mobile: '2/2/10/10', z: { desktop: 7, mobile: 23 } },
+      label: { desktop: '4/2/5/7', mobile: '11/2/12/10', z: { desktop: 2, mobile: 19 } },
+      title: { desktop: '5/2/8/16', mobile: '12/2/16/10', z: { desktop: 1, mobile: 18 } },
+      body: { desktop: '9/2/12/16', mobile: '16/2/23/10', z: { desktop: 4, mobile: 1 } },
+      accordion: { desktop: '13/2/15/16', mobile: '23/2/26/10', z: { desktop: 10, mobile: 23 } },
+      rule: { desktop: '18/1/19/20', mobile: '27/2/28/10', z: { desktop: 6, mobile: 13 } },
+    }}
+  />
+
+  <div aria-label="Client testimonials" role="region">
+    <Testimonial
+      id="jenica-oliver"
+      rows={{ mobile: 12, desktop: 8 }}
+      photo={{ desktop: '3/5/9/9', mobile: '2/2/6/5' }}
+      quote={{ desktop: '4/10/8/23', mobile: '6/2/12/10' }}
+    />
+    <Testimonial
+      id="sarah-parisi"
+      rows={{ mobile: 14, desktop: 10 }}
+      photo={{ desktop: '2/19/8/23', mobile: '2/2/6/5' }}
+      quote={{ desktop: '2/5/8/18', mobile: '7/2/13/10' }}
+    />
+  </div>
+
+  <HowItWorks />
+
+  <div aria-label="More client testimonials" role="region">
+    <Testimonial
+      id="natalie-rosado"
+      rows={{ mobile: 14, desktop: 10 }}
+      photo={{ desktop: '4/19/10/23', mobile: '2/2/6/5' }}
+      quote={{ desktop: '4/5/10/18', mobile: '6/2/14/10' }}
+    />
+    <Testimonial
+      id="ken-colleen-pelasky"
+      rows={{ mobile: 14, desktop: 10 }}
+      photo={{ desktop: '2/5/8/9', mobile: '1/2/5/5' }}
+      quote={{ desktop: '2/10/8/23', mobile: '6/2/13/10' }}
+    />
+  </div>
+
+  <Faq />
 </BaseLayout>
+
+<style>
+  .process-title {
+    text-align: center;
+  }
+</style>

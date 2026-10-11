@@ -1,5 +1,5 @@
 {
-  "_comment": "Homepage assets on the Squarespace CDN and where they live in this repo.",
+  "_comment": "Site assets on the Squarespace CDN and where they live in this repo.",
   "files": [
     {
       "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4a8d4ec1-357d-4e0d-8460-d1d75e2a3192/Transparent+Logo-Burg.png",
@@ -158,6 +158,101 @@
       "url": "https://static1.squarespace.com/static/63feee1202ca0172318bd767/t/6910eb93c593272b237c15cd/1762716563585/SulphurPoint-Regular.ttf",
       "dest": "public/fonts/sulphur-point-regular.ttf",
       "note": "Footer links (SIL Open Font License)"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/70101e82-314e-4788-a330-18d0ed850838/1.jpg",
+      "dest": "src/assets/images/services/carousel/01-field-bicycles.jpg",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ed615f81-eead-4c8d-8001-be00465c68b4/Website+GIFs.jpg",
+      "dest": "src/assets/images/services/carousel/02-pearlvest-lake.jpg",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1759632266189-89G0JT8273L3R6M5HGPV/27.jpg",
+      "dest": "src/assets/images/services/carousel/03-jewelry-app.jpg",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/5302e712-7c3d-431e-9e68-97877d865eef/STATIONARY+MOCKUP.jpg",
+      "dest": "src/assets/images/services/carousel/04-sovera-box.jpg",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/19b0f15a-36a0-469a-951c-82e291b0cc08/8.jpg",
+      "dest": "src/assets/images/services/carousel/05-haus-of-worthship.jpg",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/909b6dae-8a08-429f-8e50-f85a0df17f18/31.png",
+      "dest": "src/assets/images/services/carousel/06-desk-brochures.png",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/feab73b0-7f65-4186-a0f9-21e0762c7556/EMBLEM+%283%29.jpg",
+      "dest": "src/assets/images/services/carousel/07-everlight-emblem.jpg",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/0a77a8ca-0e3d-4f80-8f57-db00ef8bf7a3/Daymade+Mockups+-+portrait+-10.png",
+      "dest": "src/assets/images/services/carousel/08-daymade.png",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1759634285595-XULTBXT00BNE9IHZBIOJ/10.jpg",
+      "dest": "src/assets/images/services/carousel/09-wedding-tablet.jpg",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1759634163870-PZOS9DK44SFKYCU00WCC/18.jpg",
+      "dest": "src/assets/images/services/carousel/10-omnigrove.jpg",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e0bac1fd-72fc-4bf6-b709-25d3035aaeb7/KC+Mockups+EC+Portfoliobrand+book+mockup.png",
+      "dest": "src/assets/images/services/brand-book-mockup.png",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/08c126f7-ff35-41d7-b83d-d6c1a8217351/STATIONARY+MOCKUPS+%283%29.png",
+      "dest": "src/assets/images/services/arrivee-stationery.png",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/175c04fc-5509-416b-9498-1f611c102a26/Laptop+Mockup.png",
+      "dest": "src/assets/images/services/laptop-mockup.png",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d9995d0b-8a09-40d9-b614-5f4854f4c9dd/Best.jpg",
+      "dest": "src/assets/images/services/emily-paulsen-seated.jpg",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c15d75a2-552d-47ba-9726-683e2204ec43/Devin-Headshots-Color-11.jpg",
+      "dest": "src/assets/images/testimonials/devin-lee.jpg",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/162dbc96-f968-47b5-9a21-953fa195d14b/OA2A4381.jpg",
+      "dest": "src/assets/images/testimonials/jenica-oliver.jpg",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/792fcbee-22a7-42e5-94a6-6725cd7f2731/8.15.24-TCC-79+%281%29.jpg",
+      "dest": "src/assets/images/testimonials/sarah-parisi.jpg",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ae4033a0-88ad-460d-b30f-f168c231ebc8/Screenshot+2025-03-05+at+16.45.44.png",
+      "dest": "src/assets/images/testimonials/natalie-rosado.png",
+      "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c5848e8f-a5ec-4d5e-b2b2-cf7145dd0e27/IMG_2137.jpg",
+      "dest": "src/assets/images/testimonials/ken-colleen-pelasky.jpg",
+      "note": "Services page"
     }
   ],
   "videos": [

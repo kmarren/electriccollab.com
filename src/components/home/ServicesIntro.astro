@@ -59,7 +59,7 @@ const offerings: Offering[] = [
     offerings.map((item) => (
       <>
         <FluidItem desktop={item.desktop.rule} mobile={item.mobile.rule} z={item.ruleZ}>
-          <hr class="rule" />
+          <hr class="rule rule--red" />
         </FluidItem>
         <FluidItem desktop={item.desktop.label} mobile={item.mobile.label} z={7}>
           <p class="eyebrow">{item.label}</p>
@@ -75,21 +75,12 @@ const offerings: Offering[] = [
   }
 
   <FluidItem desktop="26/3/28/25" mobile="43/2/44/10" z={{ desktop: 16, mobile: 12 }}>
-    <hr class="rule" />
+    <hr class="rule rule--red" />
   </FluidItem>
 </FluidSection>
 
 <style>
   .intro {
     text-align: center;
-  }
-
-  /* 1px rule; the block keeps a ~18px minimum height, as Squarespace's divider block does. */
-  .rule {
-    width: 100%;
-    height: 1px;
-    margin-block: 8.45px;
-    border: 0;
-    background-color: var(--color-red);
   }
 </style>

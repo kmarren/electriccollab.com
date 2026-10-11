@@ -76,6 +76,33 @@ h3 {
 }
 
 /*
+ * Heading styles as classes, so the visual size can differ from the semantic
+ * level (the live pages use heading tags for styling, not structure).
+ */
+.text-h1,
+.text-h2,
+.text-h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.text-h1 {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+}
+
+.text-h2 {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+}
+
+.text-h3 {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+}
+
+/*
  * Squarespace's "heading 4" style, used for eyebrows and labels. The live theme
  * sets a heavy weight on a single-weight font, so browsers synthesize the bold.
  */
@@ -108,6 +135,28 @@ h4,
   text-underline-offset: 0.2em;
 }
 
+/* ---- Divider ------------------------------------------------------------------ */
+/*
+ * Squarespace's line block: a 1px rule with 0.5em (body size) of space above
+ * and below, so the block never collapses below ~18px. Color via `color`.
+ */
+.rule {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-block: calc(var(--fs-body) * 0.5);
+  border: 0;
+  background-color: currentColor;
+}
+
+.rule--red {
+  color: var(--color-red);
+}
+
+.rule--cream {
+  color: var(--color-cream);
+}
+
 /* ---- Section color themes -------------------------------------------------- */
 /* Mirrors Squarespace's "black-bold" (dark) and "white" (light) section themes. */
 .theme-dark {
@@ -118,6 +167,12 @@ h4,
 .theme-light {
   background-color: var(--color-bg-light);
   color: var(--color-text-on-light);
+}
+
+/* Squarespace "dark-bold": red panel with cream text. */
+.theme-red {
+  background-color: var(--color-red);
+  color: var(--color-cream);
 }
 
 /* ---- Utilities ------------------------------------------------------------- */

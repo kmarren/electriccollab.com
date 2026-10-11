@@ -1,0 +1,50 @@
+---
+/**
+ * Auto-scrolling strip of brand work (60px/s, pauses on hover), as on the live
+ * services page. Slides are 3:4; four fit across on desktop, 1.5 on mobile.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Marquee from '../ui/Marquee.astro';
+import { carousel } from '../../data/services';
+
+const files = import.meta.glob<{ default: ImageMetadata }>('../../assets/images/services/carousel/*', { eager: true });
+const slides = carousel.map((slide) => ({ ...slide, image: files[`../../assets/images/services/carousel/${slide.file}`].default }));
+---
+
+<section class="work-carousel theme-dark" aria-label="Selected brand work">
+  <Marquee speed={60}>
+    {
+      slides.map((slide) => (
+        <li class="slide">
+          <Image src={slide.image} alt={slide.alt} widths={[260, 360, 520, 720, 1040]} sizes="(max-width: 768px) 67vw, 25vw" />
+        </li>
+      ))
+    }
+  </Marquee>
+</section>
+
+<style>
+  .work-carousel {
+    --slide-width: 25vw;
+    padding: 1vw 0 4.3vw;
+  }
+
+  .work-carousel :global(.slide) {
+    flex: 0 0 auto;
+    padding-right: 10px;
+  }
+
+  .work-carousel :global(.slide img) {
+    width: var(--slide-width);
+    height: calc(var(--slide-width) * 4 / 3 + 1px);
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .work-carousel {
+      --slide-width: 66.66vw;
+      padding: 9px 0 calc(27.3px + 2.67vw);
+    }
+  }
+</style>

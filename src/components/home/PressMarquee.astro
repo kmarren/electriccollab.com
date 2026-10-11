@@ -1,11 +1,11 @@
 ---
 /**
  * "As featured in" logo strip that scrolls continuously and pauses on hover,
- * matching the live site's auto-scrolling carousel (one logo every ~6s).
- * Pure CSS; the list is rendered twice so the loop is seamless.
+ * matching the live site's auto-scrolling carousel (one full set every ~61s).
  */
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import Marquee from '../ui/Marquee.astro';
 import { pressLogos } from '../../data/press';
 
 const files = import.meta.glob<{ default: ImageMetadata }>('../../assets/images/press/*.png', { eager: true });
@@ -14,19 +14,15 @@ const logos = pressLogos.map((logo) => ({ ...logo, image: files[`../../assets/im
 
 <section class="press theme-dark" aria-labelledby="press-title">
   <h2 id="press-title" class="visually-hidden">As featured in</h2>
-  <div class="track">
+  <Marquee duration={61}>
     {
-      [0, 1].map((copy) => (
-        <ul class="set" aria-hidden={copy === 1 ? 'true' : undefined}>
-          {logos.map((logo) => (
-            <li>
-              <Image src={logo.image} alt={copy === 0 ? logo.name : ''} widths={[160, 320]} sizes="(max-width: 767px) 21vw, 8vw" />
-            </li>
-          ))}
-        </ul>
+      logos.map((logo) => (
+        <li class="press-logo">
+          <Image src={logo.image} alt={logo.name} widths={[160, 320]} sizes="(max-width: 767px) 21vw, 8vw" />
+        </li>
       ))
     }
-  </div>
+  </Marquee>
 </section>
 
 <style>
@@ -34,43 +30,20 @@ const logos = pressLogos.map((logo) => ({ ...logo, image: files[`../../assets/im
     --logo-width: 7.36vw;
     --spacing: 13.98vw;
 
-    overflow: hidden;
     padding: 1vw 0 2vw;
   }
 
-  .track {
-    display: flex;
-    width: max-content;
-    animation: marquee 61s linear infinite;
-  }
-
-  .press:hover .track {
-    animation-play-state: paused;
-  }
-
-  .set {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  li {
+  /* Items are rendered inside <Marquee>, so they're styled globally from here. */
+  .press :global(.press-logo) {
     flex: 0 0 var(--spacing);
     display: flex;
     justify-content: center;
   }
 
-  img {
+  .press :global(.press-logo img) {
     width: var(--logo-width);
     height: calc(var(--logo-width) * 9 / 16 + 1px);
     object-fit: cover;
-  }
-
-  @keyframes marquee {
-    to {
-      transform: translateX(-50%);
-    }
   }
 
   @media (max-width: 767px) {
@@ -78,13 +51,8 @@ const logos = pressLogos.map((logo) => ({ ...logo, image: files[`../../assets/im
       --logo-width: 20.23vw;
       --spacing: 26.82vw;
 
-      padding: 6vw 0 8vw;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .track {
-      animation: none;
+      min-height: 100px;
+      padding: 6vw 0;
     }
   }
 </style>

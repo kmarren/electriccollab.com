@@ -53,3 +53,28 @@ export function siteGraph() {
     ],
   };
 }
+
+/** Plain text from trusted HTML, for structured data. */
+function toPlainText(html: string): string {
+  return html
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<\/p>\s*<p>/gi, ' ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** FAQPage structured data, built from exactly the Q&As shown on the page. */
+export function faqPage(items: { question: string; answer: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      // Questions are uppercase by design on the page; use sentence case for machines.
+      name: item.question.charAt(0) + item.question.slice(1).toLowerCase(),
+      acceptedAnswer: { '@type': 'Answer', text: toPlainText(item.answer) },
+    })),
+  };
+}

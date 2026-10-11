@@ -43,9 +43,11 @@ const paths = {
 </ul>
 
 <style>
+  /* Icons wrap when their block is narrow (as on the live footer at tablet widths). */
   .social-links {
     display: flex;
-    gap: var(--icon-gap);
+    flex-wrap: wrap;
+    gap: 13px var(--icon-gap);
     margin: 0;
     padding: 0;
     list-style: none;

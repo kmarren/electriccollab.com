@@ -1,0 +1,76 @@
+---
+/**
+ * Continuously scrolling strip (replaces the live site's auto-scroll carousel
+ * plugin). The slotted items are rendered twice so the loop is seamless; the
+ * copy is hidden from assistive tech. Pauses on hover and for reduced motion.
+ *
+ * Speed is either a fixed loop `duration` (seconds per set of items) or a
+ * constant `speed` in px/s, which a tiny script converts to a duration from
+ * the strip's rendered width.
+ */
+export interface Props {
+  duration?: number;
+  speed?: number;
+  class?: string;
+}
+
+const { duration = 60, speed, class: className } = Astro.props;
+const items = await Astro.slots.render('default');
+---
+
+<div class:list={['marquee', className]} style={`--marquee-duration: ${duration}s`} data-marquee-speed={speed}>
+  <div class="track">
+    <ul class="set" set:html={items} />
+    <ul class="set" aria-hidden="true" inert set:html={items} />
+  </div>
+</div>
+
+<style>
+  .marquee {
+    overflow: hidden;
+  }
+
+  .track {
+    display: flex;
+    width: max-content;
+    animation: marquee var(--marquee-duration) linear infinite;
+  }
+
+  .marquee:hover .track {
+    animation-play-state: paused;
+  }
+
+  .set {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .track {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  // Constant-speed strips: duration = width of one set / speed.
+  const strips = document.querySelectorAll<HTMLElement>('[data-marquee-speed]');
+  const update = () =>
+    strips.forEach((strip) => {
+      const set = strip.querySelector<HTMLElement>('.set');
+      const speed = Number(strip.dataset.marqueeSpeed);
+      if (set && speed > 0) strip.style.setProperty('--marquee-duration', `${set.offsetWidth / speed}s`);
+    });
+  if (strips.length) {
+    update();
+    new ResizeObserver(update).observe(document.documentElement);
+  }
+</script>

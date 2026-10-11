@@ -1,0 +1,95 @@
+---
+/**
+ * "How it Works": founder introduction over a faded portrait, then the three
+ * process steps on cream cards and a call to action. This section uses a
+ * 24px column gap on the live site.
+ */
+import { Image } from 'astro:assets';
+import FluidSection from '../layout/FluidSection.astro';
+import FluidItem from '../layout/FluidItem.astro';
+import Button from '../ui/Button.astro';
+import portrait from '../../assets/images/services/emily-paulsen-seated.jpg';
+import { steps } from '../../data/services';
+
+/** Cards and step text, placed as on the live page (desktop: row of three; mobile: stacked). */
+const cards = [
+  { desktop: '21/2/33/10', mobile: '37/2/51/10', z: { desktop: 4, mobile: 4 } },
+  { desktop: '21/10/33/18', mobile: '28/2/37/10', z: { desktop: 5, mobile: 5 } },
+  { desktop: '21/18/33/26', mobile: '51/2/63/10', z: { desktop: 6, mobile: 6 } },
+];
+const stepAreas = [
+  { title: { desktop: '22/3/26/9', mobile: '29/3/32/9', z: { desktop: 5, mobile: 5 } }, body: { desktop: '26/3/29/9', mobile: '32/3/36/9', z: { desktop: 7, mobile: 6 } } },
+  { title: { desktop: '22/11/26/17', mobile: '38/3/41/9', z: { desktop: 6, mobile: 7 } }, body: { desktop: '26/11/32/17', mobile: '41/3/50/9', z: { desktop: 8, mobile: 8 } } },
+  { title: { desktop: '22/19/26/25', mobile: '52/3/55/9', z: { desktop: 9, mobile: 9 } }, body: { desktop: '26/19/31/25', mobile: '55/3/62/9', z: { desktop: 11, mobile: 10 } } },
+];
+---
+
+<FluidSection rows={{ mobile: 66, desktop: 37 }} columnGap={24} theme="dark" aria-labelledby="how-title">
+  <FluidItem desktop="4/4/25/14" mobile="3/3/13/9" z={{ desktop: 1, mobile: 3 }} class="faded">
+    <Image class="media-fill" src={portrait} alt="Emily Paulsen seated in a velvet armchair" widths={[251, 538, 753, 1076]} sizes="(max-width: 767px) 65vw, 38vw" />
+  </FluidItem>
+
+  <FluidItem desktop="3/3/5/10" mobile="2/2/4/8" z={3}>
+    <h2 id="how-title" class="text-h1">How it Works</h2>
+  </FluidItem>
+
+  <FluidItem desktop="7/13/14/25" mobile="13/2/22/10" z={{ desktop: 2, mobile: 1 }} align="start" class="rte">
+    <p class="text-h2">When you work with Electric Collab, you work with me directly.</p>
+    <p class="text-h3 lede">Backed by a hand-picked team of experts I spent years assembling for their diversity of thought and creative brilliance.</p>
+  </FluidItem>
+
+  <FluidItem desktop="14/13/17/25" mobile="22/2/27/10" z={{ desktop: 3, mobile: 2 }} align={{ desktop: 'center', mobile: 'start' }}>
+    <p>
+      We dive into the way you think, the way your clients experience you, and the specific value that makes your business irreplaceable. Then we translate all of that into a cohesive brand experience that <em>feels</em> like you, and performs beginning the day we launch.
+    </p>
+  </FluidItem>
+
+  {cards.map((card) => (
+    <FluidItem {...card} aria-hidden="true">
+      <div class="card" />
+    </FluidItem>
+  ))}
+
+  {
+    steps.map((step, i) => (
+      <>
+        <FluidItem {...stepAreas[i].title} align={{ desktop: 'start', mobile: 'center' }} class="step-text">
+          <h3 set:html={step.title} />
+        </FluidItem>
+        <FluidItem {...stepAreas[i].body} align="start" class="step-text">
+          <p set:html={step.body} />
+        </FluidItem>
+      </>
+    ))
+  }
+
+  <FluidItem desktop="34/10/37/18" mobile="63/2/66/10" z={6}>
+    <Button href="/contact" class="how-cta">let's work together</Button>
+  </FluidItem>
+</FluidSection>
+
+<style>
+  :global(.faded) {
+    opacity: 0.5;
+  }
+
+  /* "Backed by…" follows the heading at the theme's heading spacing. */
+  .lede {
+    margin-top: 2rem !important;
+  }
+
+  /* Cream cards with a small red drop shadow (Squarespace shape block). */
+  .card {
+    flex: 1;
+    background-color: var(--color-cream);
+    box-shadow: 1.64px 1.15px 3px var(--color-red);
+  }
+
+  :global(.step-text) {
+    color: var(--color-burgundy);
+  }
+
+  :global(.how-cta) {
+    align-self: center;
+  }
+</style>

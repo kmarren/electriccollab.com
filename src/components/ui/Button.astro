@@ -15,12 +15,14 @@ export interface Props extends HTMLAttributes<'a'> {
   variant?: 'solid' | 'underline';
   fill?: boolean;
   weight?: 400 | 700;
+  /** Label color for solid buttons (burgundy by default; red on red panels). */
+  textColor?: 'burgundy' | 'red';
 }
 
-const { href, variant = 'solid', fill = false, weight = 700, class: className, ...attrs } = Astro.props;
+const { href, variant = 'solid', fill = false, weight = 700, textColor = 'burgundy', class: className, ...attrs } = Astro.props;
 ---
 
-<a href={href} class:list={['button', `button--${variant}`, { 'button--fill': fill }, className]} style={`--weight: ${weight}`} {...attrs}>
+<a href={href} class:list={['button', `button--${variant}`, { 'button--fill': fill }, className]} style={`--weight: ${weight}; --text-color: var(--color-${textColor})`} {...attrs}>
   <slot />
 </a>
 
@@ -34,7 +36,7 @@ const { href, variant = 'solid', fill = false, weight = 700, class: className, .
     font-family: var(--font-body);
     font-size: 1rem;
     font-weight: var(--weight);
-    line-height: 1.2;
+    line-height: normal;
     letter-spacing: 0;
     text-transform: lowercase;
     text-decoration: none;
@@ -49,7 +51,7 @@ const { href, variant = 'solid', fill = false, weight = 700, class: className, .
 
   .button--solid {
     background-color: var(--color-cream);
-    color: var(--color-burgundy);
+    color: var(--text-color);
     border-radius: 10px;
   }
 

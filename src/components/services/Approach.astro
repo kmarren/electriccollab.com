@@ -1,0 +1,34 @@
+---
+/**
+ * Red inset panel: how the studio positions a business, with a call to action.
+ */
+import FluidSection from '../layout/FluidSection.astro';
+import FluidItem from '../layout/FluidItem.astro';
+import Button from '../ui/Button.astro';
+import DrawUnderline from '../ui/DrawUnderline.astro';
+---
+
+<FluidSection rows={{ mobile: 20, desktop: 15 }} theme="dark" insetPanel="red" aria-labelledby="approach-title">
+  <FluidItem desktop="3/2/8/17" mobile="3/2/9/10" z={1} align="start">
+    <h2 id="approach-title">
+      We identify the unique combination of expertise, experience, perspective, and personality that only <DrawUnderline color="cream">your business</DrawUnderline> provides.
+    </h2>
+  </FluidItem>
+
+  <FluidItem desktop="8/1/10/27" mobile="9/2/11/10" z={2}>
+    <hr class="rule rule--cream" />
+  </FluidItem>
+
+  <FluidItem desktop="10/14/14/26" mobile="11/2/17/10" z={4} align={{ desktop: 'end', mobile: 'start' }} class="rte">
+    <p>
+      Then we match that to a deep emotional profile of your ideal buyers, translating your timeless value proposition into a cohesive brand experience.
+    </p>
+    <p>
+      <strong>The result:</strong> premium positioning, an elevated aesthetic, and an AI-amplified website that attracts the clients your work is ready for.
+    </p>
+  </FluidItem>
+
+  <FluidItem desktop="11/2/14/9" mobile="17/2/20/10" z={5} align={{ desktop: 'end', mobile: 'center' }}>
+    <Button href="/contact" textColor="red">let's work together</Button>
+  </FluidItem>
+</FluidSection>

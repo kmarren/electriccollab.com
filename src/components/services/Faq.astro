@@ -1,0 +1,32 @@
+---
+/**
+ * FAQs in two accordion columns (each column allows one open answer at a time,
+ * as on the live site).
+ */
+import FluidSection from '../layout/FluidSection.astro';
+import FluidItem from '../layout/FluidItem.astro';
+import Accordion from '../ui/Accordion.astro';
+import { faqColumns } from '../../data/services';
+
+const toItems = (column: (typeof faqColumns)[number]) => column.map((faq) => ({ title: faq.question, content: faq.answer }));
+---
+
+<FluidSection rows={{ mobile: 29, desktop: 13 }} theme="dark" aria-labelledby="faq-title">
+  <FluidItem desktop="3/3/5/10" mobile="3/2/5/10" z={1} align="start">
+    <h2 id="faq-title" class="faq-title">FAQs</h2>
+  </FluidItem>
+
+  <FluidItem desktop="5/3/11/13" mobile="5/2/16/10" z={2} align="start">
+    <Accordion name="faq-1" variant="faq" items={toItems(faqColumns[0])} topDivider={false} />
+  </FluidItem>
+
+  <FluidItem desktop="5/15/14/25" mobile="17/2/29/10" z={3} align="start">
+    <Accordion name="faq-2" variant="faq" items={toItems(faqColumns[1])} />
+  </FluidItem>
+</FluidSection>
+
+<style>
+  .faq-title {
+    color: var(--color-terracotta);
+  }
+</style>

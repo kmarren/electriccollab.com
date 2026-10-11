@@ -3,7 +3,7 @@
 Astro rebuild of [electriccollab.com](https://www.electriccollab.com), migrated from Squarespace.
 This is a faithful migration, not a redesign. See [AGENTS.md](AGENTS.md) for project goals and rules.
 
-**Status:** homepage migrated; every other route exists as a `noindex` placeholder.
+**Status:** homepage and "our services" (`/electric-brand-experience`) migrated; every other route exists as a `noindex` placeholder.
 
 ## Commands
 
@@ -26,10 +26,11 @@ src/
     layout/                    FluidSection + FluidItem — Squarespace's grid, reproduced
     global/                    Header, Footer, SEO, JsonLd, CookieConsent, FlodeskPopup
     home/                      homepage sections (Hero, PressMarquee, ServicesIntro, …)
-    ui/                        Button, AutoplayVideo, SocialLinks
+    services/                  services page sections (Phase, HowItWorks, Faq, …)
+    ui/                        Button, Accordion, Marquee, DrawUnderline, AutoplayVideo, SocialLinks
   content/portfolio/           one Markdown entry per case study (homepage card data now,
                                full case studies later)
-  data/                        site constants, nav, press logos, testimonials
+  data/                        site constants, nav, press logos, testimonials, services copy
   styles/                      tokens.css (colors, type scale, layout), fonts.css, global.css
   scripts/                     smooth scroll (Lenis), scroll lock
   assets/images/               source images (optimized to WebP/AVIF at build time)

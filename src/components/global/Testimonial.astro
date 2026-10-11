@@ -1,0 +1,95 @@
+---
+/**
+ * One testimonial section: a circular portrait beside (desktop) or above
+ * (mobile) the quote and attribution. Grid placement comes from the live page.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import FluidSection from '../layout/FluidSection.astro';
+import FluidItem from '../layout/FluidItem.astro';
+import { testimonials, type Testimonial as TestimonialData, type TestimonialKey } from '../../data/testimonials';
+
+type Area = { desktop: string; mobile: string };
+
+export interface Props {
+  id: TestimonialKey;
+  rows: { mobile: number; desktop: number };
+  photo: Area;
+  quote: Area;
+}
+
+const { id, rows, photo, quote } = Astro.props;
+const t: TestimonialData = testimonials[id];
+
+const photos = import.meta.glob<{ default: ImageMetadata }>('../../assets/images/testimonials/*', { eager: true });
+const image = photos[`../../assets/images/testimonials/${t.photo}`].default;
+
+// Split the attribution around the linked phrase, if any.
+const [before, after] = t.link ? t.attribution.split(t.link.text) : [t.attribution, ''];
+---
+
+<FluidSection as="div" rows={rows} theme="light">
+  <FluidItem desktop={photo.desktop} mobile={photo.mobile} z={5} class="testimonial-photo">
+    <Image
+      class="photo"
+      src={image}
+      alt={t.photoAlt}
+      widths={[129, 212, 424]}
+      sizes="(max-width: 767px) 129px, 212px"
+      style={t.photoPosition ? `object-position: ${t.photoPosition}` : undefined}
+    />
+  </FluidItem>
+
+  <FluidItem desktop={quote.desktop} mobile={quote.mobile} z={4} as="figure" class="testimonial-quote">
+    <blockquote>
+      <p>{t.quote}</p>
+    </blockquote>
+    <figcaption class="eyebrow">
+      {before}
+      {t.link && (
+        <a href={t.link.href} target="_blank" rel="noopener">
+          {t.link.text}
+        </a>
+      )}
+      {after}
+    </figcaption>
+  </FluidItem>
+</FluidSection>
+
+<style>
+  /* Circle sized to the block's shorter side, vertically centered, left-aligned. */
+  :global(.testimonial-photo) {
+    container-type: size;
+  }
+
+  .photo {
+    width: min(100cqw, 100cqh);
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  :global(.testimonial-quote) {
+    margin: 0;
+  }
+
+  blockquote p {
+    font-family: var(--font-heading);
+    font-size: var(--fs-h3);
+    line-height: var(--lh-h3);
+    color: var(--color-terracotta);
+  }
+
+  figcaption {
+    margin-top: 2rem;
+    color: var(--color-terracotta);
+    text-transform: uppercase;
+  }
+
+  figcaption a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+</style>

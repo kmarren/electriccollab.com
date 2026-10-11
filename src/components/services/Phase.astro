@@ -1,0 +1,61 @@
+---
+/**
+ * One of the three service phases: label, title, body, a "You Receive"
+ * accordion, a supporting image, and a cream rule along the section's bottom.
+ * Copy comes from src/data/services.ts; grid placement from the live page.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import FluidSection from '../layout/FluidSection.astro';
+import FluidItem from '../layout/FluidItem.astro';
+import Accordion from '../ui/Accordion.astro';
+import type { Phase as PhaseData } from '../../data/services';
+
+type Area = { desktop: string; mobile: string; z: { desktop: number; mobile: number } };
+
+export interface Props {
+  phase: PhaseData;
+  id: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  imagePosition?: string;
+  rows: { mobile: number; desktop: number };
+  layout: { image: Area; label: Area; title: Area; body: Area; accordion: Area; rule: Area };
+}
+
+const { phase, id, image, imageAlt, imagePosition = '50% 50%', rows, layout } = Astro.props;
+const titleId = `${id}-title`;
+---
+
+<FluidSection rows={rows} theme="dark" aria-labelledby={titleId}>
+  <FluidItem {...layout.image}>
+    <Image
+      class="media-fill"
+      src={image}
+      alt={imageAlt}
+      widths={[343, 436, 686, 872, 1029]}
+      sizes="(max-width: 767px) 88vw, 31vw"
+      style={`object-position: ${imagePosition}`}
+    />
+  </FluidItem>
+
+  <FluidItem {...layout.label} align={{ desktop: 'center', mobile: 'start' }}>
+    <p class="eyebrow">{phase.label}</p>
+  </FluidItem>
+
+  <FluidItem {...layout.title} align={{ desktop: 'center', mobile: 'start' }}>
+    <h3 id={titleId} class="text-h2">{phase.title}</h3>
+  </FluidItem>
+
+  <FluidItem {...layout.body} align="start">
+    <p>{phase.body}</p>
+  </FluidItem>
+
+  <FluidItem {...layout.accordion} align={{ desktop: 'start', mobile: 'center' }}>
+    <Accordion name={`${id}-receive`} items={[{ title: 'You Receive', content: phase.receive }]} headingLevel={4} />
+  </FluidItem>
+
+  <FluidItem {...layout.rule}>
+    <hr class="rule rule--cream" />
+  </FluidItem>
+</FluidSection>

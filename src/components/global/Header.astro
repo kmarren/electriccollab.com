@@ -117,6 +117,11 @@ const isCurrent = (href: string) => currentPath === href;
     text-decoration: none;
   }
 
+  .nav-desktop ul a[aria-current='page'] {
+    padding-bottom: 1.6px;
+    background: linear-gradient(currentColor, currentColor) repeat-x 0 calc(100% - 1.6px) / 1px 1px;
+  }
+
   .nav-desktop .cta {
     display: block;
     line-height: 18px;

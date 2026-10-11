@@ -1,0 +1,27 @@
+---
+/**
+ * Services page opening statement, with the animated "work together" underline.
+ */
+import FluidSection from '../layout/FluidSection.astro';
+import FluidItem from '../layout/FluidItem.astro';
+import DrawUnderline from '../ui/DrawUnderline.astro';
+---
+
+<FluidSection rows={{ mobile: 10, desktop: 11 }} theme="dark" class="services-hero" aria-labelledby="services-hero-title">
+  <FluidItem desktop="3/7/10/21" mobile="2/2/10/10" z={{ desktop: 3, mobile: 7 }} align={{ desktop: 'center', mobile: 'start' }}>
+    <h1 id="services-hero-title" class="statement">
+      Design grabs attention, words build emotional connection, and a strategic website moves people to take action. They need to <DrawUnderline>work together</DrawUnderline>.
+    </h1>
+  </FluidItem>
+</FluidSection>
+
+<style>
+  .services-hero {
+    /* The transparent header overlays the top of the first section. */
+    padding-top: var(--header-height);
+  }
+
+  .statement {
+    text-align: center;
+  }
+</style>

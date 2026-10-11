@@ -79,9 +79,7 @@
 
 @media (max-width: 799px) {
   :root {
-    /* Collapsed header: logo shrinks to fit beside the menu button on phones. */
-    --logo-width: min(277px, 60.3vw);
-    --logo-height: calc(var(--logo-width) * 60 / 277);
+    /* Collapsed header (tablet): full-size logo, 6vw padding. */
     --header-padding-y: 6vw;
     --header-padding-x: 6vw;
   }
@@ -90,6 +88,10 @@
 @media (max-width: 767px) {
   :root {
     --page-gutter: 6vw; /* Squarespace --sqs-mobile-site-gutter */
+
+    /* Phone logo: 235×51, shrinking only if it can't fit beside the 50px menu button. */
+    --logo-width: min(235.3px, calc(88vw - 50px));
+    --logo-height: calc(var(--logo-width) * 60 / 277);
 
     /* The theme sets fixed mobile sizes for H1 and H2. */
     --fs-h1: 38px;

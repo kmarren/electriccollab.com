@@ -8,6 +8,7 @@ import { Image } from 'astro:assets';
 import FluidSection from '../layout/FluidSection.astro';
 import FluidItem from '../layout/FluidItem.astro';
 import AutoplayVideo from '../ui/AutoplayVideo.astro';
+import DrawUnderline from '../ui/DrawUnderline.astro';
 import portrait from '../../assets/images/hero/portrait-red-suit.jpg';
 
 /** Video tiles share one frame shape; differently shaped clips letterbox inside it. */
@@ -40,7 +41,7 @@ const videos = [
 
   <FluidItem desktop="14/6/21/22" mobile="17/1/24/11" z={{ desktop: 2, mobile: 1 }}>
     <h1 id="hero-title" class="headline">
-      Turning premium service providers into <span class="draw-underline" data-draw-underline>premium brands</span>: solidify your distinct reputation, attract the clients your work is ready for.
+      Turning premium service providers into <DrawUnderline>premium brands</DrawUnderline>: solidify your distinct reputation, attract the clients your work is ready for.
     </h1>
   </FluidItem>
 
@@ -67,45 +68,4 @@ const videos = [
     padding-inline: 5%;
     text-align: center;
   }
-
-  /*
-   * Red underline that draws in left-to-right once the headline is in view
-   * (2s, ease-out-quad), recreating Squarespace's animated text highlight.
-   * A background gradient keeps it per-line when the phrase wraps.
-   */
-  .draw-underline {
-    background-image: linear-gradient(var(--color-red), var(--color-red));
-    background-repeat: no-repeat;
-    background-position: 0 92%;
-    background-size: 0% 0.05em;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-    /* Let the line run slightly past the glyphs, as the original does, without shifting text. */
-    padding-inline: 0.1em;
-    margin-inline: -0.1em;
-    transition: background-size 2s cubic-bezier(0.5, 1, 0.89, 1);
-  }
-
-  .draw-underline.is-drawn {
-    background-size: 100% 0.05em;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .draw-underline {
-      background-size: 100% 0.05em;
-    }
-  }
 </style>
-
-<script>
-  const underline = document.querySelector<HTMLElement>('[data-draw-underline]');
-  if (underline) {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) {
-        underline.classList.add('is-drawn');
-        observer.disconnect();
-      }
-    });
-    observer.observe(underline);
-  }
-</script>
