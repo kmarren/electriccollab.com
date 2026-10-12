@@ -1,4 +1,5 @@
 ---
+order: 6
 title: 'Jennifer Gennari'
 homepage:
   order: 12

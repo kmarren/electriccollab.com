@@ -1,4 +1,5 @@
 ---
+order: 2
 title: 'HelloSEO'
 homepage:
   order: 7

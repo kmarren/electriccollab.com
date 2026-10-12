@@ -1,0 +1,131 @@
+---
+/**
+ * Case-study page body. Every live case study uses this four-section
+ * template; per-project media, copy and grid placement come from the
+ * project's `caseStudy` data in src/content/portfolio/.
+ *
+ *   1. Hero: burgundy inset panel with a faded looping video and the logo
+ *   2. Intro: sticky text (heading, client quote, link) beside a column of images
+ *   3. Four looping website screen recordings
+ *   4. Two closing images
+ */
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FluidSection from '../layout/FluidSection.astro';
+import FluidItem from '../layout/FluidItem.astro';
+import AutoplayVideo from '../ui/AutoplayVideo.astro';
+
+export interface Props {
+  project: CollectionEntry<'portfolio'>;
+}
+
+const { project } = Astro.props;
+const cs = project.data.caseStudy!;
+const { hero, intro, videos, closing } = cs;
+---
+
+<!-- 1. Hero -->
+<FluidSection rows={hero.rows} theme="light" insetPanel="dark" clearHeader aria-label={`${project.data.title} brand`}>
+  <AutoplayVideo
+    slot="background"
+    src={hero.video}
+    width={hero.videoSize[0]}
+    height={hero.videoSize[1]}
+    background
+    eager
+    class="hero-video"
+    style={`opacity: ${hero.videoOpacity}`}
+  />
+  <FluidItem desktop={hero.logoArea.desktop} mobile={hero.logoArea.mobile} z={1}>
+    <Image class="media-fill hero-logo" src={hero.logo} alt={hero.logoAlt} widths={[312, 498, 624, 996]} sizes="(max-width: 767px) 80vw, 35vw" loading="eager" />
+  </FluidItem>
+</FluidSection>
+
+<!-- 2. Intro -->
+<FluidSection rows={intro.rows} columnGap={0} rowGap={0} theme="light" aria-labelledby="case-study-title">
+  <FluidItem desktop={intro.textArea.desktop} mobile={intro.textArea.mobile} z={0} align={{ desktop: 'start', mobile: 'center' }} class="intro-text rte">
+    <h1 id="case-study-title" class="text-h2">
+      {intro.heading.map((line, i) => (i === 0 ? line : [<br />, line]))}
+    </h1>
+    <p>{intro.quote}</p>
+    {
+      intro.link && (
+        <p class="eyebrow brand-link">
+          <a href={intro.link.href} target="_blank" rel="noopener">
+            {intro.link.label}
+          </a>
+        </p>
+      )
+    }
+  </FluidItem>
+
+  {
+    intro.images.map((img) => (
+      <FluidItem desktop={img.area.desktop} mobile={img.area.mobile} z={img.area.z ?? 1}>
+        <Image
+          class="media-fill"
+          src={img.src}
+          alt={img.alt}
+          widths={[390, 720, 1080]}
+          sizes="(max-width: 767px) 100vw, 50vw"
+          style={img.position ? `object-position: ${img.position}` : undefined}
+        />
+      </FluidItem>
+    ))
+  }
+</FluidSection>
+
+<!-- 3. Website screen recordings -->
+<FluidSection rows={videos.rows} columnGap={7} rowGap={0} theme="light" aria-label="Website screen recordings">
+  {
+    videos.items.map((video) => (
+      <FluidItem desktop={video.area.desktop} mobile={video.area.mobile} z={video.area.z ?? 1} align="start">
+        <AutoplayVideo src={video.src} width={video.size[0]} height={video.size[1]} />
+      </FluidItem>
+    ))
+  }
+</FluidSection>
+
+<!-- 4. Closing images -->
+<FluidSection rows={closing.rows} columnGap={0} rowGap={0} theme="light" aria-label="More brand imagery">
+  {
+    closing.images.map((img) => (
+      <FluidItem desktop={img.area.desktop} mobile={img.area.mobile} z={img.area.z ?? 1}>
+        <Image
+          class="media-fill"
+          src={img.src}
+          alt={img.alt}
+          widths={[390, 720, 1080]}
+          sizes="(max-width: 767px) 100vw, 50vw"
+          style={img.position ? `object-position: ${img.position}` : undefined}
+        />
+      </FluidItem>
+    ))
+  }
+</FluidSection>
+
+<style>
+  :global(.hero-logo) {
+    object-fit: contain;
+  }
+
+  /* The intro text stays in view while the image column scrolls past (desktop). */
+  @media (min-width: 768px) {
+    :global(.fluid-item.intro-text) {
+      position: sticky;
+      top: 127px;
+    }
+  }
+
+  /* Heading-style spacing (the live link is set as a heading 4). */
+  .brand-link {
+    margin-top: 2rem !important;
+  }
+
+  .brand-link a {
+    color: #000;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+</style>

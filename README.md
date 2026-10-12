@@ -3,7 +3,7 @@
 Astro rebuild of [electriccollab.com](https://www.electriccollab.com), migrated from Squarespace.
 This is a faithful migration, not a redesign. See [AGENTS.md](AGENTS.md) for project goals and rules.
 
-**Status:** homepage, "our services" (`/electric-brand-experience`), "our work" (`/portfolio`), "the studio" (`/about`) and contact (`/contact` + `/thank-you`) migrated; every other route exists as a `noindex` placeholder.
+**Status:** homepage, "our services" (`/electric-brand-experience`), "our work" (`/portfolio`), "the studio" (`/about`) contact (`/contact` + `/thank-you`) and case studies (so far: The Whisper Group) migrated; every other route exists as a `noindex` placeholder.
 
 ## Commands
 
@@ -28,9 +28,10 @@ src/
     home/                      homepage sections (Hero, PressMarquee, ServicesIntro, …)
     services/                  services page sections (Phase, HowItWorks, Faq, …)
     portfolio/                 portfolio index tile
+    case-study/                case-study template (CaseStudy, ItemPagination)
     ui/                        Button, Accordion, Marquee, DrawUnderline, AutoplayVideo, SocialLinks
-  content/portfolio/           one Markdown entry per case study: homepage card + /portfolio
-                               tile data now, full case studies later
+  content/portfolio/           one Markdown entry per project: homepage card, /portfolio tile,
+                               and `caseStudy` page data (media, copy, grid placement)
   data/                        site constants, nav, press logos, testimonials, services copy
   styles/                      tokens.css (colors, type scale, layout), fonts.css, global.css
   scripts/                     smooth scroll (Lenis), scroll lock

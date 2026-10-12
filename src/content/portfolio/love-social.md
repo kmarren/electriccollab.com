@@ -1,4 +1,5 @@
 ---
+order: 10
 title: 'Love Social Media Agency'
 homepage:
   order: 6

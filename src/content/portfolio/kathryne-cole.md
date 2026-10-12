@@ -1,4 +1,5 @@
 ---
+order: 9
 title: 'Kathryne Cole'
 homepage:
   order: 10

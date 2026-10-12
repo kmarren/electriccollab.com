@@ -23,7 +23,8 @@ export interface Props {
 
 const { theme = 'dark' } = Astro.props;
 const currentPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
-const isCurrent = (href: string) => currentPath === href;
+// A section's link stays active on its sub-pages (e.g. "our work" on a case study).
+const isCurrent = (href: string) => currentPath === href || currentPath.startsWith(`${href}/`);
 ---
 
 <header

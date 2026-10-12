@@ -6,13 +6,25 @@ import { z } from 'astro/zod';
  * Portfolio case studies. One Markdown file per project in src/content/portfolio/;
  * the filename is the URL slug (/portfolio/<slug>), matching the live site.
  *
- * Case-study body content is migrated in a later phase. For now each entry
- * carries the data the homepage work grid needs.
+ * Each entry carries the homepage card, the /portfolio tile and (once
+ * migrated) the case-study page content in `caseStudy`. Every live case study
+ * uses the same four-section template; only media, copy and grid placement
+ * differ, so placement is stored as Squarespace grid areas ("row/col/row/col").
  */
+
+/** A block's grid placement, desktop and mobile, plus optional stacking. */
+const area = z.object({
+  desktop: z.string(),
+  mobile: z.string(),
+  z: z.object({ desktop: z.number(), mobile: z.number() }).optional(),
+});
+const rows = z.object({ mobile: z.number().int(), desktop: z.number().int() });
 const portfolio = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/portfolio' }),
   schema: ({ image }) =>
     z.object({
+      /** Position in the Squarespace collection; drives Previous/Next links. */
+      order: z.number().int().positive(),
       /** Project name as used on the case-study page. */
       title: z.string(),
       /** Optional subtitle shown after the name on the live portfolio index. */
@@ -43,6 +55,40 @@ const portfolio = defineCollection({
           /** The live page sets one caption in the body face and one in black; kept as-is. */
           captionStyle: z.enum(['label', 'body']).default('label'),
           captionColor: z.enum(['burgundy', 'black']).default('burgundy'),
+        })
+        .optional(),
+      /** Case-study page content. Absent = page not migrated yet (placeholder). */
+      caseStudy: z
+        .object({
+          seoDescription: z.string().optional(),
+          hero: z.object({
+            rows,
+            /** Looping background video (path under /public, no extension). */
+            video: z.string(),
+            videoSize: z.tuple([z.number(), z.number()]),
+            /** Opacity the video is shown at over burgundy (Squarespace video filter). */
+            videoOpacity: z.number(),
+            logo: image(),
+            logoAlt: z.string(),
+            logoArea: area,
+          }),
+          intro: z.object({
+            rows,
+            /** Heading lines (rendered with line breaks between them). */
+            heading: z.array(z.string()),
+            quote: z.string(),
+            link: z.object({ label: z.string(), href: z.url() }).optional(),
+            textArea: area,
+            images: z.array(z.object({ src: image(), alt: z.string(), area, position: z.string().optional() })),
+          }),
+          videos: z.object({
+            rows,
+            items: z.array(z.object({ src: z.string(), size: z.tuple([z.number(), z.number()]), area })),
+          }),
+          closing: z.object({
+            rows,
+            images: z.array(z.object({ src: image(), alt: z.string(), area, position: z.string().optional() })),
+          }),
         })
         .optional(),
     }),

@@ -1,4 +1,5 @@
 ---
+order: 8
 title: 'EVGN'
 subtitle: 'Scaling & Growth Agency'
 homepage:

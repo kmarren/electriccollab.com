@@ -1,20 +1,51 @@
 ---
-// Placeholder case-study pages, one per entry in src/content/portfolio/.
-// Case-study content is migrated in a later phase.
+/**
+ * Case-study pages, one per entry in src/content/portfolio/. Projects with
+ * `caseStudy` data render the full page; the rest stay as noindex
+ * placeholders until they're migrated.
+ */
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import JsonLd from '../../components/global/JsonLd.astro';
+import CaseStudy from '../../components/case-study/CaseStudy.astro';
+import ItemPagination from '../../components/case-study/ItemPagination.astro';
+import { caseStudyGraph } from '../../lib/schema';
 
 export async function getStaticPaths() {
-  const projects = await getCollection('portfolio');
-  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+  const projects = (await getCollection('portfolio')).sort((a, b) => a.data.order - b.data.order);
+  return projects.map((project, i) => ({
+    params: { slug: project.id },
+    props: { project, prev: projects[i - 1], next: projects[i + 1] },
+  }));
 }
 
 interface Props {
   project: CollectionEntry<'portfolio'>;
+  prev?: CollectionEntry<'portfolio'>;
+  next?: CollectionEntry<'portfolio'>;
 }
 
-const { project } = Astro.props;
+const { project, prev, next } = Astro.props;
+const cs = project.data.caseStudy;
+const headline = cs?.intro.heading.join(' ');
+const shareImage = cs ? await getImage({ src: cs.intro.images[0].src, width: 1200, format: 'jpg' }) : undefined;
 ---
 
-<BaseLayout title={`${project.data.title} | Electric Collab`} noindex>
+<BaseLayout
+  title={`${project.data.title} | Electric Collab`}
+  description={cs ? (cs.seoDescription ?? headline) : undefined}
+  image={shareImage ? { src: shareImage.src, width: Number(shareImage.attributes.width), height: Number(shareImage.attributes.height) } : undefined}
+  headerTheme="light"
+  noindex={!cs}
+>
+  {
+    cs && (
+      <>
+        <JsonLd slot="head" data={caseStudyGraph({ name: project.data.title, path: `/portfolio/${project.id}`, headline: headline!, image: shareImage?.src })} />
+        <CaseStudy project={project} />
+        <ItemPagination prev={prev} next={next} />
+      </>
+    )
+  }
 </BaseLayout>

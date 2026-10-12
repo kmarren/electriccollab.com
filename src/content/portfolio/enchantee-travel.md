@@ -1,4 +1,5 @@
 ---
+order: 4
 title: 'Enchantée Travel'
 index:
   order: 4

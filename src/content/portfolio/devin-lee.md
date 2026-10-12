@@ -1,4 +1,5 @@
 ---
+order: 18
 title: 'Devin Lee'
 subtitle: 'Systems Strategist'
 index:

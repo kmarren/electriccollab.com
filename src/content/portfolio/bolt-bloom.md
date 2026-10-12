@@ -1,4 +1,5 @@
 ---
+order: 11
 title: 'Bolt & Bloom'
 index:
   order: 12

@@ -1,4 +1,5 @@
 ---
+order: 3
 title: 'Suzanne Falk'
 homepage:
   order: 1

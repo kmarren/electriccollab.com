@@ -22,16 +22,17 @@ export interface Props {
   /** Fill the positioned parent edge to edge (section background video). */
   background?: boolean;
   class?: string;
+  style?: string;
 }
 
-const { src, width, height, frame, eager = false, background = false, class: className } = Astro.props;
+const { src, width, height, frame, eager = false, background = false, class: className, style } = Astro.props;
 ---
 
 <video
   class:list={['autoplay-video', { 'autoplay-video--background': background }, className]}
   width={width}
   height={height}
-  style={background ? undefined : `aspect-ratio: ${frame ?? `${width} / ${height}`}`}
+  style={[background ? '' : `aspect-ratio: ${frame ?? `${width} / ${height}`}`, style ?? ''].filter(Boolean).join('; ') || undefined}
   poster={`${src}.jpg`}
   muted
   loop

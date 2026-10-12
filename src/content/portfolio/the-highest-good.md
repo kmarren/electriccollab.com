@@ -1,4 +1,5 @@
 ---
+order: 7
 title: 'The Highest Good'
 index:
   order: 7

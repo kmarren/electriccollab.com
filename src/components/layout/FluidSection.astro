@@ -34,9 +34,11 @@ export interface Props extends HTMLAttributes<'section'> {
   clearHeader?: boolean;
   /**
    * Squarespace "inset" background: the section keeps the page background and
-   * the content sits on a colored panel inset 4vw on every side.
+   * the content sits on a colored panel inset 4vw on every side (below the
+   * header instead of 4vw from the top when `clearHeader` is set). Background
+   * media then fills the panel rather than the section.
    */
-  insetPanel?: 'red';
+  insetPanel?: 'red' | 'dark';
   /** Render as a different landmark (e.g. 'div' inside the footer). */
   as?: 'section' | 'div';
 }
@@ -54,7 +56,7 @@ const { rows, theme = 'dark', columnGap = 11, rowGap = 11, padded = false, clear
   style={`--rows-mobile: ${rows.mobile}; --rows-desktop: ${rows.desktop}; --col-gap-base: ${columnGap}px; --row-gap: ${rowGap}px;${style ?? ''}`}
   {...attrs}
 >
-  {Astro.slots.has('background') && (
+  {!insetPanel && Astro.slots.has('background') && (
     <div class="section-background">
       <slot name="background" />
     </div>
@@ -62,6 +64,11 @@ const { rows, theme = 'dark', columnGap = 11, rowGap = 11, padded = false, clear
   {
     insetPanel ? (
       <div class:list={['inset-panel', `theme-${insetPanel}`]}>
+        {Astro.slots.has('background') && (
+          <div class="section-background">
+            <slot name="background" />
+          </div>
+        )}
         <div class="fluid-grid">
           <slot />
         </div>
@@ -99,6 +106,14 @@ const { rows, theme = 'dark', columnGap = 11, rowGap = 11, padded = false, clear
 
   .fluid-section--inset {
     padding: 4vw;
+  }
+
+  .fluid-section--inset.fluid-section--clear-header {
+    padding-top: var(--header-height);
+  }
+
+  .inset-panel {
+    position: relative;
   }
 
   .fluid-grid {

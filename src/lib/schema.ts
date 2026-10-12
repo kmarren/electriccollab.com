@@ -101,3 +101,30 @@ export function portfolioCollection({ name, path, items }: { name: string; path:
     },
   };
 }
+
+/** Case study: the project as a CreativeWork by the studio, plus breadcrumbs. */
+export function caseStudyGraph({ name, path, headline, image }: { name: string; path: string; headline: string; image?: string }) {
+  const url = new URL(path, site.url).href;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CreativeWork',
+        '@id': `${url}#work`,
+        name: `${name} brand and website`,
+        headline,
+        url,
+        creator: { '@id': ORG_ID },
+        ...(image ? { image: new URL(image, site.url).href } : {}),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+          { '@type': 'ListItem', position: 2, name: 'Our Work', item: new URL('/portfolio', site.url).href },
+          { '@type': 'ListItem', position: 3, name, item: url },
+        ],
+      },
+    ],
+  };
+}

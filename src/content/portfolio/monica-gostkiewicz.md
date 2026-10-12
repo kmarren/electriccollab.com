@@ -1,4 +1,5 @@
 ---
+order: 12
 title: 'Monica Gostkiewicz'
 index:
   order: 11

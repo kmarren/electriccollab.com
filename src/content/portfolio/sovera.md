@@ -1,4 +1,5 @@
 ---
+order: 20
 title: 'Sovera'
 homepage:
   order: 9

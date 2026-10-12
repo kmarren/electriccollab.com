@@ -388,6 +388,51 @@
       "url": "https://fonts.gstatic.com/s/worksans/v24/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXBi8Jpo3ZKyHaQQ.woff2",
       "dest": "public/fonts/work-sans-400-latin.woff2",
       "note": "Form option labels (SIL Open Font License, via Google Fonts)"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b4afed69-a21e-47c0-bea4-a43c7b879ad9/IVORY.png",
+      "dest": "src/assets/images/case-studies/the-whisper-group/logo.png",
+      "note": "The Whisper Group case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/97f9242d-7b4b-4c6d-aa4b-55a57a36e1fa/IPHONE+MOCKUP.jpg",
+      "dest": "src/assets/images/case-studies/the-whisper-group/iphone-mockup.jpg",
+      "note": "The Whisper Group case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1c073415-5b34-44ca-b855-3f06e38c3cf4/QUOTE.jpg",
+      "dest": "src/assets/images/case-studies/the-whisper-group/quote.jpg",
+      "note": "The Whisper Group case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d4b9dd24-3b53-4674-8328-a28c8859ebbf/IPAD+MOCKUP.png",
+      "dest": "src/assets/images/case-studies/the-whisper-group/ipad-mockup.png",
+      "note": "The Whisper Group case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4256ae86-95aa-4117-aeda-d4701163973a/DEBOSSED+EMBLEM.png",
+      "dest": "src/assets/images/case-studies/the-whisper-group/debossed-emblem.png",
+      "note": "The Whisper Group case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7df967a2-f33b-439e-a0cd-eb86652beea8/BRAND+BOOK+%283%29.png",
+      "dest": "src/assets/images/case-studies/the-whisper-group/brand-book.png",
+      "note": "The Whisper Group case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/361bdc2f-b9ff-4d21-b7b8-477ba5c989b7/DEBOSSED+PRIMARY.png",
+      "dest": "src/assets/images/case-studies/the-whisper-group/debossed-primary.png",
+      "note": "The Whisper Group case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f36f99c8-a84e-46d3-87ea-691d222b644f/THE+OPPORTUNITY.png",
+      "dest": "src/assets/images/case-studies/the-whisper-group/the-opportunity.png",
+      "note": "The Whisper Group case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f36a6f3a-671a-4971-8090-4f42f28e83ec/PINK+STATIONARY+SECONDARY.png",
+      "dest": "src/assets/images/case-studies/the-whisper-group/pink-stationery-secondary.png",
+      "note": "The Whisper Group case study"
     }
   ],
   "videos": [
@@ -438,6 +483,46 @@
       "dest": "public/videos/about-theater-seats",
       "note": "About hero background (shown at 19% opacity)",
       "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d589e36d-5300-4a3d-8e47-9e5a39a15ad4/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d589e36d-5300-4a3d-8e47-9e5a39a15ad4/thumbnail",
+      "variant": "1920:1080",
+      "dest": "public/videos/case-studies/the-whisper-group/collage",
+      "note": "The Whisper Group: Hero background (46% opacity)",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/83a27bbd-f0c3-4b2f-84a4-2423af92992b/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/83a27bbd-f0c3-4b2f-84a4-2423af92992b/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/the-whisper-group/website-1",
+      "note": "The Whisper Group: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/deea2e94-a877-41a3-bdd1-bc61ca8bb105/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/deea2e94-a877-41a3-bdd1-bc61ca8bb105/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/the-whisper-group/website-2",
+      "note": "The Whisper Group: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b8321e90-82b6-4d9b-b8c2-abfcf2fe034c/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b8321e90-82b6-4d9b-b8c2-abfcf2fe034c/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/the-whisper-group/website-3",
+      "note": "The Whisper Group: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/38a4ba70-4f29-4510-83c3-fb3d5875e3b7/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/38a4ba70-4f29-4510-83c3-fb3d5875e3b7/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/the-whisper-group/website-4",
+      "note": "The Whisper Group: Website screen recording",
+      "width": 720
     }
   ]
 }
