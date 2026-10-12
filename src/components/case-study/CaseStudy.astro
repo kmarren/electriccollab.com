@@ -1,13 +1,18 @@
 ---
 /**
- * Case-study page body. Every live case study uses this four-section
- * template; per-project media, copy and grid placement come from the
- * project's `caseStudy` data in src/content/portfolio/.
+ * Case-study page body, rendered from the project's `caseStudy.sections` in
+ * src/content/portfolio/. Each section is a Fluid Engine grid recreated from
+ * the live page; blocks are text, images or looping videos.
  *
- *   1. Hero: burgundy inset panel with a faded looping video and the logo
- *   2. Intro: sticky text (heading, client quote, link) beside a column of images
- *   3. Four looping website screen recordings
- *   4. Two closing images
+ * Most projects follow the same outline (dark video hero with the logo, the
+ * sticky intro text beside a column of images, four website screen
+ * recordings, closing images) but the live pages vary, so nothing here is
+ * specific to one layout.
+ *
+ * Text blocks hold pre-converted markup:
+ *   h1#case-study-title.text-h2   project headline (one per page)
+ *   p.eyebrow.case-eyebrow        "EXPERIENCE THE BRAND >" link or services list
+ *   span.text-burgundy / .text-red  Squarespace text colors ("black" / "darkAccent")
  */
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
@@ -20,109 +25,112 @@ export interface Props {
 }
 
 const { project } = Astro.props;
-const cs = project.data.caseStudy!;
-const { hero, intro, videos, closing } = cs;
+const { sections } = project.data.caseStudy!;
+type Section = (typeof sections)[number];
+type Block = Section['blocks'][number];
+
+/** Approximate rendered width of a block, for responsive image `sizes`. */
+const span = (area: string, columns: number) => {
+  const [, start, , end] = area.split('/').map(Number);
+  return Math.min(100, Math.round(((end - start) / columns) * 100));
+};
+const imageSizes = (block: Block) => `(max-width: 767px) ${span(block.mobile, 8)}vw, ${span(block.desktop, 24)}vw`;
+
+/** Accessible name for each section, based on what it contains. */
+const sectionLabel = (section: Section, index: number) => {
+  if (section.blocks.some((b) => b.type === 'text')) return { 'aria-labelledby': 'case-study-title' };
+  if (index === 0) return { 'aria-label': `${project.data.title} brand` };
+  if (section.blocks.length && section.blocks.every((b) => b.type === 'video')) return { 'aria-label': 'Website screen recordings' };
+  if (!section.blocks.length) return { 'aria-label': 'Brand film' };
+  return { 'aria-label': 'Brand imagery' };
+};
 ---
 
-<!-- 1. Hero -->
-<FluidSection rows={hero.rows} theme="light" insetPanel="dark" clearHeader aria-label={`${project.data.title} brand`}>
-  <AutoplayVideo
-    slot="background"
-    src={hero.video}
-    width={hero.videoSize[0]}
-    height={hero.videoSize[1]}
-    background
-    eager
-    class="hero-video"
-    style={`opacity: ${hero.videoOpacity}`}
-  />
-  <FluidItem desktop={hero.logoArea.desktop} mobile={hero.logoArea.mobile} z={1}>
-    <Image class="media-fill hero-logo" src={hero.logo} alt={hero.logoAlt} widths={[312, 498, 624, 996]} sizes="(max-width: 767px) 80vw, 35vw" loading="eager" />
-  </FluidItem>
-</FluidSection>
-
-<!-- 2. Intro -->
-<FluidSection rows={intro.rows} columnGap={0} rowGap={0} theme="light" aria-labelledby="case-study-title">
-  <FluidItem desktop={intro.textArea.desktop} mobile={intro.textArea.mobile} z={0} align={{ desktop: 'start', mobile: 'center' }} class="intro-text rte">
-    <h1 id="case-study-title" class="text-h2">
-      {intro.heading.map((line, i) => (i === 0 ? line : [<br />, line]))}
-    </h1>
-    <p>{intro.quote}</p>
-    {
-      intro.link && (
-        <p class="eyebrow brand-link">
-          <a href={intro.link.href} target="_blank" rel="noopener">
-            {intro.link.label}
-          </a>
-        </p>
-      )
-    }
-  </FluidItem>
-
-  {
-    intro.images.map((img) => (
-      <FluidItem desktop={img.area.desktop} mobile={img.area.mobile} z={img.area.z ?? 1}>
-        <Image
-          class="media-fill"
-          src={img.src}
-          alt={img.alt}
-          widths={[390, 720, 1080]}
-          sizes="(max-width: 767px) 100vw, 50vw"
-          style={img.position ? `object-position: ${img.position}` : undefined}
+{
+  sections.map((section, i) => (
+    <FluidSection
+      rows={section.rows}
+      rowGap={section.rowGap}
+      columnGap={section.columnGap}
+      theme="light"
+      insetPanel={section.inset ? section.theme : undefined}
+      medium={section.height === 'medium'}
+      clearHeader={i === 0}
+      {...sectionLabel(section, i)}
+    >
+      {section.video && (
+        <AutoplayVideo
+          slot="background"
+          src={section.video.src}
+          width={section.video.size[0]}
+          height={section.video.size[1]}
+          playbackRate={section.video.playbackRate}
+          background
+          eager={i === 0}
+          style={section.video.opacity === 1 ? undefined : `opacity: ${section.video.opacity}`}
         />
-      </FluidItem>
-    ))
-  }
-</FluidSection>
-
-<!-- 3. Website screen recordings -->
-<FluidSection rows={videos.rows} columnGap={7} rowGap={0} theme="light" aria-label="Website screen recordings">
-  {
-    videos.items.map((video) => (
-      <FluidItem desktop={video.area.desktop} mobile={video.area.mobile} z={video.area.z ?? 1} align="start">
-        <AutoplayVideo src={video.src} width={video.size[0]} height={video.size[1]} />
-      </FluidItem>
-    ))
-  }
-</FluidSection>
-
-<!-- 4. Closing images -->
-<FluidSection rows={closing.rows} columnGap={0} rowGap={0} theme="light" aria-label="More brand imagery">
-  {
-    closing.images.map((img) => (
-      <FluidItem desktop={img.area.desktop} mobile={img.area.mobile} z={img.area.z ?? 1}>
-        <Image
-          class="media-fill"
-          src={img.src}
-          alt={img.alt}
-          widths={[390, 720, 1080]}
-          sizes="(max-width: 767px) 100vw, 50vw"
-          style={img.position ? `object-position: ${img.position}` : undefined}
-        />
-      </FluidItem>
-    ))
-  }
-</FluidSection>
+      )}
+      {section.blocks.map((block) => (
+        <FluidItem
+          desktop={block.desktop}
+          mobile={block.mobile}
+          z={block.z}
+          align={block.align}
+          class:list={[{ 'case-text rte': block.type === 'text', 'is-sticky': block.sticky !== undefined }]}
+          style={block.sticky !== undefined ? `--sticky-top: ${block.sticky}px` : undefined}
+        >
+          {block.type === 'text' && <Fragment set:html={block.html} />}
+          {block.type === 'video' && <AutoplayVideo src={block.src} width={block.size[0]} height={block.size[1]} frame={block.defaultFrame ? '7 / 11' : undefined} />}
+          {block.type === 'image' &&
+            (() => {
+              const img = (
+                <Image
+                  class="media-fill"
+                  src={block.src}
+                  alt={block.alt}
+                  widths={[480, 720, 1080, 1440, 1920]}
+                  sizes={imageSizes(block)}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  style={[block.fit === 'contain' && 'object-fit: contain', block.position && `object-position: ${block.position}`].filter(Boolean).join('; ') || undefined}
+                />
+              );
+              return block.href ? (
+                <a class="media-fill" href={block.href}>
+                  {img}
+                </a>
+              ) : (
+                img
+              );
+            })()}
+        </FluidItem>
+      ))}
+    </FluidSection>
+  ))
+}
 
 <style>
-  :global(.hero-logo) {
-    object-fit: contain;
-  }
-
   /* The intro text stays in view while the image column scrolls past (desktop). */
   @media (min-width: 768px) {
-    :global(.fluid-item.intro-text) {
+    :global(.fluid-item.is-sticky) {
       position: sticky;
-      top: 127px;
+      top: var(--sticky-top);
     }
+  }
+
+  :global(.case-text .text-burgundy) {
+    color: var(--color-burgundy);
+  }
+
+  :global(.case-text .text-red) {
+    color: var(--color-red);
   }
 
   /* Heading-style spacing (the live link is set as a heading 4). */
-  .brand-link {
-    margin-top: 2rem !important;
+  :global(.case-text .case-eyebrow) {
+    margin-top: 2rem;
   }
 
-  .brand-link a {
+  :global(.case-text .case-eyebrow a) {
     color: #000;
     text-decoration: underline;
     text-decoration-thickness: 1px;

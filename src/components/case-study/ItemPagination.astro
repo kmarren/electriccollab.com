@@ -48,15 +48,18 @@ const label = (p: CollectionEntry<'portfolio'>) => (p.data.subtitle ? `${p.data.
     color: var(--color-burgundy);
   }
 
+  /* Each link takes at most half the row; long titles wrap. */
   .link {
     display: flex;
     align-items: center;
     gap: 25px;
+    max-width: 50%;
     text-decoration: none;
   }
 
   .link--next {
     margin-left: auto;
+    text-align: right;
   }
 
   .title {

@@ -7,18 +7,32 @@ import { z } from 'astro/zod';
  * the filename is the URL slug (/portfolio/<slug>), matching the live site.
  *
  * Each entry carries the homepage card, the /portfolio tile and (once
- * migrated) the case-study page content in `caseStudy`. Every live case study
- * uses the same four-section template; only media, copy and grid placement
- * differ, so placement is stored as Squarespace grid areas ("row/col/row/col").
+ * migrated) the case-study page content in `caseStudy`. Case studies share a
+ * loose template (video hero, sticky intro beside images, screen recordings,
+ * closing images) but vary per project, so each page is stored as its list of
+ * sections and blocks, placed with Squarespace grid areas ("row/col/row/col").
  */
 
-/** A block's grid placement, desktop and mobile, plus optional stacking. */
-const area = z.object({
+const align = z.enum(['start', 'center', 'end']);
+const rows = z.object({ mobile: z.number().int(), desktop: z.number().int() });
+
+/**
+ * Grid placement shared by every case-study block: CSS grid areas
+ * ("row/col/row/col") per breakpoint, stacking order and vertical alignment,
+ * exactly as on the live Squarespace layout. Same shape as <FluidItem> props.
+ */
+const placement = {
   desktop: z.string(),
   mobile: z.string(),
-  z: z.object({ desktop: z.number(), mobile: z.number() }).optional(),
-});
-const rows = z.object({ mobile: z.number().int(), desktop: z.number().int() });
+  z: z.union([z.number(), z.object({ desktop: z.number(), mobile: z.number() })]).default(1),
+  align: z.union([align, z.object({ desktop: align, mobile: align })]).default('center'),
+  /** Desktop only: the block sticks this many px below the top while its section scrolls. */
+  sticky: z.number().optional(),
+};
+
+/** Looping silent video: path under /public without extension, plus its encoded size. */
+const video = { src: z.string(), size: z.tuple([z.number(), z.number()]) };
+
 const portfolio = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/portfolio' }),
   schema: ({ image }) =>
@@ -57,38 +71,63 @@ const portfolio = defineCollection({
           captionColor: z.enum(['burgundy', 'black']).default('burgundy'),
         })
         .optional(),
-      /** Case-study page content. Absent = page not migrated yet (placeholder). */
+      /**
+       * Case-study page content, as the live page's sections in order.
+       * Absent = page not migrated yet (placeholder).
+       */
       caseStudy: z
         .object({
           seoDescription: z.string().optional(),
-          hero: z.object({
-            rows,
-            /** Looping background video (path under /public, no extension). */
-            video: z.string(),
-            videoSize: z.tuple([z.number(), z.number()]),
-            /** Opacity the video is shown at over burgundy (Squarespace video filter). */
-            videoOpacity: z.number(),
-            logo: image(),
-            logoAlt: z.string(),
-            logoArea: area,
-          }),
-          intro: z.object({
-            rows,
-            /** Heading lines (rendered with line breaks between them). */
-            heading: z.array(z.string()),
-            quote: z.string(),
-            link: z.object({ label: z.string(), href: z.url() }).optional(),
-            textArea: area,
-            images: z.array(z.object({ src: image(), alt: z.string(), area, position: z.string().optional() })),
-          }),
-          videos: z.object({
-            rows,
-            items: z.array(z.object({ src: z.string(), size: z.tuple([z.number(), z.number()]), area })),
-          }),
-          closing: z.object({
-            rows,
-            images: z.array(z.object({ src: image(), alt: z.string(), area, position: z.string().optional() })),
-          }),
+          sections: z.array(
+            z.object({
+              rows,
+              rowGap: z.number().default(11),
+              columnGap: z.number().default(11),
+              /** Inset sections sit on a colored panel 4vw in from the page edges. */
+              inset: z.boolean().default(false),
+              /** Panel color for inset sections (others are always light). */
+              theme: z.enum(['light', 'dark']).default('light'),
+              /** Squarespace "medium" section height: ≥ 66vh with 6.6vmax padding. */
+              height: z.enum(['custom', 'medium']).default('custom'),
+              /** Background video filling the section (or its inset panel). */
+              video: z
+                .object({
+                  ...video,
+                  /** Opacity over the panel color (Squarespace video filter strength). */
+                  opacity: z.number().default(1),
+                  playbackRate: z.number().default(1),
+                })
+                .optional(),
+              blocks: z
+                .array(
+                  z.discriminatedUnion('type', [
+                    /** Rich text, already converted to site markup (see CaseStudy.astro for classes). */
+                    z.object({ type: z.literal('text'), html: z.string(), ...placement }),
+                    z.object({
+                      type: z.literal('image'),
+                      src: image(),
+                      alt: z.string(),
+                      fit: z.enum(['cover', 'contain']).default('cover'),
+                      /** CSS object-position (focal point). */
+                      position: z.string().optional(),
+                      href: z.string().optional(),
+                      ...placement,
+                    }),
+                    z.object({
+                      type: z.literal('video'),
+                      ...video,
+                      /**
+                       * Block has no aspect ratio set, so Squarespace shows the video
+                       * letterboxed in its default 7:11 player frame.
+                       */
+                      defaultFrame: z.boolean().default(false),
+                      ...placement,
+                    }),
+                  ]),
+                )
+                .default([]),
+            }),
+          ),
         })
         .optional(),
     }),

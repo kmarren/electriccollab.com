@@ -433,6 +433,846 @@
       "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f36a6f3a-671a-4971-8090-4f42f28e83ec/PINK+STATIONARY+SECONDARY.png",
       "dest": "src/assets/images/case-studies/the-whisper-group/pink-stationery-secondary.png",
       "note": "The Whisper Group case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/da2ba4a4-210d-400b-bdef-6dfa0b69a074/1.png",
+      "dest": "src/assets/images/case-studies/arrivee/1.png",
+      "note": "Arrivée case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/badd6edc-6db2-454a-90f9-a5b7caf1e555/TAGLINE+PHOTO+BG.png",
+      "dest": "src/assets/images/case-studies/arrivee/tagline-photo-bg.png",
+      "note": "Arrivée case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/08c126f7-ff35-41d7-b83d-d6c1a8217351/STATIONARY+MOCKUPS+%283%29.png",
+      "dest": "src/assets/images/case-studies/arrivee/stationary-mockups-3.png",
+      "note": "Arrivée case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/5b23bb8b-6b50-4416-ad14-5bc3129f4a45/EMBLEM.png",
+      "dest": "src/assets/images/case-studies/arrivee/emblem.png",
+      "note": "Arrivée case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/fe0e0817-8bfd-457a-b02b-4e4970d46a29/PACKAGING+MOCKUP+%282%29.png",
+      "dest": "src/assets/images/case-studies/arrivee/packaging-mockup-2.png",
+      "note": "Arrivée case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4b6b4d41-e773-46f0-a033-72d16493f39d/STATIONARY+MOCKUPS+%284%29.png",
+      "dest": "src/assets/images/case-studies/arrivee/stationary-mockups-4.png",
+      "note": "Arrivée case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/cc0af566-5a98-49aa-bdd0-394deacda2ad/PRIMARY+%283%29.png",
+      "dest": "src/assets/images/case-studies/arrivee/primary-3.png",
+      "note": "Arrivée case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/5a151c6f-981e-49e8-bcf8-7072a946d9d4/PACKAGING+MOCKUP.png",
+      "dest": "src/assets/images/case-studies/arrivee/packaging-mockup.png",
+      "note": "Arrivée case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a3d7e979-a7f8-4ccf-8d81-f07d4b8bbafe/TAGLINE+%282%29.png",
+      "dest": "src/assets/images/case-studies/arrivee/tagline-2.png",
+      "note": "Arrivée case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ca47601d-3d40-41e6-909f-9305d91e263b/EMBLEM+%283%29.png",
+      "dest": "src/assets/images/case-studies/arrivee/emblem-3.png",
+      "note": "Arrivée case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9964a3cc-e8e5-4b40-8772-acaf7d51d97b/2-Citrus.png",
+      "dest": "src/assets/images/case-studies/ashlee-piper/2-citrus.png",
+      "note": "Ashlee Piper case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f0a8c85d-eeed-4e9f-b5d1-2df81e556adc/11.jpg",
+      "dest": "src/assets/images/case-studies/ashlee-piper/11.jpg",
+      "note": "Ashlee Piper case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/882a9b7e-0243-4a84-a779-a813a756771e/5.jpg",
+      "dest": "src/assets/images/case-studies/ashlee-piper/5.jpg",
+      "note": "Ashlee Piper case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/31e970cd-4a9e-46e5-b280-cef82b448fe2/4.jpg",
+      "dest": "src/assets/images/case-studies/ashlee-piper/4.jpg",
+      "note": "Ashlee Piper case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/14e1f8ae-d754-4ef8-a113-598836f9f94c/13.jpg",
+      "dest": "src/assets/images/case-studies/ashlee-piper/13.jpg",
+      "note": "Ashlee Piper case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c98c4a5a-7e57-4ac6-9988-9c4ea9d0841b/3.jpg",
+      "dest": "src/assets/images/case-studies/ashlee-piper/3.jpg",
+      "note": "Ashlee Piper case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/abfdfc92-2ab5-41f8-8f32-bff36c0b7d5c/2.jpg",
+      "dest": "src/assets/images/case-studies/ashlee-piper/2.jpg",
+      "note": "Ashlee Piper case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1759631491440-7FFGO67OQ4WARE1H14YH/54.jpg",
+      "dest": "src/assets/images/case-studies/ashlee-piper/54.jpg",
+      "note": "Ashlee Piper case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7c9257bc-92af-4df1-8921-ad6ec87f184a/HOME.png",
+      "dest": "src/assets/images/case-studies/bolt-bloom/home.png",
+      "note": "Bolt & Bloom case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/eaf84b06-ca07-471b-a00b-50e20ad10a79/STATIONARY.png",
+      "dest": "src/assets/images/case-studies/bolt-bloom/stationary.png",
+      "note": "Bolt & Bloom case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/aab2f11d-3e0d-4a0c-afa1-ce4294aa39a8/HOME+SERVICES.png",
+      "dest": "src/assets/images/case-studies/bolt-bloom/home-services.png",
+      "note": "Bolt & Bloom case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/5bd7f743-bd8c-4f87-8ed2-53f085407ed6/PRIMARY+LAV.png",
+      "dest": "src/assets/images/case-studies/bolt-bloom/primary-lav.png",
+      "note": "Bolt & Bloom case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/59bc5a0f-1a29-4837-b2cc-a49f8526fa13/PALETTE.png",
+      "dest": "src/assets/images/case-studies/bolt-bloom/palette.png",
+      "note": "Bolt & Bloom case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d95c79d8-ca6a-412b-9ad6-7f2feebf1887/TAGLINE.png",
+      "dest": "src/assets/images/case-studies/bolt-bloom/tagline.png",
+      "note": "Bolt & Bloom case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/da927006-435a-4e05-a37a-28fea7791880/SECONDARY+RED.png",
+      "dest": "src/assets/images/case-studies/bolt-bloom/secondary-red.png",
+      "note": "Bolt & Bloom case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c6bd38ba-2758-4ab6-a414-79f0348e11ee/4.png",
+      "dest": "src/assets/images/case-studies/devin-lee/4.png",
+      "note": "Devin Lee case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7cae1dd4-cae5-4815-8608-6aa753fccf26/5.jpg",
+      "dest": "src/assets/images/case-studies/devin-lee/5.jpg",
+      "note": "Devin Lee case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/213d58e6-7e44-4c60-b01b-1e33bc33cd30/2.jpg",
+      "dest": "src/assets/images/case-studies/devin-lee/2.jpg",
+      "note": "Devin Lee case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e86d23bd-f093-4d93-ab33-980548f97fa4/Devin+Lee+MockUps+%281%29.jpg",
+      "dest": "src/assets/images/case-studies/devin-lee/devin-lee-mockups-1.jpg",
+      "note": "Devin Lee case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/6cf2f6dc-95fb-4f48-9db0-5e70b46e0cdd/6.jpg",
+      "dest": "src/assets/images/case-studies/devin-lee/6.jpg",
+      "note": "Devin Lee case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9b248ffc-a823-494d-a655-83aba8d0f56f/Devin+Lee+MockUps.jpg",
+      "dest": "src/assets/images/case-studies/devin-lee/devin-lee-mockups.jpg",
+      "note": "Devin Lee case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2ef92bdc-5ee0-4bd8-a81c-232bd88252ae/15.jpg",
+      "dest": "src/assets/images/case-studies/devin-lee/15.jpg",
+      "note": "Devin Lee case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1b5e2ef3-2cf9-41e9-90ab-3022283da7bb/Enchantee-Primary5.png",
+      "dest": "src/assets/images/case-studies/enchantee-travel/enchantee-primary5.png",
+      "note": "Enchantée Travel case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e2d6b6f5-386c-4bbf-9e83-a41fbd449235/Laptop+Mockup.png",
+      "dest": "src/assets/images/case-studies/enchantee-travel/laptop-mockup.png",
+      "note": "Enchantée Travel case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9be677f6-a5eb-4553-8168-54041d1b95d3/Enchante%CC%81e+Mockups+EC+PortfolioArtboard+173X.png",
+      "dest": "src/assets/images/case-studies/enchantee-travel/enchante-e-mockups-ec-portfolioartboard-173x.png",
+      "note": "Enchantée Travel case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/5792bf2c-c4f8-4996-a75a-4d2700494ab0/pexels-william-posser-2150279702-31762680.jpg",
+      "dest": "src/assets/images/case-studies/enchantee-travel/pexels-william-posser-2150279702-31762680.jpg",
+      "note": "Enchantée Travel case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/217bd6f6-9ae6-464a-a420-796b499fc7e4/3+iphone+mockup+full+size.png",
+      "dest": "src/assets/images/case-studies/enchantee-travel/3-iphone-mockup-full-size.png",
+      "note": "Enchantée Travel case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/13c59150-fddd-4c1e-ae60-e2435bfac006/pexels-taryn-elliott-3889891.jpg",
+      "dest": "src/assets/images/case-studies/enchantee-travel/pexels-taryn-elliott-3889891.jpg",
+      "note": "Enchantée Travel case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c57a1799-7330-48c3-a84c-bac057fba7d8/Enchante%CC%81e+Mockups+EC+PortfolioArtboard+243X.png",
+      "dest": "src/assets/images/case-studies/enchantee-travel/enchante-e-mockups-ec-portfolioartboard-243x.png",
+      "note": "Enchantée Travel case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/317ee434-6315-497a-b370-e218d035250a/Enchante%CC%81e+Mockups+EC+PortfolioArtboard+343X.png",
+      "dest": "src/assets/images/case-studies/enchantee-travel/enchante-e-mockups-ec-portfolioartboard-343x.png",
+      "note": "Enchantée Travel case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/cc5c67f6-ef0b-49cd-860d-8104e43d499a/STATIC+ABOUT+JESSICA+MOCKUP+STATIC+BG.jpg",
+      "dest": "src/assets/images/case-studies/everlight-leadership/static-about-jessica-mockup-static-bg.jpg",
+      "note": "Everlight Leadership case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/89dc987b-6292-4d39-9330-746b0a2b3343/DEBOSS+PRIMARY+%282%29.jpg",
+      "dest": "src/assets/images/case-studies/everlight-leadership/deboss-primary-2.jpg",
+      "note": "Everlight Leadership case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/6fa2b7cd-e758-413d-9049-06c1d57dcfc8/TAGLINE+PHOTO+BG.jpg",
+      "dest": "src/assets/images/case-studies/everlight-leadership/tagline-photo-bg.jpg",
+      "note": "Everlight Leadership case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/97daa021-4e96-4d85-8ca8-196d6aaa1205/DEBOSS+SUBMARK.jpg",
+      "dest": "src/assets/images/case-studies/everlight-leadership/deboss-submark.jpg",
+      "note": "Everlight Leadership case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1a79447d-1874-49ba-9da5-d8e20f5296a4/PRIMARY+%283%29.jpg",
+      "dest": "src/assets/images/case-studies/everlight-leadership/primary-3.jpg",
+      "note": "Everlight Leadership case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e342a858-9932-4866-90d7-6630bff6509f/PRIMARY.jpg",
+      "dest": "src/assets/images/case-studies/everlight-leadership/primary.jpg",
+      "note": "Everlight Leadership case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/86bd915f-772e-4eaa-b7d8-d27b03a2ec2b/EMBLEM+%282%29.jpg",
+      "dest": "src/assets/images/case-studies/everlight-leadership/emblem-2.jpg",
+      "note": "Everlight Leadership case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/8d37867d-cb04-4b6e-95f3-c929b8502593/EMBLEM+%284%29.png",
+      "dest": "src/assets/images/case-studies/evgn/emblem-4.png",
+      "note": "EVGN case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e9f35a6d-8f4e-4db5-9d89-6bf095f14012/TAGLINE+PHOTO.jpg",
+      "dest": "src/assets/images/case-studies/evgn/tagline-photo.jpg",
+      "note": "EVGN case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3c7a1132-ca02-41af-b9c9-6ea5d68ddd4f/bc+mockup.png",
+      "dest": "src/assets/images/case-studies/evgn/bc-mockup.png",
+      "note": "EVGN case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b58dfd05-1999-46e2-919d-dea8e1aebfed/EMBOSS+PRIMARY.jpg",
+      "dest": "src/assets/images/case-studies/evgn/emboss-primary.jpg",
+      "note": "EVGN case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/869de974-46f5-4843-9fd7-889d8050b0b4/web.png",
+      "dest": "src/assets/images/case-studies/evgn/web.png",
+      "note": "EVGN case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/76f6224c-678f-4e84-a6dd-07192301c355/DEBOSS+EMBLEM.jpg",
+      "dest": "src/assets/images/case-studies/evgn/deboss-emblem.jpg",
+      "note": "EVGN case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d43bd367-4912-4937-af32-8bec09e38f6e/PRIMARY.png",
+      "dest": "src/assets/images/case-studies/evgn/primary.png",
+      "note": "EVGN case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d6df865a-35c8-4848-8f6f-dc4808271ca6/TAGLINE.png",
+      "dest": "src/assets/images/case-studies/evgn/tagline.png",
+      "note": "EVGN case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1c77a6fb-3dd2-406e-b704-78aa6e156d6d/PRIMARY+%282%29.png",
+      "dest": "src/assets/images/case-studies/evgn/primary-2.png",
+      "note": "evgn case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ba238329-cdd5-4329-984f-bc82fb774d8d/MAUVE+GRADIENT.png",
+      "dest": "src/assets/images/case-studies/helloseo/mauve-gradient.png",
+      "note": "HelloSEO case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/acf5aba9-27cd-4d3a-a603-8021c4dd6a6c/FUN+BRANDING.png",
+      "dest": "src/assets/images/case-studies/helloseo/fun-branding.png",
+      "note": "HelloSEO case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/574c6c10-b488-4c01-b255-1ab987deaeba/HOME+PAGE.png",
+      "dest": "src/assets/images/case-studies/helloseo/home-page.png",
+      "note": "HelloSEO case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/427a78b8-834d-4527-9fb2-222b8331d9f1/SECONDARY.png",
+      "dest": "src/assets/images/case-studies/helloseo/secondary.png",
+      "note": "HelloSEO case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9e0f763a-2138-4750-8b88-39fee935fdd3/EMBLEM.png",
+      "dest": "src/assets/images/case-studies/helloseo/emblem.png",
+      "note": "HelloSEO case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/58085d62-99f8-4805-a7ab-dece74410092/MOODBOARD.png",
+      "dest": "src/assets/images/case-studies/helloseo/moodboard.png",
+      "note": "HelloSEO case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e9396653-83f8-4074-a906-a682aa0a2be0/BIS+CARD.png",
+      "dest": "src/assets/images/case-studies/helloseo/bis-card.png",
+      "note": "HelloSEO case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9ac48311-7b42-44de-a8cf-a0b3ea7bb2e6/SOCIAL.png",
+      "dest": "src/assets/images/case-studies/helloseo/social.png",
+      "note": "HelloSEO case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e65a4ab6-2c63-4139-8acc-42ca77c07452/IPHONE+MOCKUP.png",
+      "dest": "src/assets/images/case-studies/helloseo/iphone-mockup.png",
+      "note": "HelloSEO case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f9497313-6661-4f63-bcfe-8f32bd67ee46/PRIMARY+6.png",
+      "dest": "src/assets/images/case-studies/jennifer-gennari/primary-6.png",
+      "note": "Jennifer Gennari case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4f620922-f9bd-4e31-b11b-9fdac6e5d004/SECONDARY+LOGO.jpg",
+      "dest": "src/assets/images/case-studies/jennifer-gennari/secondary-logo.jpg",
+      "note": "Jennifer Gennari case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d1a5128a-bf96-42b9-a35e-39581417fef1/WEB+LAPTOP+MOCKUP+%282%29.png",
+      "dest": "src/assets/images/case-studies/jennifer-gennari/web-laptop-mockup-2.png",
+      "note": "Jennifer Gennari case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3e3761b4-c783-46ab-895d-a14e53d68286/IMG_8955.jpg",
+      "dest": "src/assets/images/case-studies/jennifer-gennari/img-8955.jpg",
+      "note": "Jennifer Gennari case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9f70e0e7-ec78-46b1-8822-090606782724/18.png",
+      "dest": "src/assets/images/case-studies/jennifer-gennari/18.png",
+      "note": "Jennifer Gennari case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4cbef98a-cfbf-404c-ba28-358f5bb12e28/BRAND+BOOK.png",
+      "dest": "src/assets/images/case-studies/jennifer-gennari/brand-book.png",
+      "note": "Jennifer Gennari case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/95c4ba6f-b25a-4eb1-b2d3-ba739b7d73fb/MOBILE+MOCKUP.png",
+      "dest": "src/assets/images/case-studies/jennifer-gennari/mobile-mockup.png",
+      "note": "Jennifer Gennari case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3fd34308-5eab-43cc-90fd-985c32c7ec14/WEB+LAPTOP+MOCKUP.png",
+      "dest": "src/assets/images/case-studies/jennifer-gennari/web-laptop-mockup.png",
+      "note": "Jennifer Gennari case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/5fc78f7d-1ad9-492d-90f7-6067b46077be/SECONDARY+LOGO+%281%29.png",
+      "dest": "src/assets/images/case-studies/jennifer-gennari/secondary-logo-1.png",
+      "note": "Jennifer Gennari case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f83d5890-ec0b-48d8-9f0f-11f1a2887a31/SQUARE+1.png",
+      "dest": "src/assets/images/case-studies/kathryne-cole/square-1.png",
+      "note": "Kathryne Cole case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/869c795a-6f45-49fb-ba73-5669dfe63a74/EMBOSS+PRIMARY.png",
+      "dest": "src/assets/images/case-studies/kathryne-cole/emboss-primary.png",
+      "note": "Kathryne Cole case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/034804d2-f87e-4f26-9437-906dce3f442a/brand+book+mockup.png",
+      "dest": "src/assets/images/case-studies/kathryne-cole/brand-book-mockup.png",
+      "note": "Kathryne Cole case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/fc411f32-04e8-4591-baf8-616a0017523f/IG+TEMPLATES+2.png",
+      "dest": "src/assets/images/case-studies/kathryne-cole/ig-templates-2.png",
+      "note": "Kathryne Cole case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d6f19d91-e1ea-438a-9809-9138523c5016/SQUARE+3.png",
+      "dest": "src/assets/images/case-studies/kathryne-cole/square-3.png",
+      "note": "Kathryne Cole case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/35bba7fe-6838-484a-a87d-72af430567a8/EMBLEM.png",
+      "dest": "src/assets/images/case-studies/kathryne-cole/emblem.png",
+      "note": "Kathryne Cole case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/8fc2f113-6ed6-434d-93dc-0950fbe685e4/PRIMARY+METALLIC+SILVER.png",
+      "dest": "src/assets/images/case-studies/l-advisors/primary-metallic-silver.png",
+      "note": "L Advisors case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a533f304-c9e8-40b5-8ea0-5e6d784adc7d/9.png",
+      "dest": "src/assets/images/case-studies/l-advisors/9.png",
+      "note": "L Advisors case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/080c12d1-6133-402c-98ca-eb86611160e3/30.png",
+      "dest": "src/assets/images/case-studies/l-advisors/30.png",
+      "note": "L Advisors case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/db4259c8-9189-42fd-a132-fb280ac9af95/STATIONARY+MOCKUP+%285%29.png",
+      "dest": "src/assets/images/case-studies/l-advisors/stationary-mockup-5.png",
+      "note": "L Advisors case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/053ea4c1-6b5c-4c12-8858-eb4503eeda66/27.png",
+      "dest": "src/assets/images/case-studies/l-advisors/27.png",
+      "note": "L Advisors case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/044ccb0a-dd79-4960-97e9-81f456c4c5e3/BRANDMARK.png",
+      "dest": "src/assets/images/case-studies/l-advisors/brandmark.png",
+      "note": "L Advisors case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/909b6dae-8a08-429f-8e50-f85a0df17f18/31.png",
+      "dest": "src/assets/images/case-studies/l-advisors/31.png",
+      "note": "L Advisors case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/72a5d341-50a5-4786-a9b6-567954cd6973/TAGLINE+PHOTO+BG.png",
+      "dest": "src/assets/images/case-studies/l-advisors/tagline-photo-bg.png",
+      "note": "L Advisors case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4f9f5841-7b23-4f5b-b552-f71ae126aecc/STATIONARY+MOCKUP+%286%29.png",
+      "dest": "src/assets/images/case-studies/l-advisors/stationary-mockup-6.png",
+      "note": "L Advisors case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a5b0b004-f946-4620-a604-f143e47cc9cc/Laura+Czuba+Primary+LogoWHITE.png",
+      "dest": "src/assets/images/case-studies/laura-czuba/laura-czuba-primary-logowhite.png",
+      "note": "Laura Czuba case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f269c0c9-4c83-46e0-987c-9078f6ceac85/STATIC+WEB+MOCKUP+HOME.jpg",
+      "dest": "src/assets/images/case-studies/laura-czuba/static-web-mockup-home.jpg",
+      "note": "Laura Czuba case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3c198144-a6ab-4aea-abca-1c7c97643fc8/DEBOSS+SECONDARY.jpg",
+      "dest": "src/assets/images/case-studies/laura-czuba/deboss-secondary.jpg",
+      "note": "Laura Czuba case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/84c68934-cf7b-46c1-ba18-d3391101bf0f/PRIMARY+%283%29.png",
+      "dest": "src/assets/images/case-studies/laura-czuba/primary-3.png",
+      "note": "Laura Czuba case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a8cb3f89-bb2e-43c1-8d66-dfff52fc3abc/DEBOSS+EMBLEM.png",
+      "dest": "src/assets/images/case-studies/laura-czuba/deboss-emblem.png",
+      "note": "Laura Czuba case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b95aefc8-1c98-4c16-b79e-c25afe3886c0/BIZ+CARD+REC+%283%29.png",
+      "dest": "src/assets/images/case-studies/laura-czuba/biz-card-rec-3.png",
+      "note": "Laura Czuba case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4839f742-03ad-4efb-8b02-587c77483082/EMBOSS+PRIMARY+%282%29.png",
+      "dest": "src/assets/images/case-studies/laura-czuba/emboss-primary-2.png",
+      "note": "Laura Czuba case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/caded931-02f2-4338-9403-ebc6f9fc05d8/ESIG.png",
+      "dest": "src/assets/images/case-studies/laura-czuba/esig.png",
+      "note": "Laura Czuba case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/99e52041-5f38-4a66-b737-6f82f41db183/Untitled+design.png",
+      "dest": "src/assets/images/case-studies/love-social/untitled-design.png",
+      "note": "Love Social Media Agency case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ca2da693-a8c4-4885-b999-ded9322adfd1/LoveSocial-0391.jpg",
+      "dest": "src/assets/images/case-studies/love-social/lovesocial-0391.jpg",
+      "note": "Love Social Media Agency case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d87144ad-9f3f-4804-95e2-85179f78a2f2/Screenshot+2026-05-22+at+9.21.18%E2%80%AFPM.png",
+      "dest": "src/assets/images/case-studies/love-social/screenshot-2026-05-22-at-9-21-18-pm.png",
+      "note": "Love Social Media Agency case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e021e82a-a7d1-4dc1-a869-da2dfc4daa0c/7.jpg",
+      "dest": "src/assets/images/case-studies/love-social/7.jpg",
+      "note": "Love Social Media Agency case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/dd2d4f12-a54c-4fc1-8bd8-bff0dc91b7c2/Screenshot+2026-05-22+at+9.51.30%E2%80%AFPM.png",
+      "dest": "src/assets/images/case-studies/love-social/screenshot-2026-05-22-at-9-51-30-pm.png",
+      "note": "Love Social Media Agency case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/cc29c2a3-7d44-4af5-b9ee-ea2b259e949a/KATIELOVE_Headshots0123.jpg",
+      "dest": "src/assets/images/case-studies/love-social/katielove-headshots0123.jpg",
+      "note": "Love Social Media Agency case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7a24f985-b5cf-4947-b717-7851580f55de/Screenshot+2026-05-22+at+10.05.23%E2%80%AFPM.png",
+      "dest": "src/assets/images/case-studies/love-social/screenshot-2026-05-22-at-10-05-23-pm.png",
+      "note": "Love Social Media Agency case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/690b4a5d-5916-4aa6-9212-97481f9159fa/Untitled+design+%2818%29.png",
+      "dest": "src/assets/images/case-studies/love-social/untitled-design-18.png",
+      "note": "Love Social Media Agency case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/6eeb0415-5cfd-480d-9cab-5773940bf88d/Primary-Mint.png",
+      "dest": "src/assets/images/case-studies/mb-graubard-consulting/primary-mint.png",
+      "note": "MB Graubard Consulting case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c479b372-ce33-4b0e-a281-1fa8bb3ac3e7/11.jpg",
+      "dest": "src/assets/images/case-studies/mb-graubard-consulting/11.jpg",
+      "note": "MB Graubard Consulting case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/db0d8b34-030b-4483-91b9-e082b1956d64/5.jpg",
+      "dest": "src/assets/images/case-studies/mb-graubard-consulting/5.jpg",
+      "note": "MB Graubard Consulting case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/00506254-2f0d-404a-8611-24fd1723d1af/Portfolio+Covers+%2833%29.jpg",
+      "dest": "src/assets/images/case-studies/mb-graubard-consulting/portfolio-covers-33.jpg",
+      "note": "MB Graubard Consulting case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c8e072c2-d2f3-4535-8ded-fa03c7054082/7.jpg",
+      "dest": "src/assets/images/case-studies/mb-graubard-consulting/7.jpg",
+      "note": "MB Graubard Consulting case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e1b67b8d-56a7-450a-bd05-adea884ebd50/14.jpg",
+      "dest": "src/assets/images/case-studies/mb-graubard-consulting/14.jpg",
+      "note": "MB Graubard Consulting case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9e508479-be50-4ede-b651-f18e320f9900/15.jpg",
+      "dest": "src/assets/images/case-studies/mb-graubard-consulting/15.jpg",
+      "note": "MB Graubard Consulting case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4b7ebb30-5f48-438c-baca-660573562d4e/Portfolio+Covers+%2831%29.jpg",
+      "dest": "src/assets/images/case-studies/mb-graubard-consulting/portfolio-covers-31.jpg",
+      "note": "MB Graubard Consulting case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e40aca1b-6f79-4a7c-a955-5ccd1ac591dc/SOFT+LINEN+2.png",
+      "dest": "src/assets/images/case-studies/monica-gostkiewicz/soft-linen-2.png",
+      "note": "Monica Gostkiewicz case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/94ce939d-7fc5-4150-a96a-280048417c17/SECONDARY+LOGO.png",
+      "dest": "src/assets/images/case-studies/monica-gostkiewicz/secondary-logo.png",
+      "note": "Monica Gostkiewicz case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/bc76abcf-0a94-4d2a-839d-1a82d8422cad/IG+Mockup.png",
+      "dest": "src/assets/images/case-studies/monica-gostkiewicz/ig-mockup.png",
+      "note": "Monica Gostkiewicz case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/36869e02-2024-449c-a3d5-ec6aef7092c0/Mockup.png",
+      "dest": "src/assets/images/case-studies/monica-gostkiewicz/mockup.png",
+      "note": "Monica Gostkiewicz case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d1c0b611-03f4-470d-a883-c9d1ccc9a9f3/Website+Mockup.png",
+      "dest": "src/assets/images/case-studies/monica-gostkiewicz/website-mockup.png",
+      "note": "Monica Gostkiewicz case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/02e3b1cb-94c5-49a2-8b9a-a2bd2c958097/About.png",
+      "dest": "src/assets/images/case-studies/monica-gostkiewicz/about.png",
+      "note": "Monica Gostkiewicz case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/dd565feb-0530-424b-8fc3-53a1d5c9bee4/Website+Mockup+Pages.png",
+      "dest": "src/assets/images/case-studies/monica-gostkiewicz/website-mockup-pages.png",
+      "note": "Monica Gostkiewicz case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/27bf3d33-da02-47da-84c2-6bade979af79/Quote+%283%29.png",
+      "dest": "src/assets/images/case-studies/monica-gostkiewicz/quote-3.png",
+      "note": "Monica Gostkiewicz case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2bea919c-f885-4a13-a83f-2792fc9e7a3d/STATIONARY.png",
+      "dest": "src/assets/images/case-studies/monica-gostkiewicz/stationary.png",
+      "note": "Monica Gostkiewicz case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/42c86227-9f24-4661-ab6a-83ce0d68ba6b/IVORY+PRIMARY.png",
+      "dest": "src/assets/images/case-studies/sovera/ivory-primary.png",
+      "note": "Sovera case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/fb65769a-cb7c-4106-9652-89a9e50a7199/1.png",
+      "dest": "src/assets/images/case-studies/sovera/1.png",
+      "note": "Sovera case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3048b214-dbfb-4c14-962b-cc97d66e0b27/ANNIE+TAGLINE.png",
+      "dest": "src/assets/images/case-studies/sovera/annie-tagline.png",
+      "note": "Sovera case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/97ec4677-f56b-4fd3-bb66-175a61780883/STATIONARY+MOCKUP+%285%29.png",
+      "dest": "src/assets/images/case-studies/sovera/stationary-mockup-5.png",
+      "note": "Sovera case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/fe96d197-f648-43c5-89f8-d3bc89ff349e/IRL+MOCKUP+%283%29.png",
+      "dest": "src/assets/images/case-studies/sovera/irl-mockup-3.png",
+      "note": "Sovera case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c4468930-b907-4202-8944-5b620dada9a6/SECONDARY+%283%29.png",
+      "dest": "src/assets/images/case-studies/sovera/secondary-3.png",
+      "note": "Sovera case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/5f2c97f3-dc7f-4126-a352-53ee3795fd13/STATIONARY+MOCKUP.png",
+      "dest": "src/assets/images/case-studies/sovera/stationary-mockup.png",
+      "note": "Sovera case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/6ae1a34b-3a64-4d2d-9b97-dda2de44eda4/LM+COVER.png",
+      "dest": "src/assets/images/case-studies/sovera/lm-cover.png",
+      "note": "Sovera case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d656451e-8129-4b27-983f-880612cec7c1/SECONDARY+%282%29.png",
+      "dest": "src/assets/images/case-studies/sovera/secondary-2.png",
+      "note": "Sovera case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2db881fc-ee20-4569-a4c5-6784f6a5e55c/IRL+MOCKUP+%284%29.png",
+      "dest": "src/assets/images/case-studies/sovera/irl-mockup-4.png",
+      "note": "Sovera case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7feebb02-d5b4-4b76-adca-99733da8b99d/Storylock+Legal_Horizontal_Cream.png",
+      "dest": "src/assets/images/case-studies/storylock-legal/storylock-legal-horizontal-cream.png",
+      "note": "Storylock Legal case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f6f0ee21-5ce9-4b32-82ba-042192add87c/1.jpg",
+      "dest": "src/assets/images/case-studies/storylock-legal/1.jpg",
+      "note": "Storylock Legal case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3ec66670-5f99-47e1-b6c3-7832bcb38963/2.jpg",
+      "dest": "src/assets/images/case-studies/storylock-legal/2.jpg",
+      "note": "Storylock Legal case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b5334d51-6e56-4a15-8fea-a271b109dd78/3.jpg",
+      "dest": "src/assets/images/case-studies/storylock-legal/3.jpg",
+      "note": "Storylock Legal case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4385e65f-a800-47a5-b72a-44affc171a45/10.jpg",
+      "dest": "src/assets/images/case-studies/storylock-legal/10.jpg",
+      "note": "Storylock Legal case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/5c69d8c0-7560-4871-a7ee-f2660c671556/5.jpg",
+      "dest": "src/assets/images/case-studies/storylock-legal/5.jpg",
+      "note": "Storylock Legal case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/53142ccc-0f87-473f-b92f-b5a1375a5b15/7.jpg",
+      "dest": "src/assets/images/case-studies/storylock-legal/7.jpg",
+      "note": "Storylock Legal case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c2471b95-ad17-48f9-907d-45a2ddca61fc/9.jpg",
+      "dest": "src/assets/images/case-studies/storylock-legal/9.jpg",
+      "note": "Storylock Legal case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e19d2d6b-a661-437f-9d48-75df3000f4b6/PRIMARY+-+BUTTER+YELLOW.png",
+      "dest": "src/assets/images/case-studies/surrogacy-reimagined/primary-butter-yellow.png",
+      "note": "Surrogacy Reimagined case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/5f9229ce-902b-4486-bba7-035def72a2c5/PRIMARY.png",
+      "dest": "src/assets/images/case-studies/surrogacy-reimagined/primary.png",
+      "note": "Surrogacy Reimagined case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/511a6429-10f5-4a76-b10a-afb8d7914287/STATIONARY+MOCKUP+%282%29.png",
+      "dest": "src/assets/images/case-studies/surrogacy-reimagined/stationary-mockup-2.png",
+      "note": "Surrogacy Reimagined case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c3598bf4-5761-4ccf-bee5-0e5265abef10/PRIMARY+%282%29.png",
+      "dest": "src/assets/images/case-studies/surrogacy-reimagined/primary-2.png",
+      "note": "Surrogacy Reimagined case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9c486739-98a1-40a5-a677-c3db226b79df/WEBSITE+MOCKUP.png",
+      "dest": "src/assets/images/case-studies/surrogacy-reimagined/website-mockup.png",
+      "note": "Surrogacy Reimagined case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/566fdeff-a808-4470-8d5e-2ce80c7313a4/TAGLINE+PHOTO+BG+%284%29.png",
+      "dest": "src/assets/images/case-studies/surrogacy-reimagined/tagline-photo-bg-4.png",
+      "note": "Surrogacy Reimagined case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a008f03a-17f8-46cd-9b7a-646b62119ce0/BRAND+COLLATERAL+MOCKUP+%282%29.png",
+      "dest": "src/assets/images/case-studies/surrogacy-reimagined/brand-collateral-mockup-2.png",
+      "note": "Surrogacy Reimagined case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/43ab060f-a783-4ab4-b8a5-0f7f1a527cec/TAGLINE+PHOTO+BG+%283%29.png",
+      "dest": "src/assets/images/case-studies/surrogacy-reimagined/tagline-photo-bg-3.png",
+      "note": "Surrogacy Reimagined case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/dde050d2-2e7c-48e4-a3ae-8126165986c6/IRL+MOCKUP+%283%29.png",
+      "dest": "src/assets/images/case-studies/surrogacy-reimagined/irl-mockup-3.png",
+      "note": "Surrogacy Reimagined case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/8ef84309-ed7d-40c4-9cd8-0a6a18eb4e5a/ROSE+DUST.png",
+      "dest": "src/assets/images/case-studies/suzanne-falk/rose-dust.png",
+      "note": "Suzanne Falk case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/35657121-7e8e-4ecb-a628-203dd2cc25b1/FABRIC+SWATCHES.png",
+      "dest": "src/assets/images/case-studies/suzanne-falk/fabric-swatches.png",
+      "note": "Suzanne Falk case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/45ad08ed-1d49-47e4-ba8f-c140d528d518/ABOUT+WEB+LAPTOP+MOCKUP.png",
+      "dest": "src/assets/images/case-studies/suzanne-falk/about-web-laptop-mockup.png",
+      "note": "Suzanne Falk case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/42942fe9-be8d-4cdc-9ba2-bdf6d69c0fdc/EMBOSS_DEBOSS+%284%29.png",
+      "dest": "src/assets/images/case-studies/suzanne-falk/emboss-deboss-4.png",
+      "note": "Suzanne Falk case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a2d6ebb6-3f44-44f7-a2da-aaf299ab4e5a/HOME+PAGE+MOBILE+MOCKUP.png",
+      "dest": "src/assets/images/case-studies/suzanne-falk/home-page-mobile-mockup.png",
+      "note": "Suzanne Falk case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3f1f544e-83d6-4010-bf34-e7711b70523d/BRAND+BOOK+%282%29.png",
+      "dest": "src/assets/images/case-studies/suzanne-falk/brand-book-2.png",
+      "note": "Suzanne Falk case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3b691e6a-1fb8-4225-a7be-a535b472e79b/PRIMARY+LOGO.png",
+      "dest": "src/assets/images/case-studies/suzanne-falk/primary-logo.png",
+      "note": "Suzanne Falk case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7ec191dd-0443-4c84-9cd0-34c54b6a789c/HOME+WEB+LAPTOP+MOCKUP.png",
+      "dest": "src/assets/images/case-studies/suzanne-falk/home-web-laptop-mockup.png",
+      "note": "Suzanne Falk case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d538114a-9639-483b-abfd-22686a063bfe/EMBOSS_DEBOSS.png",
+      "dest": "src/assets/images/case-studies/suzanne-falk/emboss-deboss.png",
+      "note": "Suzanne Falk case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a00a1b24-99bc-4840-86a9-258991db898e/2.jpg",
+      "dest": "src/assets/images/case-studies/the-highest-good/2.jpg",
+      "note": "The Highest Good case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/320a637a-f7fe-46d5-9b5b-80da52962c8e/IPHONES+MOCKUP.png",
+      "dest": "src/assets/images/case-studies/the-highest-good/iphones-mockup.png",
+      "note": "The Highest Good case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f3b2eccd-1378-4231-b387-e12cb4609ad3/EMBLEM.png",
+      "dest": "src/assets/images/case-studies/the-highest-good/emblem.png",
+      "note": "The Highest Good case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/5d7168f7-a2bd-48da-8a7a-558f8ef93e74/QUOTE.png",
+      "dest": "src/assets/images/case-studies/the-highest-good/quote.png",
+      "note": "The Highest Good case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/6c11311a-7032-4aa5-bbc9-ad380aa9417e/SOCIAL.png",
+      "dest": "src/assets/images/case-studies/the-highest-good/social.png",
+      "note": "The Highest Good case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d7d80e80-8703-4b74-ab81-cc15059c6d1e/STATIONARY+PRIMARY+MOCKUP.png",
+      "dest": "src/assets/images/case-studies/the-highest-good/stationary-primary-mockup.png",
+      "note": "The Highest Good case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/52c021ef-464d-4800-9d07-70cb9960516a/HEADLINE.png",
+      "dest": "src/assets/images/case-studies/the-highest-good/headline.png",
+      "note": "The Highest Good case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ea79dd3c-d9c4-4cdc-add4-eacea227050c/Screenshot+2026-09-27+at+11.07.42%E2%80%AFAM.png",
+      "dest": "src/assets/images/case-studies/the-highest-good/screenshot-2026-09-27-at-11-07-42-am.png",
+      "note": "The Highest Good case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b3eb14d7-e3d1-4f5d-9964-8481d91cd25c/MOODBOARD.png",
+      "dest": "src/assets/images/case-studies/the-highest-good/moodboard.png",
+      "note": "The Highest Good case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2549cf69-cf6d-44cc-92d9-68780bbc5d60/IRL+RETREAT+GOODY+BAG+MOCKUP.png",
+      "dest": "src/assets/images/case-studies/the-highest-good/irl-retreat-goody-bag-mockup.png",
+      "note": "The Highest Good case study"
     }
   ],
   "videos": [
@@ -523,6 +1363,558 @@
       "dest": "public/videos/case-studies/the-whisper-group/website-4",
       "note": "The Whisper Group: Website screen recording",
       "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1086172d-db9f-4fb4-98fa-4725ae603f8d/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1086172d-db9f-4fb4-98fa-4725ae603f8d/thumbnail",
+      "variant": "1920:1080",
+      "dest": "public/videos/case-studies/ashlee-piper/hero-1",
+      "note": "Ashlee Piper: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2e5f6ca4-7273-4fc7-92ec-65c2fef09e38/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2e5f6ca4-7273-4fc7-92ec-65c2fef09e38/thumbnail",
+      "variant": "2302:1080",
+      "dest": "public/videos/case-studies/ashlee-piper/band-2",
+      "note": "Ashlee Piper: Background video band",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3b0f2bd8-c0ad-4043-9261-a926cf3a09f8/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3b0f2bd8-c0ad-4043-9261-a926cf3a09f8/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/bolt-bloom/hero-1",
+      "note": "Bolt & Bloom: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/dc0b7538-cec3-4114-9ea1-626e99e02868/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/dc0b7538-cec3-4114-9ea1-626e99e02868/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/bolt-bloom/video-2",
+      "note": "Bolt & Bloom: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b19cb385-7c6c-4ccb-bdd8-3aaba90dc959/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b19cb385-7c6c-4ccb-bdd8-3aaba90dc959/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/bolt-bloom/video-3",
+      "note": "Bolt & Bloom: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3b0f2bd8-c0ad-4043-9261-a926cf3a09f8/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3b0f2bd8-c0ad-4043-9261-a926cf3a09f8/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/bolt-bloom/video-4",
+      "note": "Bolt & Bloom: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2b567b91-c825-499d-b199-58925b9de7e1/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2b567b91-c825-499d-b199-58925b9de7e1/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/bolt-bloom/video-5",
+      "note": "Bolt & Bloom: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/921cc4b8-69f2-4bbd-b163-55e032c8fd4a/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/921cc4b8-69f2-4bbd-b163-55e032c8fd4a/thumbnail",
+      "variant": "1920:1080",
+      "dest": "public/videos/case-studies/devin-lee/hero-1",
+      "note": "Devin Lee: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4fdb56df-4db2-4bdc-a53c-a415bf4f9717/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4fdb56df-4db2-4bdc-a53c-a415bf4f9717/thumbnail",
+      "variant": "1620:1080",
+      "dest": "public/videos/case-studies/devin-lee/band-2",
+      "note": "Devin Lee: Background video band",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3683a555-2bb7-4a9e-b8d1-3c64e38856ff/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3683a555-2bb7-4a9e-b8d1-3c64e38856ff/thumbnail",
+      "variant": "1920:1080",
+      "dest": "public/videos/case-studies/enchantee-travel/hero-1",
+      "note": "Enchantée Travel: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/eede8210-0db3-485e-b552-3bf4c288a894/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/eede8210-0db3-485e-b552-3bf4c288a894/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/enchantee-travel/video-2",
+      "note": "Enchantée Travel: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/517ba648-316e-4936-9dce-32b8d4114ac4/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/517ba648-316e-4936-9dce-32b8d4114ac4/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/enchantee-travel/video-3",
+      "note": "Enchantée Travel: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/95138c33-298c-4df7-aa0b-c1049695f863/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/95138c33-298c-4df7-aa0b-c1049695f863/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/enchantee-travel/video-4",
+      "note": "Enchantée Travel: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f2b22399-0a45-4b6a-b556-67cfec3d94a8/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f2b22399-0a45-4b6a-b556-67cfec3d94a8/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/enchantee-travel/video-5",
+      "note": "Enchantée Travel: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/fa49923d-cb37-42c0-98ac-679214dfd374/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/fa49923d-cb37-42c0-98ac-679214dfd374/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/everlight-leadership/hero-1",
+      "note": "Everlight Leadership: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9c650ab9-5274-4cab-b579-c65a0e1567f5/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9c650ab9-5274-4cab-b579-c65a0e1567f5/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/everlight-leadership/video-2",
+      "note": "Everlight Leadership: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ce887047-ac57-4606-bb29-39f54e38bfaf/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ce887047-ac57-4606-bb29-39f54e38bfaf/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/everlight-leadership/video-3",
+      "note": "Everlight Leadership: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3ede9cd1-7b6a-4b76-9e5a-9311e55b226f/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3ede9cd1-7b6a-4b76-9e5a-9311e55b226f/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/everlight-leadership/video-4",
+      "note": "Everlight Leadership: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/37f61d21-5f47-4912-a3a5-70aa53ee6367/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/37f61d21-5f47-4912-a3a5-70aa53ee6367/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/everlight-leadership/video-5",
+      "note": "Everlight Leadership: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/6fe87cb8-39c4-44e0-9472-bd8cce956daa/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/6fe87cb8-39c4-44e0-9472-bd8cce956daa/thumbnail",
+      "variant": "1080:1080",
+      "dest": "public/videos/case-studies/evgn/hero-1",
+      "note": "EVGN: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7b00b335-9750-4347-85f5-a5f5ac8931a2/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7b00b335-9750-4347-85f5-a5f5ac8931a2/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/evgn/video-2",
+      "note": "EVGN: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/048fc4a4-9ef3-42a8-a442-47383e43f5e5/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/048fc4a4-9ef3-42a8-a442-47383e43f5e5/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/evgn/video-3",
+      "note": "EVGN: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3d3b5414-265e-422d-adeb-ba15821913b2/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3d3b5414-265e-422d-adeb-ba15821913b2/thumbnail",
+      "variant": "1920:1080",
+      "dest": "public/videos/case-studies/helloseo/hero-1",
+      "note": "HelloSEO: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9bdde1f3-68e2-4ab9-9f65-26f971c2f53a/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9bdde1f3-68e2-4ab9-9f65-26f971c2f53a/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/helloseo/video-2",
+      "note": "HelloSEO: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/bbe375c8-e3e4-4c1b-be45-e12950b94700/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/bbe375c8-e3e4-4c1b-be45-e12950b94700/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/helloseo/video-3",
+      "note": "HelloSEO: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ce016f20-6222-424b-83b1-5d6f45d5c0db/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ce016f20-6222-424b-83b1-5d6f45d5c0db/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/helloseo/video-4",
+      "note": "HelloSEO: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e8fe2adf-bf3c-441d-985d-38d4d481be87/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e8fe2adf-bf3c-441d-985d-38d4d481be87/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/helloseo/video-5",
+      "note": "HelloSEO: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d7f38024-3e43-4ac1-aedc-5ec239b63789/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d7f38024-3e43-4ac1-aedc-5ec239b63789/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/jennifer-gennari/hero-1",
+      "note": "Jennifer Gennari: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a505ced2-f6bd-454b-92b9-e108f5833373/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a505ced2-f6bd-454b-92b9-e108f5833373/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/jennifer-gennari/video-2",
+      "note": "Jennifer Gennari: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7b1dffd3-998c-42df-9a37-e6d1b835c7e0/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7b1dffd3-998c-42df-9a37-e6d1b835c7e0/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/jennifer-gennari/video-3",
+      "note": "Jennifer Gennari: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/dc0facd7-57aa-4ce3-8261-b28da912e322/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/dc0facd7-57aa-4ce3-8261-b28da912e322/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/jennifer-gennari/video-4",
+      "note": "Jennifer Gennari: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d8841837-d82a-447b-ba25-ff4aba22ef65/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d8841837-d82a-447b-ba25-ff4aba22ef65/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/jennifer-gennari/video-5",
+      "note": "Jennifer Gennari: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d63730da-6e42-4488-81e2-9a1c06c2062a/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d63730da-6e42-4488-81e2-9a1c06c2062a/thumbnail",
+      "variant": "1920:1080",
+      "dest": "public/videos/case-studies/kathryne-cole/hero-1",
+      "note": "Kathryne Cole: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/224cb2af-9293-4bbd-8298-304f380d3f7c/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/224cb2af-9293-4bbd-8298-304f380d3f7c/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/kathryne-cole/video-2",
+      "note": "Kathryne Cole: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e151addd-0140-4ec9-a23d-f62ead1de384/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e151addd-0140-4ec9-a23d-f62ead1de384/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/kathryne-cole/video-3",
+      "note": "Kathryne Cole: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/57102d42-dd9b-44f1-8d52-c377dd3cb2d3/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/57102d42-dd9b-44f1-8d52-c377dd3cb2d3/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/kathryne-cole/video-4",
+      "note": "Kathryne Cole: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/64066485-760d-4f09-b56e-b9d5736ac024/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/64066485-760d-4f09-b56e-b9d5736ac024/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/kathryne-cole/video-5",
+      "note": "Kathryne Cole: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a81e0c57-d2b6-4784-a826-213eb47b03a6/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a81e0c57-d2b6-4784-a826-213eb47b03a6/thumbnail",
+      "variant": "1080:1434",
+      "dest": "public/videos/case-studies/l-advisors/hero-1",
+      "note": "L Advisors: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/55ef45e5-f3c6-4db5-b719-d1e51faccead/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/55ef45e5-f3c6-4db5-b719-d1e51faccead/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/l-advisors/video-2",
+      "note": "L Advisors: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/782e554f-92b0-406d-a4c2-d2d3bfbfa661/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/782e554f-92b0-406d-a4c2-d2d3bfbfa661/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/l-advisors/video-3",
+      "note": "L Advisors: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d067675d-5344-4a40-bc14-075c92efb186/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d067675d-5344-4a40-bc14-075c92efb186/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/l-advisors/video-4",
+      "note": "L Advisors: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4da64aa4-8a07-4e61-873f-47f7cba8048b/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4da64aa4-8a07-4e61-873f-47f7cba8048b/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/l-advisors/video-5",
+      "note": "L Advisors: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d36f259a-f291-4c76-ac66-d20e3e0d7177/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d36f259a-f291-4c76-ac66-d20e3e0d7177/thumbnail",
+      "variant": "1080:1434",
+      "dest": "public/videos/case-studies/laura-czuba/hero-1",
+      "note": "Laura Czuba: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d8bcedcb-cd4f-406a-87e2-c9ed5b523b36/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d8bcedcb-cd4f-406a-87e2-c9ed5b523b36/thumbnail",
+      "variant": "1620:1080",
+      "dest": "public/videos/case-studies/love-social/hero-1",
+      "note": "Love Social Media Agency: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/bba40d42-a8b0-4bb7-81ec-7f5239d214db/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/bba40d42-a8b0-4bb7-81ec-7f5239d214db/thumbnail",
+      "variant": "1852:1080",
+      "dest": "public/videos/case-studies/love-social/band-2",
+      "note": "Love Social Media Agency: Background video band",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/29b43c52-3cca-4348-a494-332bf14394ed/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/29b43c52-3cca-4348-a494-332bf14394ed/thumbnail",
+      "variant": "1080:2050",
+      "dest": "public/videos/case-studies/mb-graubard-consulting/hero-1",
+      "note": "MB Graubard Consulting: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a09d3a6c-db95-4b5a-b7e5-d149e4a3af6f/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a09d3a6c-db95-4b5a-b7e5-d149e4a3af6f/thumbnail",
+      "variant": "1874:1080",
+      "dest": "public/videos/case-studies/mb-graubard-consulting/band-2",
+      "note": "MB Graubard Consulting: Background video band",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ec588fe2-1fac-4411-98d0-c09ddfc51101/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ec588fe2-1fac-4411-98d0-c09ddfc51101/thumbnail",
+      "variant": "1920:1080",
+      "dest": "public/videos/case-studies/monica-gostkiewicz/hero-1",
+      "note": "Monica Gostkiewicz: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/810e07b9-f2d7-462f-b788-cb705b18c172/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/810e07b9-f2d7-462f-b788-cb705b18c172/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/monica-gostkiewicz/video-2",
+      "note": "Monica Gostkiewicz: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2eade3df-a9ed-40c2-8d0c-f1b7f4e1c597/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2eade3df-a9ed-40c2-8d0c-f1b7f4e1c597/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/monica-gostkiewicz/video-3",
+      "note": "Monica Gostkiewicz: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/373dda3f-b200-485c-9c2f-37ed7fb9c5ea/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/373dda3f-b200-485c-9c2f-37ed7fb9c5ea/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/monica-gostkiewicz/video-4",
+      "note": "Monica Gostkiewicz: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/0356a6b3-e6b4-4c96-abc7-256dcdd59853/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/0356a6b3-e6b4-4c96-abc7-256dcdd59853/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/monica-gostkiewicz/video-5",
+      "note": "Monica Gostkiewicz: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c4a87a9c-e5e3-4386-89ba-3ae10fa542de/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c4a87a9c-e5e3-4386-89ba-3ae10fa542de/thumbnail",
+      "variant": "1080:1620",
+      "dest": "public/videos/case-studies/sovera/hero-1",
+      "note": "Sovera: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ca805393-ee98-4be8-afd6-992a9810c0ef/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ca805393-ee98-4be8-afd6-992a9810c0ef/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/sovera/video-2",
+      "note": "Sovera: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f1511b16-9f13-45c6-9daf-f4174658aa23/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f1511b16-9f13-45c6-9daf-f4174658aa23/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/sovera/video-3",
+      "note": "Sovera: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/039ff84b-a8b2-43c4-88e5-3fc89d7e4f89/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/039ff84b-a8b2-43c4-88e5-3fc89d7e4f89/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/sovera/video-4",
+      "note": "Sovera: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/568930e6-7644-4ff0-9807-d9ea2bd92296/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/568930e6-7644-4ff0-9807-d9ea2bd92296/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/sovera/video-5",
+      "note": "Sovera: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4b93873d-8655-4941-a324-8dcbf751147c/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4b93873d-8655-4941-a324-8dcbf751147c/thumbnail",
+      "variant": "2048:1080",
+      "dest": "public/videos/case-studies/storylock-legal/hero-1",
+      "note": "Storylock Legal: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9bfd338c-962a-408b-b8da-9e692150a652/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9bfd338c-962a-408b-b8da-9e692150a652/thumbnail",
+      "variant": "1920:1080",
+      "dest": "public/videos/case-studies/surrogacy-reimagined/hero-1",
+      "note": "Surrogacy Reimagined: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c1b6387f-570a-4221-8729-15cab77414d0/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c1b6387f-570a-4221-8729-15cab77414d0/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/surrogacy-reimagined/video-2",
+      "note": "Surrogacy Reimagined: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/fe1bf268-5408-4c60-b8e4-02c73c5be474/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/fe1bf268-5408-4c60-b8e4-02c73c5be474/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/surrogacy-reimagined/video-3",
+      "note": "Surrogacy Reimagined: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/fb8d92e0-f35e-408b-b4b5-7a228f585c40/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/fb8d92e0-f35e-408b-b4b5-7a228f585c40/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/surrogacy-reimagined/video-4",
+      "note": "Surrogacy Reimagined: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/68afba03-2b2f-495b-8dee-abef096ddd28/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/68afba03-2b2f-495b-8dee-abef096ddd28/thumbnail",
+      "variant": "1080:1350",
+      "dest": "public/videos/case-studies/surrogacy-reimagined/video-5",
+      "note": "Surrogacy Reimagined: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b9535289-20a5-4a1d-8b46-999a5f65b562/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b9535289-20a5-4a1d-8b46-999a5f65b562/thumbnail",
+      "variant": "1920:1080",
+      "dest": "public/videos/case-studies/suzanne-falk/hero-1",
+      "note": "Suzanne Falk: Hero background video",
+      "width": 1280
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/06cc4ac8-692f-4d4c-8f9a-af07f9449556/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/06cc4ac8-692f-4d4c-8f9a-af07f9449556/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/suzanne-falk/video-2",
+      "note": "Suzanne Falk: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e4b65fb8-c923-4be9-86bb-2d10fc0eaf67/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e4b65fb8-c923-4be9-86bb-2d10fc0eaf67/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/suzanne-falk/video-3",
+      "note": "Suzanne Falk: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ff9a7a89-f625-47b6-941f-8a64d7a45ade/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ff9a7a89-f625-47b6-941f-8a64d7a45ade/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/suzanne-falk/video-4",
+      "note": "Suzanne Falk: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9a8dfb52-3108-449b-a699-6d2134814950/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9a8dfb52-3108-449b-a699-6d2134814950/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/suzanne-falk/video-5",
+      "note": "Suzanne Falk: Website screen recording",
+      "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/535b17db-4b8b-4e86-a3e6-47abf2d940cd/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/535b17db-4b8b-4e86-a3e6-47abf2d940cd/thumbnail",
+      "variant": "1080:1920",
+      "dest": "public/videos/case-studies/the-highest-good/hero-1",
+      "note": "The Highest Good: Hero background video",
+      "width": 1280
     }
   ]
 }

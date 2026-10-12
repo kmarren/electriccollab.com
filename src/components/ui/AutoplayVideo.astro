@@ -21,11 +21,13 @@ export interface Props {
   eager?: boolean;
   /** Fill the positioned parent edge to edge (section background video). */
   background?: boolean;
+  /** Playback speed (some live background videos run at half speed). */
+  playbackRate?: number;
   class?: string;
   style?: string;
 }
 
-const { src, width, height, frame, eager = false, background = false, class: className, style } = Astro.props;
+const { src, width, height, frame, eager = false, background = false, playbackRate = 1, class: className, style } = Astro.props;
 ---
 
 <video
@@ -40,6 +42,7 @@ const { src, width, height, frame, eager = false, background = false, class: cla
   autoplay={eager}
   preload={eager ? 'auto' : 'none'}
   data-lazy-video={eager ? undefined : ''}
+  data-playback-rate={playbackRate === 1 ? undefined : playbackRate}
   aria-hidden="true"
   tabindex="-1"
   disablepictureinpicture
@@ -69,6 +72,7 @@ const { src, width, height, frame, eager = false, background = false, class: cla
 
   const play = (video: HTMLVideoElement) => {
     if (reduceMotion.matches) return;
+    if (video.dataset.playbackRate) video.playbackRate = Number(video.dataset.playbackRate);
     video.play().catch(() => {
       /* Autoplay can be blocked (e.g. low-power mode); the poster remains. */
     });

@@ -51,9 +51,12 @@ async function variantPlaylist(masterUrl, variant) {
 async function downloadVideo({ playlist, thumbnail, variant, dest, width }) {
   const mp4 = `${dest}.mp4`;
   const out = resolve(root, mp4);
-  const master = resolve(root, 'scripts/.cache', `${dest.split('/').pop()}-${variant.replace(':', 'x')}.mp4`);
+  // Cache key includes the folder so same-named clips from different projects don't collide.
+  const cacheName = dest.replace(/^public\/videos\//, '').replaceAll('/', '--');
+  const master = resolve(root, 'scripts/.cache', `${cacheName}-${variant.replace(':', 'x')}.mp4`);
+  const encode = force || !existsSync(out);
 
-  if (force || !existsSync(master)) {
+  if (encode && !existsSync(master)) {
     await mkdir(dirname(master), { recursive: true });
     const source = await variantPlaylist(playlist, variant);
     execFileSync(
@@ -64,7 +67,7 @@ async function downloadVideo({ playlist, thumbnail, variant, dest, width }) {
     );
   }
 
-  if (force || !existsSync(out)) {
+  if (encode) {
     await mkdir(dirname(out), { recursive: true });
     execFileSync(
       'ffmpeg',

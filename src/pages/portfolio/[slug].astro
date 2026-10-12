@@ -28,8 +28,21 @@ interface Props {
 
 const { project, prev, next } = Astro.props;
 const cs = project.data.caseStudy;
-const headline = cs?.intro.heading.join(' ');
-const shareImage = cs ? await getImage({ src: cs.intro.images[0].src, width: 1200, format: 'jpg' }) : undefined;
+
+// The project headline (the page's h1) as plain text, for the meta description and schema.
+const headingHtml = cs?.sections.flatMap((s) => s.blocks).find((b) => b.type === 'text')?.html.match(/<h1[^>]*>(.*?)<\/h1>/)?.[1];
+const headline = headingHtml
+  ?.replace(/<br>/g, ' ')
+  .replace(/<[^>]+>/g, '')
+  .replace(/&amp;/g, '&')
+  .replace(/&nbsp;/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim();
+
+// Share image: the first image beside the intro text (the hero holds only the logo).
+const introSection = cs?.sections.find((s) => s.blocks.some((b) => b.type === 'text'));
+const firstImage = introSection?.blocks.find((b) => b.type === 'image');
+const shareImage = firstImage?.type === 'image' ? await getImage({ src: firstImage.src, width: 1200, format: 'jpg' }) : undefined;
 ---
 
 <BaseLayout
