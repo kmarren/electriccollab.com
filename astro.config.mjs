@@ -26,6 +26,9 @@ export default defineConfig({
   },
 
   integrations: [
-    sitemap(),
+    sitemap({
+      // Utility pages that should never be indexed.
+      filter: (page) => !page.endsWith('/thank-you'),
+    }),
   ],
 });

@@ -32,7 +32,7 @@ const narrowOnMobile = photo.mobile.split('/')[3]?.trim() === '5';
 const [before, after] = t.link ? t.attribution.split(t.link.text) : [t.attribution, ''];
 ---
 
-<FluidSection as="div" rows={rows} theme="light">
+<FluidSection as="div" rows={rows} theme="light" class:list={{ 'testimonial--plain': t.tone === 'plain' }}>
   <FluidItem desktop={photo.desktop} mobile={photo.mobile} z={5} class:list={['testimonial-photo', { 'testimonial-photo--end': narrowOnMobile }]}>
     <Image
       class="photo"
@@ -47,6 +47,7 @@ const [before, after] = t.link ? t.attribution.split(t.link.text) : [t.attributi
   <FluidItem desktop={quote.desktop} mobile={quote.mobile} z={4} as="figure" class="testimonial-quote">
     <blockquote>
       <p>{t.quote}</p>
+      {t.continuation && <p class="continuation">{t.continuation}</p>}
     </blockquote>
     <figcaption class="eyebrow">
       {before}
@@ -89,6 +90,18 @@ const [before, after] = t.link ? t.attribution.split(t.link.text) : [t.attributi
     font-size: var(--fs-h3);
     line-height: var(--lh-h3);
     color: var(--color-terracotta);
+  }
+
+  blockquote .continuation {
+    margin-top: 2rem;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+  }
+
+  :global(.testimonial--plain) blockquote p,
+  :global(.testimonial--plain) figcaption {
+    color: var(--color-burgundy);
   }
 
   figcaption {

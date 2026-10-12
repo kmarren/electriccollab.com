@@ -363,6 +363,31 @@
       "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/0240f834-d7c7-4d93-8977-a83c1df660c6/Screenshot+2025-03-05+at+16.31.06.png",
       "dest": "src/assets/images/testimonials/mary-wiegand.png",
       "note": "About page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4aaa441a-db12-4e2c-9740-f0211b40a0f8/Brand+Book.jpg",
+      "dest": "src/assets/images/contact/brand-book.jpg",
+      "note": "Contact page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c1dd0a6f-1adb-4da6-901c-67876389c2bb/Screenshot+2026-03-02+at+7.54.10%E2%80%AFPM.png",
+      "dest": "src/assets/images/testimonials/tara-roscioli.png",
+      "note": "Contact page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e13b49aa-da55-422e-9d6f-b5550398cadc/iStock-2192564828.jpg",
+      "dest": "src/assets/images/contact/silk-background.jpg",
+      "note": "Contact page section backgrounds (licensed iStock image)"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/675966ce-f67a-4b15-9b1c-5d544dc57262/wax-seal-mockup-v5-top.png",
+      "dest": "src/assets/images/contact/wax-seal.png",
+      "note": "Contact page"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/worksans/v24/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXBi8Jpo3ZKyHaQQ.woff2",
+      "dest": "public/fonts/work-sans-400-latin.woff2",
+      "note": "Form option labels (SIL Open Font License, via Google Fonts)"
     }
   ],
   "videos": [

@@ -1,12 +1,157 @@
 ---
-// Placeholder route so internal links resolve. Page content is migrated in a
-// later phase; title/description already match the live Squarespace page.
+/**
+ * "GET STARTED" — the contact page: an intro over silk, who the studio is a
+ * fit for, a testimonial, and the application form (Netlify Forms).
+ * Grid placement mirrors the live page.
+ */
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FluidSection from '../components/layout/FluidSection.astro';
+import FluidItem from '../components/layout/FluidItem.astro';
+import Button from '../components/ui/Button.astro';
+import DrawUnderline from '../components/ui/DrawUnderline.astro';
+import ParallaxBackground from '../components/ui/ParallaxBackground.astro';
+import Testimonial from '../components/global/Testimonial.astro';
+import ContactForm from '../components/contact/ContactForm.astro';
+import silk from '../assets/images/contact/silk-background.jpg';
+import brandBook from '../assets/images/contact/brand-book.jpg';
+import waxSeal from '../assets/images/contact/wax-seal.png';
+
+const SILK_FOCUS = '84.1% 11.2%';
 ---
 
 <BaseLayout
   title="Contact | Emily Paulsen | Chicago, IL | Electric Collab"
   description="Ready to start your brand project? Contact Electric Collab, a Chicago-based branding and web design studio, today."
-  noindex
 >
+  <!-- Intro ----------------------------------------------------------------- -->
+  <FluidSection rows={{ mobile: 18, desktop: 21 }} columnGap={0} rowGap={0} padded clearHeader theme="dark" aria-labelledby="contact-title">
+    <ParallaxBackground slot="background" src={silk} position={SILK_FOCUS} overlay={0.73} eager />
+
+    <FluidItem desktop="3/6/8/22" mobile="2/2/4/10" z={1} align={{ desktop: 'center', mobile: 'start' }}>
+      <h1 id="contact-title" class="centered">An Investment In Your Next Chapter, Designed to <DrawUnderline>Pay Dividends</DrawUnderline>.</h1>
+    </FluidItem>
+
+    <FluidItem desktop="9/8/15/20" mobile="5/2/10/10" z={2} class="rte centered">
+      <p>
+        The founders who invest in this work are building for what's coming. They're ready for a brand that reflects the full scope of what they've created and positions them for the growth, visibility, and clients they know they're ready for.{' '}
+      </p>
+      <p>
+        They walk away with a complete brand ecosystem: premium positioning, elevated visual identity, and an AI-amplified website built to attract the clients they want, at the prices their work is worth.
+      </p>
+    </FluidItem>
+
+    <FluidItem desktop="16/11/18/17" mobile="12/3/14/9" z={3}>
+      <Button href="#contactform" variant="underline" fill>Jump to the application</Button>
+    </FluidItem>
+
+    <FluidItem desktop="20/7/21/21" mobile="17/2/18/10" z={3}>
+      <p class="eyebrow centered takes">TAKES 4-6 MINUTES TO COMPLETE</p>
+    </FluidItem>
+  </FluidSection>
+
+  <!-- Fit ------------------------------------------------------------------- -->
+  <FluidSection rows={{ mobile: 22, desktop: 18 }} theme="light" aria-labelledby="fit-title">
+    <FluidItem desktop="1/4/18/12" mobile="2/2/10/10" z={{ desktop: 6, mobile: 5 }}>
+      <Image class="media-fill" src={brandBook} alt="A client reading a printed brand book open to its Brand Applications section" widths={[343, 434, 686, 868]} sizes="(max-width: 767px) 88vw, 30vw" />
+    </FluidItem>
+
+    <FluidItem desktop="4/14/6/24" mobile="10/2/12/10" z={{ desktop: 2, mobile: 1 }}>
+      <h2 id="fit-title" class="text-h3">We are likely a fit if:</h2>
+    </FluidItem>
+
+    <FluidItem desktop="6/14/14/24" mobile="12/2/21/10" z={{ desktop: 3, mobile: 2 }} align="start">
+      <ul class="fit-list">
+        <li>You invested in branding during the early days of business, but it no longer reflects your true value in the market.</li>
+        <li>Your approach to your industry is unique, so you need a strategic partner who understands your depth of expertise and can articulate your vision for the future.</li>
+        <li>Your offers have evolved and your audience has elevated, but your current brand is not performing with more premium buyers.</li>
+        <li>You’re ready for a high-touch, collaborative process with a team that owns the details from strategy to launch so you can focus on running your business…and enjoying the ride.</li>
+      </ul>
+    </FluidItem>
+
+    <FluidItem desktop="16/1/17/27" mobile="21/1/23/11" z={{ desktop: 5, mobile: 4 }}>
+      <hr class="rule rule--red" />
+    </FluidItem>
+  </FluidSection>
+
+  <Testimonial
+    id="tara-roscioli"
+    rows={{ mobile: 18, desktop: 11 }}
+    photo={{ desktop: '2/20/9/24', mobile: '1/2/6/5' }}
+    quote={{ desktop: '2/4/9/17', mobile: '6/2/17/10' }}
+  />
+
+  <!-- Application ------------------------------------------------------------ -->
+  <FluidSection rows={{ mobile: 142, desktop: 97 }} columnGap={0} rowGap={0} theme="dark" id="contactform" aria-labelledby="application-title">
+    <ParallaxBackground slot="background" src={silk} position={SILK_FOCUS} overlay={0.3} />
+
+    <FluidItem desktop="6/4/95/24" mobile="4/1/143/11" z={2} aria-hidden="true">
+      <div class="panel"></div>
+    </FluidItem>
+
+    <FluidItem desktop="3/12/8/16" mobile="1/2/7/10" z={7}>
+      <Image class="media-fill seal" src={waxSeal} alt="" widths={[142, 284, 426]} sizes="142px" />
+    </FluidItem>
+
+    <FluidItem desktop="9/8/14/20" mobile="8/2/15/10" z={9} align="start" class="rte centered">
+      <h2 id="application-title" class="text-h3 red">Start the conversation by filling out this application, and I’ll be in touch to dive into the details.{' '}</h2>
+      <p class="eyebrow red">THANK YOU FOR FINDING US!</p>
+    </FluidItem>
+
+    <FluidItem desktop="15/6/88/22" mobile="16/2/134/10" z={3} align="start">
+      <ContactForm />
+    </FluidItem>
+
+    <FluidItem desktop="90/6/92/22" mobile="135/2/141/10" z={4} align={{ desktop: 'start', mobile: 'center' }}>
+      <p class="eyebrow red">
+        By submitting a contact form, you are opting in to receive emails from Electric Collab. You can unsubscribe at any time. We review every application carefully. Your information stays private and is used only to assess fit.
+      </p>
+    </FluidItem>
+  </FluidSection>
 </BaseLayout>
+
+<style>
+  .centered,
+  :global(.centered) {
+    text-align: center;
+  }
+
+  .takes {
+    color: var(--color-terracotta);
+  }
+
+  .fit-list {
+    margin: 0.5em 0;
+    padding-left: 40px;
+    list-style: none;
+  }
+
+  .fit-list li {
+    position: relative;
+  }
+
+  .fit-list li + li {
+    margin-top: 0.5em;
+  }
+
+  .fit-list li::before {
+    content: '•';
+    position: absolute;
+    left: -24px;
+  }
+
+  /* Cream application panel with a 2px red border. */
+  .panel {
+    flex: 1;
+    background-color: var(--color-cream);
+    border: 2px solid var(--color-red);
+  }
+
+  :global(.seal) {
+    object-fit: contain;
+  }
+
+  .red {
+    color: var(--color-red);
+  }
+</style>

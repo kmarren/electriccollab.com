@@ -21,7 +21,7 @@ export interface Props {
   noindex?: boolean;
   ogType?: 'website' | 'article';
   /** Header variant: light for pages whose first section is cream. */
-  headerTheme?: 'dark' | 'light';
+  headerTheme?: 'dark' | 'light' | 'light-boxed';
 }
 
 const { headerTheme = 'dark', ...props } = Astro.props;

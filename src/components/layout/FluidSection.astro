@@ -28,6 +28,10 @@ export interface Props extends HTMLAttributes<'section'> {
   columnGap?: number;
   /** Row gap in px (default 11). */
   rowGap?: number;
+  /** Squarespace "small" section height: 3.3vmax padding above and below the grid. */
+  padded?: boolean;
+  /** First section on the page: also clears the transparent header. */
+  clearHeader?: boolean;
   /**
    * Squarespace "inset" background: the section keeps the page background and
    * the content sits on a colored panel inset 4vw on every side.
@@ -37,11 +41,16 @@ export interface Props extends HTMLAttributes<'section'> {
   as?: 'section' | 'div';
 }
 
-const { rows, theme = 'dark', columnGap = 11, rowGap = 11, insetPanel, as: Tag = 'section', class: className, style, ...attrs } = Astro.props;
+const { rows, theme = 'dark', columnGap = 11, rowGap = 11, padded = false, clearHeader = false, insetPanel, as: Tag = 'section', class: className, style, ...attrs } = Astro.props;
 ---
 
 <Tag
-  class:list={['fluid-section', `theme-${theme}`, { 'fluid-section--inset': insetPanel }, className]}
+  class:list={[
+    'fluid-section',
+    `theme-${theme}`,
+    { 'fluid-section--inset': insetPanel, 'fluid-section--padded': padded, 'fluid-section--clear-header': clearHeader },
+    className,
+  ]}
   style={`--rows-mobile: ${rows.mobile}; --rows-desktop: ${rows.desktop}; --col-gap-base: ${columnGap}px; --row-gap: ${rowGap}px;${style ?? ''}`}
   {...attrs}
 >
@@ -74,6 +83,18 @@ const { rows, theme = 'dark', columnGap = 11, rowGap = 11, insetPanel, as: Tag =
     position: absolute;
     inset: 0;
     overflow: hidden;
+  }
+
+  .fluid-section--padded {
+    padding-block: 3.3vmax;
+  }
+
+  .fluid-section--clear-header {
+    padding-top: var(--header-height);
+  }
+
+  .fluid-section--padded.fluid-section--clear-header {
+    padding-top: calc(var(--header-height) + 3.3vmax);
   }
 
   .fluid-section--inset {

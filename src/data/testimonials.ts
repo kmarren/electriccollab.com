@@ -12,6 +12,10 @@
 
 export interface Testimonial {
   quote: string;
+  /** Optional second part of the quote, set in body text (contact page). */
+  continuation?: string;
+  /** "accent": terracotta quote (default). "plain": burgundy quote and caption. */
+  tone?: 'accent' | 'plain';
   attribution: string;
   link?: { text: string; href: string };
   photo: string;
@@ -120,6 +124,16 @@ export const testimonials = {
     link: { text: 'Boon Inventory Management', href: 'https://boon-llc.com/' },
     photo: 'mary-wiegand.png',
     photoAlt: 'Portrait of Mary Wiegand',
+  },
+  'tara-roscioli': {
+    quote: '“Hands down, the best investment I have ever made in my business.',
+    continuation:
+      'I’ve worked with a lot of others in the past who promised more than they performed, and I needed a professional who truly understood me, our business value, and vision. My new brand and website is clear, concise, and 100% me. You literally brought it life!”',
+    attribution: 'Tara Roscioli | Founder of Highway 2 Well',
+    photo: 'tara-roscioli.png',
+    photoAlt: 'Portrait of Tara Roscioli',
+    photoPosition: '43.98% 12.8%',
+    tone: 'plain',
   },
 } satisfies Record<string, Testimonial>;
 

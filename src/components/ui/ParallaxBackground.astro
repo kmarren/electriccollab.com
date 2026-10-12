@@ -1,0 +1,88 @@
+---
+/**
+ * Section background photo with a colored overlay and a gentle scroll
+ * parallax, recreating Squarespace's "tilt" background effect: as the page
+ * scrolls, the image drifts up ~0.107px per pixel scrolled (measured on the
+ * live contact page). The image box is oversized so no edge ever shows.
+ * Static for visitors who prefer reduced motion.
+ *
+ * Use inside a FluidSection's "background" slot.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+export interface Props {
+  src: ImageMetadata;
+  /** CSS object-position (the live focal point). */
+  position?: string;
+  /** Overlay opacity (burgundy), as set on the live section. */
+  overlay: number;
+  /** Scroll factor; 0 disables the effect. */
+  speed?: number;
+  eager?: boolean;
+}
+
+const { src, position = '50% 50%', overlay, speed = 0.107, eager = false } = Astro.props;
+---
+
+<div class="parallax" data-parallax={speed} style={`--speed: ${speed}`}>
+  <Image
+    class="parallax-image"
+    src={src}
+    alt=""
+    widths={[640, 1024, 1440, 2121]}
+    sizes="100vw"
+    loading={eager ? 'eager' : 'lazy'}
+    style={`object-position: ${position}`}
+  />
+</div>
+<div class="parallax-overlay" style={`opacity: ${overlay}`}></div>
+
+<style>
+  .parallax {
+    position: absolute;
+    /* Room for the drift: the image moves down while the section is below the
+       fold (up to one viewport) and up as it scrolls away (up to its height). */
+    inset: calc(var(--speed) * -100vh) 0 calc(var(--speed) * -100%);
+    will-change: transform;
+  }
+
+  .parallax-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .parallax-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-burgundy);
+  }
+</style>
+
+<script>
+  const layers = [...document.querySelectorAll<HTMLElement>('[data-parallax]')];
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (layers.length && !reduce.matches) {
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      for (const layer of layers) {
+        const section = layer.parentElement!;
+        const top = section.getBoundingClientRect().top;
+        if (top > innerHeight || top + section.offsetHeight < 0) continue;
+        layer.style.transform = `translate3d(0, ${(top * Number(layer.dataset.parallax)).toFixed(1)}px, 0)`;
+      }
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll);
+    update();
+  }
+</script>

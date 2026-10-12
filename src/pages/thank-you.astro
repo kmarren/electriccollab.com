@@ -1,0 +1,40 @@
+---
+/**
+ * Confirmation page shown after the contact application is submitted
+ * (unlisted on the live site; kept out of search results).
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FluidSection from '../components/layout/FluidSection.astro';
+import FluidItem from '../components/layout/FluidItem.astro';
+---
+
+<BaseLayout
+  title="Thank You for booking a call! | Chicago, IL | Electric Collab"
+  description="Thanks for getting in touch with Electric Collab."
+  headerTheme="light"
+  noindex
+>
+  <FluidSection rows={{ mobile: 18, desktop: 14 }} columnGap={0} rowGap={0} padded clearHeader theme="light" class="thanks" aria-labelledby="thanks-title">
+    <FluidItem desktop="3/8/5/20" mobile="3/2/5/10" z={0} align={{ desktop: 'center', mobile: 'start' }}>
+      <h1 id="thanks-title" class="text-h2 centered">Thank you for getting in touch!</h1>
+    </FluidItem>
+    <FluidItem desktop="6/8/9/20" mobile="6/2/13/10" z={1} align={{ desktop: 'start', mobile: 'center' }} class="rte centered">
+      <p>Your form has been received. (Woohoo!)</p>
+      <p>You will receive an email soon and if this feels like a fit, we’ll include an invitation to book a call so we can discuss your specific business needs.</p>
+    </FluidItem>
+    <FluidItem desktop="11/8/13/20" mobile="15/2/17/10" z={1} align="start">
+      <p class="text-h3 red centered">We can’t wait to meet you!</p>
+    </FluidItem>
+  </FluidSection>
+</BaseLayout>
+
+<style>
+  .centered,
+  :global(.centered) {
+    text-align: center;
+  }
+
+  .red {
+    color: var(--color-red);
+  }
+</style>

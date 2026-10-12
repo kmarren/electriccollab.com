@@ -3,7 +3,7 @@
 Astro rebuild of [electriccollab.com](https://www.electriccollab.com), migrated from Squarespace.
 This is a faithful migration, not a redesign. See [AGENTS.md](AGENTS.md) for project goals and rules.
 
-**Status:** homepage, "our services" (`/electric-brand-experience`), "our work" (`/portfolio`) and "the studio" (`/about`) migrated; every other route exists as a `noindex` placeholder.
+**Status:** homepage, "our services" (`/electric-brand-experience`), "our work" (`/portfolio`), "the studio" (`/about`) and contact (`/contact` + `/thank-you`) migrated; every other route exists as a `noindex` placeholder.
 
 ## Commands
 
@@ -64,6 +64,20 @@ Type sizes follow the theme's own fluid formula (see `src/styles/tokens.css`).
 - **Flodesk popup** ("The Briefing"): same embed as before; display rules live in Flodesk.
 - **Smooth scrolling**: Lenis, same settings as the old site; disabled for reduced motion.
 
+## Contact form (Netlify Forms)
+
+The application form on `/contact` is a Netlify Form (`src/components/contact/ContactForm.astro`,
+fields in `src/data/contactForm.ts`). Submissions appear in Netlify → **Forms → application**.
+
+One-time setup in Netlify:
+
+1. **Forms → Enable form detection** (then redeploy so Netlify registers the form).
+2. **Forms → Form notifications → Add notification → Email** for the address that should
+   receive applications.
+
+Spam is filtered by Netlify plus a hidden honeypot field. Successful submissions redirect to
+`/thank-you`. Submitting only works on Netlify (deploy previews included), not `astro dev`.
+
 ## Deploying (Netlify)
 
 `netlify.toml` holds the build settings, legacy redirects (`/home` → `/`) and cache headers.
@@ -77,4 +91,5 @@ At launch, set `PUBLIC_ALLOW_INDEXING=true` in Netlify's environment variables.
 - [ ] All placeholder pages migrated (remove their `noindex` prop)
 - [ ] Client approval of the full site
 - [ ] `PUBLIC_ALLOW_INDEXING=true` set in Netlify
+- [ ] Netlify form detection enabled + notification email set; test submission received
 - [ ] Custom domain pointed at Netlify; Squarespace subscription kept until verified
