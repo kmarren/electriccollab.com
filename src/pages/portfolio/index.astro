@@ -1,12 +1,106 @@
 ---
-// Placeholder route so internal links resolve. Page content is migrated in a
-// later phase; title/description already match the live Squarespace page.
+/**
+ * "our work" — the portfolio index: an introduction, then twenty projects in
+ * pairs. Tile content comes from the portfolio collection (`index` data);
+ * the pairing and placement below mirror the live page.
+ */
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import JsonLd from '../../components/global/JsonLd.astro';
+import FluidSection from '../../components/layout/FluidSection.astro';
+import FluidItem from '../../components/layout/FluidItem.astro';
+import PortfolioTile from '../../components/portfolio/PortfolioTile.astro';
+import { portfolioCollection } from '../../lib/schema';
+
+const projects = (await getCollection('portfolio', (entry) => Boolean(entry.data.index))).sort(
+  (a, b) => a.data.index!.order - b.data.index!.order,
+);
+
+/**
+ * Each live section holds two projects (in `order` sequence). `side` is the
+ * desktop column of the first project; on mobile the first listed stacks on
+ * top. `captionEnd` is where each caption's text block ends (desktop column).
+ */
+interface Pair {
+  firstSide: 'left' | 'right';
+  captionEnd: [number, number];
+  rowsDesktop?: number;
+}
+
+const pairs: Pair[] = [
+  { firstSide: 'left', captionEnd: [13, 25] },
+  { firstSide: 'left', captionEnd: [11, 24] },
+  { firstSide: 'left', captionEnd: [13, 25] },
+  { firstSide: 'left', captionEnd: [14, 23] },
+  { firstSide: 'right', captionEnd: [23, 14] },
+  { firstSide: 'right', captionEnd: [23, 12] },
+  { firstSide: 'left', captionEnd: [13, 25] },
+  { firstSide: 'left', captionEnd: [14, 23] },
+  { firstSide: 'right', captionEnd: [23, 11] },
+  { firstSide: 'right', captionEnd: [26, 14], rowsDesktop: 15 },
+];
+
+const column = { left: { start: 2, end: 14 }, right: { start: 14, end: 26 } } as const;
+
+const sections = pairs.map((pair, i) => {
+  const sides = pair.firstSide === 'left' ? (['left', 'right'] as const) : (['right', 'left'] as const);
+  return {
+    rows: { mobile: 21, desktop: pair.rowsDesktop ?? 14 },
+    tiles: [0, 1].map((n) => {
+      const side = column[sides[n]];
+      return {
+        project: projects[i * 2 + n],
+        image: { desktop: `1/${side.start}/13/${side.end}`, mobile: n === 0 ? '1/2/9/10' : '11/2/19/10' },
+        caption: { desktop: `13/${side.start}/15/${pair.captionEnd[n]}`, mobile: n === 0 ? '9/2/11/10' : '19/2/21/10' },
+      };
+    }),
+  };
+});
 ---
 
 <BaseLayout
   title="Portfolio | Chicago, IL | Electric Collab"
   description="Browse real brand and website projects from our Chicago studio, built for founders ready to make their mark."
-  noindex
+  headerTheme="light"
 >
+  <JsonLd
+    slot="head"
+    data={portfolioCollection({
+      name: 'Portfolio',
+      path: '/portfolio',
+      items: projects.map((p) => ({ name: p.data.title, path: `/portfolio/${p.id}` })),
+    })}
+  />
+
+  <FluidSection rows={{ mobile: 8, desktop: 7 }} theme="light" class="portfolio-intro" aria-labelledby="portfolio-title">
+    <FluidItem desktop="2/8/5/20" mobile="2/2/4/10" z={1} align={{ desktop: 'center', mobile: 'start' }}>
+      <h1 id="portfolio-title" class="text-h2 centered">Trusted by 100+ Founders</h1>
+    </FluidItem>
+    <FluidItem desktop="5/8/7/20" mobile="4/2/8/10" z={2} align="start">
+      <p class="centered">
+        Every project reflects a bespoke combination of expertise, personality, and strategy.<br />Explore an evolving selection of projects we’re wildly proud of:
+      </p>
+    </FluidItem>
+  </FluidSection>
+
+  <div class="portfolio-grid">
+    {
+      sections.map((section) => (
+        <FluidSection as="div" rows={section.rows} columnGap={32} rowGap={32} theme="light">
+          {section.tiles.map((tile) => tile.project && <PortfolioTile {...tile} />)}
+        </FluidSection>
+      ))
+    }
+  </div>
 </BaseLayout>
+
+<style>
+  .portfolio-intro {
+    /* The transparent header overlays the top of the first section. */
+    padding-top: var(--header-height);
+  }
+
+  .centered {
+    text-align: center;
+  }
+</style>

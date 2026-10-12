@@ -1,0 +1,91 @@
+---
+/**
+ * One project on the /portfolio index: cover image and caption, both linking
+ * to the case study. Hovering the image zooms it to 105% (instantly, as on the
+ * live site); hovering the caption draws an underline in from the left.
+ */
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FluidItem from '../layout/FluidItem.astro';
+
+type Area = { desktop: string; mobile: string };
+
+export interface Props {
+  project: CollectionEntry<'portfolio'>;
+  image: Area;
+  caption: Area;
+  z?: number;
+}
+
+const { project, image, caption, z = 8 } = Astro.props;
+const tile = project.data.index!;
+const href = `/portfolio/${project.id}`;
+const CaptionTag = tile.captionStyle === 'body' ? 'p' : 'h3';
+---
+
+<FluidItem desktop={image.desktop} mobile={image.mobile} z={z} class="tile-image">
+  <a href={href} tabindex="-1" aria-hidden="true">
+    <Image
+      class="media-fill"
+      src={tile.cover}
+      alt=""
+      widths={[326, 646, 978, 1292]}
+      sizes="(max-width: 767px) 84vw, 45vw"
+      style={`object-position: ${tile.coverPosition}`}
+    />
+  </a>
+</FluidItem>
+
+<FluidItem desktop={caption.desktop} mobile={caption.mobile} z={z + 2} align={{ desktop: 'start', mobile: 'center' }} class="tile-caption">
+  <CaptionTag class:list={['caption', tile.captionStyle === 'label' ? 'eyebrow' : 'caption--body', `caption--${tile.captionColor}`]}>
+    <a href={href}>{tile.caption}</a>
+  </CaptionTag>
+</FluidItem>
+
+<style>
+  :global(.tile-image) {
+    overflow: hidden;
+  }
+
+  :global(.tile-image) a {
+    display: block;
+    height: 100%;
+  }
+
+  :global(.tile-image) a:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Caption block has 3% padding on the live site. */
+  .caption {
+    margin: 0;
+    padding: 3%;
+  }
+
+  .caption--black {
+    color: #000;
+  }
+
+  .caption a {
+    position: relative;
+    text-decoration: none;
+  }
+
+  .caption a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .caption a:hover::after,
+  .caption a:focus-visible::after {
+    transform: scaleX(1);
+  }
+</style>

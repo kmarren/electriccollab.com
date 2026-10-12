@@ -253,6 +253,86 @@
       "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c5848e8f-a5ec-4d5e-b2b2-cf7145dd0e27/IMG_2137.jpg",
       "dest": "src/assets/images/testimonials/ken-colleen-pelasky.jpg",
       "note": "Services page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/acf5aba9-27cd-4d3a-a603-8021c4dd6a6c/FUN+BRANDING.png",
+      "dest": "src/assets/images/portfolio/index/helloseo.png",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/25672dd9-60dc-4520-bae3-37d26e42cacf/Screenshot+2026-09-26+at+4.20.37%E2%80%AFPM.png",
+      "dest": "src/assets/images/portfolio/index/suzanne-falk.png",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7b6c30f9-7b5e-4c33-b17e-1475a1546fec/6.jpg",
+      "dest": "src/assets/images/portfolio/index/enchantee-travel.jpg",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/058e9559-6a68-4c37-9074-f4a90bc84044/9.jpg",
+      "dest": "src/assets/images/portfolio/index/l-advisors.jpg",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/de0a3629-5868-4599-8bdb-616e342dfbe9/1.jpg",
+      "dest": "src/assets/images/portfolio/index/the-highest-good.jpg",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ce10c067-4f94-4ace-bcb0-dd9b9a959f10/EMBLEM.jpg",
+      "dest": "src/assets/images/portfolio/index/evgn.jpg",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c5fb3470-f666-4553-96d7-90f95850988a/PRIMARY.png",
+      "dest": "src/assets/images/portfolio/index/kathryne-cole.png",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3f3daea8-984a-47a2-904a-64e853a86a8e/About.png",
+      "dest": "src/assets/images/portfolio/index/monica-gostkiewicz.png",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/5bd7f743-bd8c-4f87-8ed2-53f085407ed6/PRIMARY+LAV.png",
+      "dest": "src/assets/images/portfolio/index/bolt-bloom.png",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9b26c4c0-5e58-457f-b111-76c917e1ee12/PRIMARY+SOLID.jpg",
+      "dest": "src/assets/images/portfolio/index/surrogacy-reimagined.jpg",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/0a968c94-e45c-42eb-b2a1-c1052c0f3579/EMBLEM+%283%29.jpg",
+      "dest": "src/assets/images/portfolio/index/everlight-leadership.jpg",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4ff8fb2f-02fc-4bc4-b403-f4cd5593f098/5.jpg",
+      "dest": "src/assets/images/portfolio/index/mb-graubard-consulting.jpg",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/238e4224-e2ab-436c-bf09-2342149e54fd/Untitled+design+%281%29.jpg",
+      "dest": "src/assets/images/portfolio/index/arrivee.jpg",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b9c6ec68-3ea2-47d4-b756-00b06a1d733a/DL-2.jpg",
+      "dest": "src/assets/images/portfolio/index/devin-lee.jpg",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3d457972-a8e7-482d-b013-0a3838310213/2.jpg",
+      "dest": "src/assets/images/portfolio/index/ashlee-piper.jpg",
+      "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3ec66670-5f99-47e1-b6c3-7832bcb38963/2.jpg",
+      "dest": "src/assets/images/portfolio/index/storylock-legal.jpg",
+      "note": "Portfolio index tile"
     }
   ],
   "videos": [

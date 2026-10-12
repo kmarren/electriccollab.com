@@ -78,3 +78,26 @@ export function faqPage(items: { question: string; answer: string }[]) {
     })),
   };
 }
+
+/** CollectionPage + ItemList for an index page, using exactly the listed items. */
+export function portfolioCollection({ name, path, items }: { name: string; path: string; items: { name: string; path: string }[] }) {
+  const url = new URL(path, site.url).href;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    url,
+    isPartOf: { '@id': WEBSITE_ID },
+    about: { '@id': ORG_ID },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.map((item, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: item.name,
+        url: new URL(item.path, site.url).href,
+      })),
+    },
+  };
+}

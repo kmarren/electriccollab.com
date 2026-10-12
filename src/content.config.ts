@@ -32,6 +32,19 @@ const portfolio = defineCollection({
           coverAlt: z.string().default(''),
         })
         .optional(),
+      /** Present for projects shown on the /portfolio index (two tiles per row). */
+      index: z
+        .object({
+          order: z.number().int().positive(),
+          /** Caption exactly as on the live page (uppercase, non-breaking spaces kept). */
+          caption: z.string(),
+          cover: image(),
+          coverPosition: z.string().default('50% 50%'),
+          /** The live page sets one caption in the body face and one in black; kept as-is. */
+          captionStyle: z.enum(['label', 'body']).default('label'),
+          captionColor: z.enum(['burgundy', 'black']).default('burgundy'),
+        })
+        .optional(),
     }),
 });
 

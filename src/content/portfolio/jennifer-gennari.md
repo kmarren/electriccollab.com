@@ -6,6 +6,10 @@ homepage:
   category: 'fine artist'
   cover: '../../assets/images/portfolio/jennifer-gennari.png'
   coverAlt: 'A black cat lying on a wooden surface with the Jennifer Gennari logo'
+index:
+  order: 6
+  caption: 'JENNIFER GENNARI | FINE ARTIST'
+  cover: '../../assets/images/portfolio/jennifer-gennari.png'
 ---
 
 <!-- Case-study content to be migrated from /portfolio/jennifer-gennari -->

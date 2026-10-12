@@ -20,9 +20,11 @@ export interface Props {
   image?: { src: string; width: number; height: number };
   noindex?: boolean;
   ogType?: 'website' | 'article';
+  /** Header variant: light for pages whose first section is cream. */
+  headerTheme?: 'dark' | 'light';
 }
 
-const props = Astro.props;
+const { headerTheme = 'dark', ...props } = Astro.props;
 ---
 
 <!doctype html>
@@ -42,7 +44,7 @@ const props = Astro.props;
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to Content</a>
-    <Header />
+    <Header theme={headerTheme} />
     <main id="main" tabindex="-1">
       <slot />
     </main>

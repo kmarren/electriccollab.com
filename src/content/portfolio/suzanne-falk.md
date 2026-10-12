@@ -5,6 +5,10 @@ homepage:
   title: 'Suzanne Falk'
   category: 'interior designer'
   cover: '../../assets/images/portfolio/suzanne-falk.jpg'
+index:
+  order: 3
+  caption: 'SUZANNE FALK | TOP INTERIOR DESIGNER'
+  cover: '../../assets/images/portfolio/index/suzanne-falk.png'
 ---
 
 <!-- Case-study content to be migrated from /portfolio/suzanne-falk -->
