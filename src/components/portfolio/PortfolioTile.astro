@@ -20,7 +20,7 @@ export interface Props {
 const { project, image, caption, z = 8 } = Astro.props;
 const tile = project.data.index!;
 const href = `/portfolio/${project.id}`;
-const CaptionTag = tile.captionStyle === 'body' ? 'p' : 'h3';
+const CaptionTag = tile.captionStyle === 'body' ? 'p' : 'h2';
 ---
 
 <FluidItem desktop={image.desktop} mobile={image.mobile} z={z} class="tile-image">
