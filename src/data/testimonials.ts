@@ -96,6 +96,31 @@ export const testimonials = {
     photoAlt: 'Portrait of Ken and Colleen Pelasky',
     photoPosition: '48.93% 68.8%',
   },
+  'marly-graubard': {
+    quote:
+      '“It was more than building my website. They crafted my narrative. There was no question that this was an excellent decision and pivotal point for my business growth.”',
+    attribution: 'Marly Graubard | Founder of MB Graubard Consulting',
+    link: { text: 'MB Graubard Consulting', href: 'https://www.mbgraubard.com/' },
+    photo: 'marly-graubard.jpg',
+    photoAlt: 'Portrait of Marly Graubard',
+    photoPosition: '0% 0%',
+  },
+  'emily-dean': {
+    quote:
+      '“Working with Electric Collab was the turning point. They were the partner I needed to distill the essence of my brand and translate it into an experience that feels intentional, elevated, and deeply aligned.”',
+    attribution: 'Emily Dean | Founder of Bolt & Bloom',
+    link: { text: 'Bolt & Bloom', href: 'https://www.boltandbloom.com/' },
+    photo: 'emily-dean.jpg',
+    photoAlt: 'Portrait of Emily Dean',
+  },
+  'mary-wiegand': {
+    quote:
+      '“We had a lead assume we have our own software because our website is so good! We’ve gained so much through this project, and I’m extremely proud to use this brand to propel us in the future.”',
+    attribution: 'Mary Wiegand | Founder of Boon Inventory Management',
+    link: { text: 'Boon Inventory Management', href: 'https://boon-llc.com/' },
+    photo: 'mary-wiegand.png',
+    photoAlt: 'Portrait of Mary Wiegand',
+  },
 } satisfies Record<string, Testimonial>;
 
 export type TestimonialKey = keyof typeof testimonials;

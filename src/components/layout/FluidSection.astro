@@ -11,7 +11,8 @@
  * unless the section overrides the column gap (as the live founder section does).
  * Rows grow with their content ("auto"), exactly like the original.
  *
- * Place children with <FluidItem>.
+ * Place children with <FluidItem>. Section background media (an image or
+ * video filling the whole section) goes in the "background" slot.
  */
 import type { HTMLAttributes } from 'astro/types';
 
@@ -44,6 +45,11 @@ const { rows, theme = 'dark', columnGap = 11, rowGap = 11, insetPanel, as: Tag =
   style={`--rows-mobile: ${rows.mobile}; --rows-desktop: ${rows.desktop}; --col-gap-base: ${columnGap}px; --row-gap: ${rowGap}px;${style ?? ''}`}
   {...attrs}
 >
+  {Astro.slots.has('background') && (
+    <div class="section-background">
+      <slot name="background" />
+    </div>
+  )}
   {
     insetPanel ? (
       <div class:list={['inset-panel', `theme-${insetPanel}`]}>
@@ -64,11 +70,18 @@ const { rows, theme = 'dark', columnGap = 11, rowGap = 11, insetPanel, as: Tag =
     position: relative;
   }
 
+  .section-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
   .fluid-section--inset {
     padding: 4vw;
   }
 
   .fluid-grid {
+    position: relative;
     --gap: var(--col-gap-base);
     --grid-gutter: max(0px, calc(var(--page-gutter) - var(--gap)));
     --cell-max-width: calc((var(--page-max-width) - var(--gap) * 7) / 8);

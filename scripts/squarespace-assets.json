@@ -333,6 +333,36 @@
       "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3ec66670-5f99-47e1-b6c3-7832bcb38963/2.jpg",
       "dest": "src/assets/images/portfolio/index/storylock-legal.jpg",
       "note": "Portfolio index tile"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/84ef3c53-688d-4a76-bc00-4c327e89b826/Rectangle+147.jpg",
+      "dest": "src/assets/images/team/danielle-pollera.jpg",
+      "note": "About page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/612b8213-60c1-46fc-8888-633cb1404b4b/Marci+Headshot.jpg",
+      "dest": "src/assets/images/team/marci-angeles.jpg",
+      "note": "About page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/97b77bea-4b91-4120-a517-bec83e0d260a/Paulsen___2026-31.jpg",
+      "dest": "src/assets/images/about/emily-paulsen-sofa.jpg",
+      "note": "About page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/ab6ab04a-b3a0-408d-91d4-51b0bacafa4e/c2Feb12023MarlyGraubard29767-Editcopy.jpg",
+      "dest": "src/assets/images/testimonials/marly-graubard.jpg",
+      "note": "About page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9e436fe7-7efd-42ab-8607-ab173999769d/Most+used.jpg",
+      "dest": "src/assets/images/testimonials/emily-dean.jpg",
+      "note": "About page"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/0240f834-d7c7-4d93-8977-a83c1df660c6/Screenshot+2025-03-05+at+16.31.06.png",
+      "dest": "src/assets/images/testimonials/mary-wiegand.png",
+      "note": "About page"
     }
   ],
   "videos": [
@@ -375,6 +405,14 @@
       "dest": "public/videos/services-portrait",
       "note": "Services section",
       "width": 720
+    },
+    {
+      "playlist": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/6f0fb7f6-7c0d-4cfe-8c46-c862d640e679/playlist.m3u8",
+      "thumbnail": "https://video.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/6f0fb7f6-7c0d-4cfe-8c46-c862d640e679/thumbnail",
+      "variant": "1934:1080",
+      "dest": "public/videos/about-theater-seats",
+      "note": "About hero background (shown at 19% opacity)",
+      "width": 1280
     }
   ]
 }

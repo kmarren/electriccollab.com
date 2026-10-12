@@ -77,12 +77,6 @@ export const faqColumns: FaqItem[][] = [
         '<p>Nope! It does us no good to deliver a final product you don’t love. <br><br>We work <em>with you</em> to set expectations before we begin to ensure you get exactly what you want.</p>',
     },
     {
-      question: 'WHAT WEBSITE PLATFORM DO YOU USE?',
-      // Verbatim from the live site; flagged for the client (the site now runs on Astro).
-      answer:
-        '<p><strong>Squarespace</strong> - I believe this platform offers the best user and owner experience for service-based businesses with custom design, robust tech functionality, SEO and AEO capabilities, intuitive dashboard and low subscription fees.</p>',
-    },
-    {
       question: 'WHAT IF I NEED ADDITIONAL COLLATERAL?',
       answer:
         '<p>Your brand should be cohesive everywhere, and custom elements can absolutely be added to our project:<br><br>Business cards, a new email signature, case studies, podcast cover art, investor decks, program materials, etc.<br><br>Whatever you need, we can create it.</p>',

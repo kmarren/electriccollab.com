@@ -3,7 +3,7 @@
 Astro rebuild of [electriccollab.com](https://www.electriccollab.com), migrated from Squarespace.
 This is a faithful migration, not a redesign. See [AGENTS.md](AGENTS.md) for project goals and rules.
 
-**Status:** homepage, "our services" (`/electric-brand-experience`) and "our work" (`/portfolio`) migrated; every other route exists as a `noindex` placeholder.
+**Status:** homepage, "our services" (`/electric-brand-experience`), "our work" (`/portfolio`) and "the studio" (`/about`) migrated; every other route exists as a `noindex` placeholder.
 
 ## Commands
 

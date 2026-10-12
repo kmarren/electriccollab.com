@@ -24,12 +24,16 @@ const t: TestimonialData = testimonials[id];
 const photos = import.meta.glob<{ default: ImageMetadata }>('../../assets/images/testimonials/*', { eager: true });
 const image = photos[`../../assets/images/testimonials/${t.photo}`].default;
 
+// On phones, Squarespace right-aligns the circle when its block is narrow
+// (ends at column 5 of 8) and left-aligns it in full-width blocks.
+const narrowOnMobile = photo.mobile.split('/')[3]?.trim() === '5';
+
 // Split the attribution around the linked phrase, if any.
 const [before, after] = t.link ? t.attribution.split(t.link.text) : [t.attribution, ''];
 ---
 
 <FluidSection as="div" rows={rows} theme="light">
-  <FluidItem desktop={photo.desktop} mobile={photo.mobile} z={5} class="testimonial-photo">
+  <FluidItem desktop={photo.desktop} mobile={photo.mobile} z={5} class:list={['testimonial-photo', { 'testimonial-photo--end': narrowOnMobile }]}>
     <Image
       class="photo"
       src={image}
@@ -68,6 +72,12 @@ const [before, after] = t.link ? t.attribution.split(t.link.text) : [t.attributi
     aspect-ratio: 1;
     border-radius: 50%;
     object-fit: cover;
+  }
+
+  @media (max-width: 767px) {
+    :global(.testimonial-photo--end) .photo {
+      align-self: flex-end;
+    }
   }
 
   :global(.testimonial-quote) {
