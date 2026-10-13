@@ -1,0 +1,98 @@
+---
+/**
+ * A post card on /blog: square cover image, title and an underlined
+ * "Read More" link. The image and title both link to the post; the visible
+ * "Read More" is labelled with the post title for screen readers.
+ */
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  post: CollectionEntry<'blog'>;
+  /** First row: load the image right away. */
+  eager?: boolean;
+}
+
+const { post, eager = false } = Astro.props;
+const href = `/blog/${post.id}`;
+---
+
+<article class="card">
+  <a class="image" href={href} tabindex="-1" aria-hidden="true">
+    <Image
+      src={post.data.thumbnail}
+      alt=""
+      widths={[400, 600, 800, 1200]}
+      sizes="(max-width: 767px) 88vw, 28vw"
+      loading={eager ? 'eager' : 'lazy'}
+    />
+  </a>
+  <h2 class="title"><a href={href}>{post.data.title}</a></h2>
+  <a class="more" href={href} aria-label={`Read more: ${post.data.title}`}>Read More</a>
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: calc(100% + 1px); /* square, plus the 1px live adds */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image img {
+    position: absolute;
+    inset: 0;
+  }
+
+  .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.01); /* as on live (Squarespace's resting state for its hover zoom) */
+  }
+
+  .title {
+    margin: 25px 0 18px; /* 21px image spacing + 4px (hidden) meta row */
+    font-size: var(--fs-h3);
+    line-height: 1.2;
+  }
+
+  .title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .more {
+    padding-top: 18px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: none;
+  }
+
+  .more::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: currentColor;
+  }
+
+  @media (max-width: 767px) {
+    .title {
+      margin-top: 7vw; /* 5vw image spacing + 2vw (hidden) meta row */
+      font-size: var(--fs-h1);
+    }
+
+    .more {
+      padding-top: 2vw;
+    }
+  }
+</style>

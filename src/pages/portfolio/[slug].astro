@@ -9,7 +9,7 @@ import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JsonLd from '../../components/global/JsonLd.astro';
 import CaseStudy from '../../components/case-study/CaseStudy.astro';
-import ItemPagination from '../../components/case-study/ItemPagination.astro';
+import ItemPagination from '../../components/global/ItemPagination.astro';
 import { caseStudyGraph } from '../../lib/schema';
 
 export async function getStaticPaths() {
@@ -28,6 +28,10 @@ interface Props {
 
 const { project, prev, next } = Astro.props;
 const cs = project.data.caseStudy;
+const projectLink = (p: CollectionEntry<'portfolio'>) => ({
+  href: `/portfolio/${p.id}`,
+  title: p.data.subtitle ? `${p.data.title} | ${p.data.subtitle}` : p.data.title,
+});
 
 // The project headline (the page's h1) as plain text, for the meta description and schema.
 const headingHtml = cs?.sections.flatMap((s) => s.blocks).find((b) => b.type === 'text')?.html.match(/<h1[^>]*>(.*?)<\/h1>/)?.[1];
@@ -57,7 +61,7 @@ const shareImage = firstImage?.type === 'image' ? await getImage({ src: firstIma
       <>
         <JsonLd slot="head" data={caseStudyGraph({ name: project.data.title, path: `/portfolio/${project.id}`, headline: headline!, image: shareImage?.src })} />
         <CaseStudy project={project} />
-        <ItemPagination prev={prev} next={next} />
+        <ItemPagination prev={prev && projectLink(prev)} next={next && projectLink(next)} />
       </>
     )
   }

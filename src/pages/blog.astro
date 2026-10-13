@@ -1,12 +1,64 @@
 ---
-// Placeholder route so internal links resolve. Page content is migrated in a
-// later phase; title/description already match the live Squarespace page.
+/**
+ * Blog index: heading, then every post as a card (square image, title,
+ * "Read More"), newest first: three columns on desktop, one on mobile.
+ */
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FluidSection from '../components/layout/FluidSection.astro';
+import FluidItem from '../components/layout/FluidItem.astro';
+import BlogCard from '../components/blog/BlogCard.astro';
+import JsonLd from '../components/global/JsonLd.astro';
+import { blogCollection } from '../lib/schema';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 
-<BaseLayout
-  title="Blog | Chicago, IL | Electric Collab"
-  description="Insights on branding, design, and creativity to help your business stand out online."
-  noindex
->
+<BaseLayout title="Blog | Chicago, IL | Electric Collab" description="Insights on branding, design, and creativity to help your business stand out online.">
+  <JsonLd slot="head" data={blogCollection(posts.map((p) => ({ name: p.data.title, path: `/blog/${p.id}` })))} />
+  <link slot="head" rel="alternate" type="application/rss+xml" title="Electric Collab blog" href="/blog/rss.xml" />
+
+  <FluidSection rows={{ mobile: 10, desktop: 10 }} rowGap={0} columnGap={0} clearHeader aria-labelledby="blog-title">
+    <FluidItem desktop="5/8/9/20" mobile="3/2/9/10" z={1}>
+      <h1 id="blog-title" class="text-h2 blog-title">Electrify Your Business with Pro Tips worth Reading.</h1>
+    </FluidItem>
+  </FluidSection>
+
+  <section class="theme-dark blog-list" aria-label="All posts">
+    <ul class="blog-grid" role="list">
+      {
+        posts.map((post, i) => (
+          <li>
+            <BlogCard post={post} eager={i < 3} />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </BaseLayout>
+
+<style>
+  .blog-title {
+    text-align: center;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 49px 65px;
+    margin: 0;
+    padding: var(--page-gutter);
+    list-style: none;
+  }
+
+  @media (max-width: 767px) {
+    .blog-grid {
+      display: block;
+      padding: 4vw var(--page-gutter);
+    }
+
+    .blog-grid > li {
+      margin-bottom: 30px;
+    }
+  }
+</style>

@@ -3,7 +3,7 @@
 Astro rebuild of [electriccollab.com](https://www.electriccollab.com), migrated from Squarespace.
 This is a faithful migration, not a redesign. See [AGENTS.md](AGENTS.md) for project goals and rules.
 
-**Status:** homepage, "our services" (`/electric-brand-experience`), "our work" (`/portfolio`), "the studio" (`/about`), contact (`/contact` + `/thank-you`) and all 21 case studies (`/portfolio/*`) migrated; every other route exists as a `noindex` placeholder.
+**Status:** homepage, "our services" (`/electric-brand-experience`), "our work" (`/portfolio`), "the studio" (`/about`), contact (`/contact` + `/thank-you`) and all 21 case studies (`/portfolio/*`) and the blog (`/blog`, 17 posts, RSS at `/blog/rss.xml`) migrated; every other route exists as a `noindex` placeholder.
 
 ## Commands
 
@@ -24,15 +24,18 @@ src/
   pages/                       one file per route; URLs match the Squarespace site exactly
   components/
     layout/                    FluidSection + FluidItem — Squarespace's grid, reproduced
-    global/                    Header, Footer, SEO, JsonLd, CookieConsent, FlodeskPopup
+    global/                    Header, Footer, SEO, JsonLd, CookieConsent, FlodeskPopup, ItemPagination
     home/                      homepage sections (Hero, PressMarquee, ServicesIntro, …)
     services/                  services page sections (Phase, HowItWorks, Faq, …)
     portfolio/                 portfolio index tile
-    case-study/                case-study template (CaseStudy, ItemPagination)
+    case-study/                case-study template (CaseStudy)
+    blog/                      blog index card (BlogCard)
     ui/                        Button, Accordion, Marquee, DrawUnderline, AutoplayVideo, SocialLinks
   content/portfolio/           one Markdown entry per project: homepage card, /portfolio tile,
                                and `caseStudy` page data (sections → text/image/video blocks
                                with their live grid placement; schema in src/content.config.ts)
+  content/blog/                one Markdown file per post (frontmatter: title, dates, author,
+                               card image); images in src/assets/images/blog/<slug>/
   data/                        site constants, nav, press logos, testimonials, services copy
   styles/                      tokens.css (colors, type scale, layout), fonts.css, global.css
   scripts/                     smooth scroll (Lenis), scroll lock

@@ -25,19 +25,31 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const manifest = JSON.parse(await readFile(resolve(root, 'scripts/squarespace-assets.json'), 'utf8'));
 const force = process.argv.includes('--force');
 
-async function download(url, dest) {
+/**
+ * `crop` (optional): height ÷ width of the frame Squarespace showed the image
+ * in. The file is centre-cropped to that shape, matching the live page.
+ */
+async function download(url, dest, crop) {
   const out = resolve(root, dest);
   if (!force && existsSync(out)) return console.log(`skip  ${dest}`);
   const res = await fetch(url);
   if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${url}`);
   await mkdir(dirname(out), { recursive: true });
-  await writeFile(out, Buffer.from(await res.arrayBuffer()));
-  console.log(`saved ${dest}`);
+  let data = Buffer.from(await res.arrayBuffer());
+  if (crop) {
+    const image = sharp(data);
+    const { width, height } = await image.metadata();
+    const h = Math.round(width * crop);
+    data = await image.extract({ left: 0, top: Math.round((height - h) / 2), width, height: h }).toBuffer();
+  }
+  await writeFile(out, data);
+  console.log(`saved ${dest}${crop ? ` (cropped to ${crop})` : ''}`);
 }
 
 /** Resolve the variant playlist (e.g. 1080:1350) from the HLS master playlist. */
@@ -85,7 +97,7 @@ async function downloadVideo({ playlist, thumbnail, variant, dest, width }) {
 let failures = 0;
 for (const file of manifest.files) {
   try {
-    await download(file.url, file.dest);
+    await download(file.url, file.dest, file.crop);
   } catch (err) {
     failures++;
     console.error(`FAIL  ${file.dest}: ${err.message}`);

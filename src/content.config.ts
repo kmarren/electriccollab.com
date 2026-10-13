@@ -133,4 +133,29 @@ const portfolio = defineCollection({
     }),
 });
 
-export const collections = { portfolio };
+/**
+ * Blog posts. One Markdown file per post in src/content/blog/; the filename is
+ * the URL slug (/blog/<slug>), matching the live site (including its typos).
+ * The body is the post content converted from Squarespace; images sit next to
+ * it in src/assets/images/blog/<slug>/ and are optimized at build time.
+ */
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      /** <title> text when it differs from the post title (set in Squarespace's SEO panel). */
+      seoTitle: z.string().optional(),
+      /** Meta description: the post's opening lines (the live posts have none of their own). */
+      description: z.string(),
+      publishDate: z.coerce.date(),
+      updatedDate: z.coerce.date(),
+      /** Not shown on the page (as on live); used in structured data and the RSS feed. */
+      author: z.string(),
+      /** Square card image on /blog; also the share image. */
+      thumbnail: image(),
+      thumbnailAlt: z.string(),
+    }),
+});
+
+export const collections = { portfolio, blog };

@@ -128,3 +128,60 @@ export function caseStudyGraph({ name, path, headline, image }: { name: string; 
     ],
   };
 }
+
+/** The blog index: a Blog listing exactly the posts shown, newest first. */
+export function blogCollection(items: { name: string; path: string }[]) {
+  const url = new URL('/blog', site.url).href;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${url}#blog`,
+    name: `${site.name} Blog`,
+    url,
+    isPartOf: { '@id': WEBSITE_ID },
+    publisher: { '@id': ORG_ID },
+    blogPost: items.map((item) => ({ '@type': 'BlogPosting', headline: item.name, url: new URL(item.path, site.url).href })),
+  };
+}
+
+/** A blog post (author and dates come from Squarespace; they aren't shown on the page). */
+export function blogPostingGraph(post: {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  author: string;
+  publishDate: Date;
+  updatedDate: Date;
+}) {
+  const url = new URL(post.path, site.url).href;
+  const author = post.author === site.founder.name ? { '@id': FOUNDER_ID } : { '@type': 'Person', name: post.author };
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BlogPosting',
+        '@id': `${url}#post`,
+        headline: post.title,
+        description: post.description,
+        url,
+        mainEntityOfPage: url,
+        ...(post.image ? { image: new URL(post.image, site.url).href } : {}),
+        author,
+        publisher: { '@id': ORG_ID },
+        datePublished: post.publishDate.toISOString(),
+        dateModified: post.updatedDate.toISOString(),
+        isPartOf: { '@id': `${new URL('/blog', site.url).href}#blog` },
+        inLanguage: 'en-US',
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: new URL('/blog', site.url).href },
+          { '@type': 'ListItem', position: 3, name: post.title, item: url },
+        ],
+      },
+    ],
+  };
+}

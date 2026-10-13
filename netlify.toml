@@ -16,6 +16,15 @@
   to = "/"
   status = 301
 
+# Squarespace served the blog feed at /blog?format=rss; keep existing subscribers.
+# `force` is needed because /blog itself is a real page.
+[[redirects]]
+  from = "/blog"
+  to = "/blog/rss.xml"
+  status = 301
+  force = true
+  query = { format = "rss" }
+
 # ---- Headers -----------------------------------------------------------------
 # Fingerprinted build assets (CSS, JS, optimized images) never change.
 [[headers]]

@@ -16,6 +16,12 @@ export default defineConfig({
     format: 'file',
   },
 
+  markdown: {
+    // Blog posts are migrated verbatim; Squarespace kept straight quotes and
+    // apostrophes as typed, so don't convert them to curly ones.
+    smartypants: false,
+  },
+
   devToolbar: {
     enabled: false,
   },

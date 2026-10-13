@@ -1273,6 +1273,317 @@
       "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2549cf69-cf6d-44cc-92d9-68780bbc5d60/IRL+RETREAT+GOODY+BAG+MOCKUP.png",
       "dest": "src/assets/images/case-studies/the-highest-good/irl-retreat-goody-bag-mockup.png",
       "note": "The Highest Good case study"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/8dbbf6ab-339c-4729-a725-d6caf635ec92/Screenshot+2026-05-22+at+10.59.05%E2%80%AFPM.png?format=1500w",
+      "dest": "src/assets/images/blog/5-operational-shifts-every-established-business-needs-before-the-next-growth-stage/screenshot-2026-05-22-at-10-59-05-pm.png",
+      "note": "Blog: 5 Operational Shifts Every Established Business Needs Before the Next Growth Stage",
+      "crop": 0.5327
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1779509027532-OUFHNWANDBW76YCP2MG2/Screenshot+2026-05-22+at+10.59.05%E2%80%AFPM.png?format=1500w",
+      "dest": "src/assets/images/blog/5-operational-shifts-every-established-business-needs-before-the-next-growth-stage/thumbnail.png",
+      "note": "Blog card: 5 Operational Shifts Every Established Business Needs Before the Next Growth Stage"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a0b17ad1-2291-43ee-bb2d-610321da3487/Hands+Holding+Smartphone+with+Gradient+Screen.png?format=1500w",
+      "dest": "src/assets/images/blog/how-sms-marketing-can-enhance-brand-loyalty/hands-holding-smartphone-with-gradient-screen.png",
+      "note": "Blog: How SMS Marketing Can Enhance Brand Loyalty",
+      "crop": 0.5327
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1779509055314-RPP5R0KZO15BH3E2I1DE/Hands+Holding+Smartphone+with+Gradient+Screen.png?format=1500w",
+      "dest": "src/assets/images/blog/how-sms-marketing-can-enhance-brand-loyalty/thumbnail.png",
+      "note": "Blog card: How SMS Marketing Can Enhance Brand Loyalty"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/8a33403b-4472-4bc7-8926-8dead18955c7/LinkedIn.jpg?format=1500w",
+      "dest": "src/assets/images/blog/linkedin-personal-brand/linkedin.jpg",
+      "note": "Blog: 10 Ways to Boost Your Personal Brand on LinkedIn"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1732484303328-PATU4TMJSVP7FCA7SA30/LinkedIn.jpg?format=1500w",
+      "dest": "src/assets/images/blog/linkedin-personal-brand/thumbnail.jpg",
+      "note": "Blog card: 10 Ways to Boost Your Personal Brand on LinkedIn"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9a65caf4-2ae5-4500-8c41-5408e8afd594/Consider+Feature.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/10-things-emily-and-i-consider-when-optimizing-your-website/consider-feature.jpg",
+      "note": "Blog: 10 Things Emily and I Consider When Optimizing Your Website"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e9ae24c1-7fe4-4c43-aad6-e6040871885e/Feature+.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/10-things-emily-and-i-consider-when-optimizing-your-website/feature.jpg",
+      "note": "Blog: 10 Things Emily and I Consider When Optimizing Your Website"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9dc93014-ebc9-4e53-883c-43a41798d7bc/Feature+1.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/10-things-emily-and-i-consider-when-optimizing-your-website/feature-1.jpg",
+      "note": "Blog: 10 Things Emily and I Consider When Optimizing Your Website"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e7f7db8e-f759-401e-9688-bf63389c35aa/Feature+2.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/10-things-emily-and-i-consider-when-optimizing-your-website/feature-2.jpg",
+      "note": "Blog: 10 Things Emily and I Consider When Optimizing Your Website"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697498693482-S6AOL3400S6TU88QO15N/Consider+Feature.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/10-things-emily-and-i-consider-when-optimizing-your-website/thumbnail.jpg",
+      "note": "Blog card: 10 Things Emily and I Consider When Optimizing Your Website"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/d8003619-5659-45cc-a033-137898da5742/Optimize+Feature.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/how-to-optimize-your-new-website-for-seo/optimize-feature.jpg",
+      "note": "Blog: How to Optimize Your New Website for SEO"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/03d5d601-90ed-4ed8-b7d5-d3770f82499a/Optimize+2.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/how-to-optimize-your-new-website-for-seo/optimize-2.jpg",
+      "note": "Blog: How to Optimize Your New Website for SEO"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/6cf990fe-986a-4e1b-942d-0226c0083340/Optimize+.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/how-to-optimize-your-new-website-for-seo/optimize.jpg",
+      "note": "Blog: How to Optimize Your New Website for SEO"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7a94fcfc-c3d0-43e8-b78f-8e846365b240/Optimize+1.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/how-to-optimize-your-new-website-for-seo/optimize-1.jpg",
+      "note": "Blog: How to Optimize Your New Website for SEO"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697498709660-6FM594V6ZZPBR2ZMZGZ7/Optimize+Feature.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/how-to-optimize-your-new-website-for-seo/thumbnail.jpg",
+      "note": "Blog card: How to Optimize Your New Website for SEO"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f630f8cf-2aef-414e-81e9-7bc712baa18d/Electric+Colab+23-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/rebranding/electric-colab-23-min.jpg",
+      "note": "Blog: Electric Collab's Ultimate Guide to Rebranding"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/6a5e07bf-85b3-4fff-9347-2460a2818c16/Electric+Colab+17-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/rebranding/electric-colab-17-min.jpg",
+      "note": "Blog: Electric Collab's Ultimate Guide to Rebranding"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/92c0ada1-78a5-4162-99f6-22ccdb606c18/Electric+Colab+16-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/rebranding/electric-colab-16-min.jpg",
+      "note": "Blog: Electric Collab's Ultimate Guide to Rebranding"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9678b051-9d9e-422f-b391-c89decedd3c9/Electric+Colab+15-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/rebranding/electric-colab-15-min.jpg",
+      "note": "Blog: Electric Collab's Ultimate Guide to Rebranding"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697072954535-JAWBJBKK72BH59R8SYAO/Electric+Colab+23.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/rebranding/thumbnail.jpg",
+      "note": "Blog card: Electric Collab's Ultimate Guide to Rebranding"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e795d94a-b120-4007-893c-303e8804cd1b/Electric+Colab+22-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/five-senses-branding/electric-colab-22-min.jpg",
+      "note": "Blog: Using the Five Senses in Branding: Creating Unforgettable Brand Experiences"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/8d4c0dcb-e4e5-4f22-9894-39ba2ee8059e/Electric+Colab+14-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/five-senses-branding/electric-colab-14-min.jpg",
+      "note": "Blog: Using the Five Senses in Branding: Creating Unforgettable Brand Experiences"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/bd4c1448-73d9-4610-85ce-dc94c4d024b5/Electric+Colab+12-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/five-senses-branding/electric-colab-12-min.jpg",
+      "note": "Blog: Using the Five Senses in Branding: Creating Unforgettable Brand Experiences"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697072907602-JYP369RR2PLRRYOEGFHX/Electric+Colab+22.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/five-senses-branding/thumbnail.jpg",
+      "note": "Blog card: Using the Five Senses in Branding: Creating Unforgettable Brand Experiences"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2d587f93-4aa2-40cf-a623-3e1250af0ff4/Electric+Colab+21-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/ux-to-web-designer/electric-colab-21-min.jpg",
+      "note": "Blog: How I Use My UX Background to Create Amazing Websites"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/cf8aa6e8-fb9a-4bd2-bb4c-d2e3cd334c89/Electric+Colab+11-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/ux-to-web-designer/electric-colab-11-min.jpg",
+      "note": "Blog: How I Use My UX Background to Create Amazing Websites"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4eef8e41-79f0-41d1-81a1-67246fe49d3c/Electric+Colab+10-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/ux-to-web-designer/electric-colab-10-min.jpg",
+      "note": "Blog: How I Use My UX Background to Create Amazing Websites"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697072866495-4NG17SEKS2NHX0041T9N/Electric+Colab+21.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/ux-to-web-designer/thumbnail.jpg",
+      "note": "Blog card: How I Use My UX Background to Create Amazing Websites"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7101e3f6-a27e-4ccc-be37-8790b2160576/Electric+Colab+20-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/color-psychology/electric-colab-20-min.jpg",
+      "note": "Blog: How Color Psychology Drives Your Business Success"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3be39612-b991-4307-aaf3-076e2bc74cdc/Electric+Colab+9-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/color-psychology/electric-colab-9-min.jpg",
+      "note": "Blog: How Color Psychology Drives Your Business Success"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/4d98958e-3b78-49c7-960f-36264390d4d7/Electric+Colab+8-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/color-psychology/electric-colab-8-min.jpg",
+      "note": "Blog: How Color Psychology Drives Your Business Success"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697072553010-4BWBMPV7EPRMEF18MJZR/Electric+Colab+20-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/color-psychology/thumbnail.jpg",
+      "note": "Blog card: How Color Psychology Drives Your Business Success"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b1cb38c2-5ca3-405c-94da-46434a547267/Electric+Colab+19-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/where-to-use-your-brand/electric-colab-19-min.jpg",
+      "note": "Blog: Where to Use Your Brand? Everywhere!"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/8c0c6011-1a87-467c-b0fe-f660b9454dac/Electric+Colab+7-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/where-to-use-your-brand/electric-colab-7-min.jpg",
+      "note": "Blog: Where to Use Your Brand? Everywhere!"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/44df2c8c-c694-4a0c-80cf-1ca146625a75/Electric+Colab+6-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/where-to-use-your-brand/electric-colab-6-min.jpg",
+      "note": "Blog: Where to Use Your Brand? Everywhere!"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697072494509-VAAL5CKT5MT72OJC0JGI/Electric+Colab+19-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/where-to-use-your-brand/thumbnail.jpg",
+      "note": "Blog card: Where to Use Your Brand? Everywhere!"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/f2330cb6-c256-468f-a67f-043592c9e472/Electric+Colab+4-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/what-is-included-in-a-rebrand/electric-colab-4-min.jpg",
+      "note": "Blog: What’s in a Rebrand, Anyway? Dive Deep into the Makeover Process!"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/e1799c55-96b3-4bc3-8e1f-814f7b199b68/rebrand.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/what-is-included-in-a-rebrand/rebrand.jpg",
+      "note": "Blog: What’s in a Rebrand, Anyway? Dive Deep into the Makeover Process!"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/42d23a1e-8ba6-40b5-aa75-658aba74c639/Electric+Colab+18-min.png?format=1500w",
+      "dest": "src/assets/images/blog/what-is-included-in-a-rebrand/electric-colab-18-min.png",
+      "note": "Blog: What’s in a Rebrand, Anyway? Dive Deep into the Makeover Process!"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697072394510-JVNZN9QSHSRWCLKJCTI7/Electric+Colab+4-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/what-is-included-in-a-rebrand/thumbnail.jpg",
+      "note": "Blog card: What’s in a Rebrand, Anyway? Dive Deep into the Makeover Process!"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/a3e01068-41c3-4169-b234-3a539c0145a4/Electric+Colab+1-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/visual-identity-vs-digital-presence/electric-colab-1-min.jpg",
+      "note": "Blog: Visual Identity vs. Digital Presence: Unveiling the Heart of Branding"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/9a0c62f9-d875-41e4-8248-4a3b399bb06d/Electric+Colab+2-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/visual-identity-vs-digital-presence/electric-colab-2-min.jpg",
+      "note": "Blog: Visual Identity vs. Digital Presence: Unveiling the Heart of Branding"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/bb8c179b-27dc-4be5-bcbd-23d1437ec300/Electric+Colab+3-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/visual-identity-vs-digital-presence/electric-colab-3-min.jpg",
+      "note": "Blog: Visual Identity vs. Digital Presence: Unveiling the Heart of Branding"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697072579208-ZJ3SZOZ04PJHC6AT3494/Electric+Colab+1-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/visual-identity-vs-digital-presence/thumbnail.jpg",
+      "note": "Blog card: Visual Identity vs. Digital Presence: Unveiling the Heart of Branding"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/bd38b6a3-6b59-4bf6-b9a8-531adc698793/time+for+rebrand.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/when-to-rebrand/time-for-rebrand.jpg",
+      "note": "Blog: When Is the Right Time for a Rebrand? 6 Signs It’s Time to Rebrand"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/08630a5b-cfab-4846-9062-8df3cdc96af3/Time+for+rebrand+2.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/when-to-rebrand/time-for-rebrand-2.jpg",
+      "note": "Blog: When Is the Right Time for a Rebrand? 6 Signs It’s Time to Rebrand"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697072692101-4N94QE7L0VLI69MU4D5D/time+for+rebrand.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/when-to-rebrand/thumbnail.jpg",
+      "note": "Blog card: When Is the Right Time for a Rebrand? 6 Signs It’s Time to Rebrand"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/8971f8be-934d-46ac-8533-fab1d101a74e/Brand+1.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/what-shoud-a-brand-do/brand-1.jpg",
+      "note": "Blog: What Should a Brand Do? 4 Things All Good Brands Do",
+      "crop": 0.9975
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/33455146-7d53-47ae-9af4-af792dc514cd/Brand+2.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/what-shoud-a-brand-do/brand-2.jpg",
+      "note": "Blog: What Should a Brand Do? 4 Things All Good Brands Do"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697072735770-KE0DXF9IDPXCEBJBQSWY/Brand+1.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/what-shoud-a-brand-do/thumbnail.jpg",
+      "note": "Blog card: What Should a Brand Do? 4 Things All Good Brands Do"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/7ec4ac41-4875-491e-83c5-c75e728e3a2a/Speak+1.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/speak-to-your-ideal-client/speak-1.jpg",
+      "note": "Blog: How to Speak to Your Ideal Client Through Your Branding"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b1548408-1fe5-47dc-a205-5fd212b4f8a6/Speak+2.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/speak-to-your-ideal-client/speak-2.jpg",
+      "note": "Blog: How to Speak to Your Ideal Client Through Your Branding"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697072816385-TRM33UJLT7R1I93IIS9S/Speak+1.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/speak-to-your-ideal-client/thumbnail.jpg",
+      "note": "Blog card: How to Speak to Your Ideal Client Through Your Branding"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/b6858b79-c604-4021-8b5f-ee550511488a/Ideal+1-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/ideal-client/ideal-1-min.jpg",
+      "note": "Blog: How to Identify Your Ideal Client"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2472ae3b-fb79-472a-b33b-8fe649cdef6c/Ideal+2-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/ideal-client/ideal-2-min.jpg",
+      "note": "Blog: How to Identify Your Ideal Client"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697072228861-PGUZUC84DUB44QGTVKP8/Ideal+1-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/ideal-client/thumbnail.jpg",
+      "note": "Blog card: How to Identify Your Ideal Client"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/eab779d8-dd66-4e8a-8189-957feb9b73b9/Rebranding+Process+1-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/rebranding-process/rebranding-process-1-min.jpg",
+      "note": "Blog: What is the Rebranding Process?",
+      "crop": 0.5394
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1c5e2249-62ef-4c54-b74c-7bc0a169a0f1/Rebranding+Process+2-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/rebranding-process/rebranding-process-2-min.jpg",
+      "note": "Blog: What is the Rebranding Process?",
+      "crop": 0.7383
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/2369f0d2-d42c-4b04-95e1-0efb8effe83f/Rebranding+Process+3-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/rebranding-process/rebranding-process-3-min.jpg",
+      "note": "Blog: What is the Rebranding Process?",
+      "crop": 0.8247
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1697066535967-9U9173D3XTIEPUH9M7VH/Rebranding+Process+1-min.jpeg?format=1500w",
+      "dest": "src/assets/images/blog/rebranding-process/thumbnail.jpg",
+      "note": "Blog card: What is the Rebranding Process?"
     }
   ],
   "videos": [
