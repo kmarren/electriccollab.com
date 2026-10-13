@@ -1,0 +1,78 @@
+---
+/**
+ * Legal pages, one per entry in src/content/legal/ (the filename is the URL):
+ * /privacy-policy, /terms-conditions and /electric-evolution-terms.
+ * A centered heading over the text, on the live page's grid.
+ */
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FluidSection from '../components/layout/FluidSection.astro';
+import FluidItem from '../components/layout/FluidItem.astro';
+
+export async function getStaticPaths() {
+  return (await getCollection('legal')).map((page) => ({ params: { legal: page.id }, props: { page } }));
+}
+
+interface Props {
+  page: CollectionEntry<'legal'>;
+}
+
+const { page } = Astro.props;
+const { title, seoTitle, description, noindex, grid } = page.data;
+const { Content } = await render(page);
+---
+
+<BaseLayout title={seoTitle} description={description} noindex={noindex} headerTheme="light">
+  <FluidSection rows={grid.rows} theme="light" clearHeader aria-labelledby="legal-title">
+    <FluidItem desktop={grid.title.desktop} mobile={grid.title.mobile} align={grid.title.align}>
+      <h1 id="legal-title" class="text-h1 legal-title">{title}</h1>
+    </FluidItem>
+    <FluidItem desktop={grid.body.desktop} mobile={grid.body.mobile} align={grid.body.align} class="rte legal-body">
+      <Content />
+    </FluidItem>
+  </FluidSection>
+</BaseLayout>
+
+<style>
+  .legal-title {
+    text-align: center;
+  }
+
+  /* Body text comes from Markdown, so styles are global within the block. */
+  :global(.legal-body p) {
+    white-space: pre-wrap; /* live keeps the tabs and runs of spaces in clause numbers */
+  }
+
+  :global(.legal-body u) {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+  }
+
+  :global(.legal-body .indent-1) {
+    margin-left: 40px;
+  }
+
+  :global(.legal-body .indent-3) {
+    margin-left: 120px;
+  }
+
+  /* Live shows these numbered lists without their numbers; kept that way. */
+  /* Margins don't collapse inside the (flex) text block, so these add up to live's spacing. */
+  :global(.legal-body ol) {
+    margin-block: 0.5em 0;
+    padding-left: 40px;
+    list-style: none;
+  }
+
+  :global(.legal-body li) {
+    margin-block: 0.5em;
+  }
+
+  :global(.legal-body li > ol) {
+    margin-block: 0;
+  }
+
+  :global(.legal-body > ol > li:last-child) {
+    margin-bottom: 0;
+  }
+</style>

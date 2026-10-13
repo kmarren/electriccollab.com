@@ -3,7 +3,7 @@
 Astro rebuild of [electriccollab.com](https://www.electriccollab.com), migrated from Squarespace.
 This is a faithful migration, not a redesign. See [AGENTS.md](AGENTS.md) for project goals and rules.
 
-**Status:** homepage, "our services" (`/electric-brand-experience`), "our work" (`/portfolio`), "the studio" (`/about`), contact (`/contact` + `/thank-you`), all 21 case studies (`/portfolio/*`), the blog (`/blog`, 17 posts, RSS at `/blog/rss.xml`), and the Electric Evolution portal (`/electric-evolution-members`, noindex) migrated; every other route exists as a `noindex` placeholder.
+**Status:** homepage, "our services" (`/electric-brand-experience`), "our work" (`/portfolio`), "the studio" (`/about`), contact (`/contact` + `/thank-you`), all 21 case studies (`/portfolio/*`), the blog (`/blog`, 17 posts, RSS at `/blog/rss.xml`), the Electric Evolution portal (`/electric-evolution-members`, noindex) and the legal pages (`/privacy-policy`, `/terms-conditions`, `/electric-evolution-terms`, the last noindex) migrated; every other route exists as a `noindex` placeholder.
 
 ## Commands
 
@@ -35,6 +35,8 @@ src/
   content/portfolio/           one Markdown entry per project: homepage card, /portfolio tile,
                                and `caseStudy` page data (sections → text/image/video blocks
                                with their live grid placement; schema in src/content.config.ts)
+  content/legal/               privacy policy, terms & conditions, Electric Evolution terms
+                               (Markdown, rendered by src/pages/[legal].astro)
   content/blog/                one Markdown file per post (frontmatter: title, dates, author,
                                card image); images in src/assets/images/blog/<slug>/
   data/                        site constants, nav, press logos, testimonials, services copy
@@ -101,7 +103,7 @@ At launch, set `PUBLIC_ALLOW_INDEXING=true` in Netlify's environment variables.
 ### Launch checklist
 
 - [ ] All placeholder pages migrated (remove their `noindex` prop; the Electric Evolution
-      portal and `/thank-you` stay `noindex` on purpose)
+      portal and terms and `/thank-you` stay `noindex` on purpose)
 - [ ] Client approval of the full site
 - [ ] `PUBLIC_ALLOW_INDEXING=true` set in Netlify
 - [ ] Netlify form detection enabled + notification email set; test submission received

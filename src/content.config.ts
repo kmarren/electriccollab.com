@@ -158,4 +158,28 @@ const blog = defineCollection({
     }),
 });
 
-export const collections = { portfolio, blog };
+/**
+ * Legal pages (/privacy-policy, /terms-conditions, /electric-evolution-terms).
+ * The Markdown body is the live text; the few indented clauses are kept as
+ * <p class="indent-N"> (N × 40px, as on live).
+ */
+const placementSchema = z.object({
+  desktop: z.string(),
+  mobile: z.string(),
+  align: z.union([align, z.object({ desktop: align, mobile: align })]).default('start'),
+});
+
+const legal = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/legal' }),
+  schema: z.object({
+    /** Page heading. */
+    title: z.string(),
+    seoTitle: z.string(),
+    description: z.string(),
+    noindex: z.boolean().default(false),
+    /** Live grid placement of the heading and body blocks. */
+    grid: z.object({ rows, title: placementSchema, body: placementSchema }),
+  }),
+});
+
+export const collections = { portfolio, blog, legal };
