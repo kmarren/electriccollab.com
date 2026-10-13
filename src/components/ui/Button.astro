@@ -4,6 +4,7 @@
  *
  *   solid     — cream pill with burgundy text ("meet your team", footer CTA)
  *   accent    — red pill with cream text ("take me to the request form")
+ *   outline   — transparent with a 1px rounded border in the text color ("access the briefing")
  *   underline — transparent with a 2px bottom rule ("explore more work")
  *
  * `fill` stretches the button to its grid block, as Squarespace's
@@ -13,7 +14,7 @@ import type { HTMLAttributes } from 'astro/types';
 
 export interface Props extends HTMLAttributes<'a'> {
   href: string;
-  variant?: 'solid' | 'accent' | 'underline';
+  variant?: 'solid' | 'accent' | 'outline' | 'underline';
   fill?: boolean;
   weight?: 400 | 700;
   /** Label color for solid buttons (burgundy by default; red on red panels). */
@@ -59,6 +60,13 @@ const { href, variant = 'solid', fill = false, weight = 700, textColor = 'burgun
   .button--accent {
     background-color: var(--color-red);
     color: var(--color-cream);
+    border-radius: 10px;
+  }
+
+  .button--outline {
+    background: transparent;
+    color: inherit;
+    border: 1px solid currentColor;
     border-radius: 10px;
   }
 

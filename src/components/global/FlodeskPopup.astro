@@ -15,7 +15,8 @@ const { formId } = Astro.props;
   (function (script) {
     var formId = script.dataset.formId;
     function load() {
-      (function (w, d, t, h, s, n) {
+      // Shared with FlodeskForm: only inject Flodesk's script once per page.
+      if (!window.fd) (function (w, d, t, h, s, n) {
         w.FlodeskObject = n;
         var fn = function () {
           (w[n].q = w[n].q || []).push(arguments);

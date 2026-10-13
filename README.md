@@ -3,7 +3,7 @@
 Astro rebuild of [electriccollab.com](https://www.electriccollab.com), migrated from Squarespace.
 This is a faithful migration, not a redesign. See [AGENTS.md](AGENTS.md) for project goals and rules.
 
-**Status:** homepage, "our services" (`/electric-brand-experience`), "our work" (`/portfolio`), "the studio" (`/about`), contact (`/contact` + `/thank-you`), all 21 case studies (`/portfolio/*`), the blog (`/blog`, 17 posts, RSS at `/blog/rss.xml`), the Electric Evolution portal (`/electric-evolution-members`, noindex) and the legal pages (`/privacy-policy`, `/terms-conditions`, `/electric-evolution-terms`, the last noindex) migrated; every other route exists as a `noindex` placeholder.
+**Status:** every page on the live site is migrated: homepage, "our services" (`/electric-brand-experience`), "our work" (`/portfolio`) and all 21 case studies, "the studio" (`/about`), contact (`/contact` + `/thank-you`), the blog (`/blog`, 17 posts, RSS at `/blog/rss.xml`), The Briefing (`/the-briefing`), the Electric Evolution portal and terms (both noindex), and the privacy policy and terms & conditions. Next: pre-launch QA (see the launch checklist).
 
 ## Commands
 
@@ -69,7 +69,8 @@ Type sizes follow the theme's own fluid formula (see `src/styles/tokens.css`).
 
 - **Google Analytics 4** (`G-7GPYYQKSN6`): loaded only after the visitor accepts
   "Performance and Analytics" in the cookie banner.
-- **Flodesk popup** ("The Briefing"): same embed as before; display rules live in Flodesk.
+- **Flodesk** ("The Briefing"): the site-wide popup and the inline sign-up form on
+  `/the-briefing` use the same embeds as before; display rules live in Flodesk.
 - **Smooth scrolling**: Lenis, same settings as the old site; disabled for reduced motion.
 
 ## Forms (Netlify Forms)
@@ -102,8 +103,8 @@ At launch, set `PUBLIC_ALLOW_INDEXING=true` in Netlify's environment variables.
 
 ### Launch checklist
 
-- [ ] All placeholder pages migrated (remove their `noindex` prop; the Electric Evolution
-      portal and terms and `/thank-you` stay `noindex` on purpose)
+- [x] All pages migrated (the Electric Evolution portal and terms and `/thank-you` stay
+      `noindex` on purpose)
 - [ ] Client approval of the full site
 - [ ] `PUBLIC_ALLOW_INDEXING=true` set in Netlify
 - [ ] Netlify form detection enabled + notification email set; test submission received

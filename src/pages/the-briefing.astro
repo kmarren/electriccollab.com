@@ -1,12 +1,253 @@
 ---
-// Placeholder route so internal links resolve. Page content is migrated in a
-// later phase; title/description already match the live Squarespace page.
+/**
+ * The Briefing: landing page for the private audio series (Flodesk opt-in).
+ *
+ *   1. Hero over a faded portrait of Emily
+ *   2. "When you've outgrown the brand…" pain points
+ *   3. The offer, with the inline Flodesk sign-up form (#the-briefing-opt-in,
+ *      the target of both "access the briefing" buttons)
+ *   4. "Trusted by 100+ Visionary Founders" quote marquee
+ *   5. Your guide: Emily Paulsen
+ *   6. Closing call to action (#briefing-opt-in, kept from live)
+ */
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FluidSection from '../components/layout/FluidSection.astro';
+import FluidItem from '../components/layout/FluidItem.astro';
+import Button from '../components/ui/Button.astro';
+import Marquee from '../components/ui/Marquee.astro';
+import FlodeskForm from '../components/global/FlodeskForm.astro';
+import heroPortrait from '../assets/images/the-briefing/emily-headshot-extended.jpg';
+import laptop from '../assets/images/the-briefing/laptop-pinstripes.jpg';
+import emily from '../assets/images/the-briefing/emily-paulsen.jpg';
+
+const quotes = [
+  '"I was immediately booked out for 2 quarters!"',
+  '"We doubled our client base!"',
+  `"This is the first time I've had something that truly represents me."`,
+  '"My sales tripled within the first month of my site being live!"',
+  '"Working with Electric Collab was the turning point."',
+];
+
+const techniques = [
+  {
+    title: '01. Messaging',
+    body: 'The secret to a clear, concise message that feels 100% you, even if you serve a lot of different audiences in a lot of different ways.',
+    desktop: '18/4/23/10',
+    mobile: '19/2/24/10',
+    z: 5,
+  },
+  {
+    title: '02. Design',
+    body: 'Learn to capitalize on 5 subconscious cues in your brand visuals that signal the credibility and expertise premium clients respond to before realizing why.',
+    desktop: '18/11/23/17',
+    mobile: '25/2/31/10',
+    z: 6,
+  },
+  {
+    title: '03. Digital Presence',
+    body: 'The one shift we use on every website that has our clients immediately increasing their lead flow and tripling sales with aligned clients.',
+    desktop: '18/18/23/24',
+    mobile: '32/2/38/10',
+    z: 7,
+  },
+];
 ---
 
 <BaseLayout
   title="The Briefing Private Podcast | Chicago, IL | Electric Collab"
   description="Meet Emily Paulsen, founder of Electric Collab, a creative partner turning ideas into standout brand identities."
-  noindex
+  headerTheme="light"
 >
+  <!-- 1. Hero -->
+  <FluidSection rows={{ mobile: 19, desktop: 18 }} theme="light" clearHeader aria-labelledby="briefing-title">
+    <Fragment slot="background">
+      <Image class="hero-portrait" src={heroPortrait} alt="" widths={[800, 1280, 1873]} sizes="100vw" loading="eager" fetchpriority="high" />
+      <div class="hero-overlay"></div>
+    </Fragment>
+    <FluidItem desktop="4/3/5/12" mobile="6/2/7/10" z={{ desktop: 4, mobile: 19 }} align={{ desktop: 'center', mobile: 'start' }}>
+      <p class="eyebrow"><strong>THE BRIEFING: </strong>PRIVATE AUDIO SERIES</p>
+    </FluidItem>
+    <FluidItem desktop="5/3/9/14" mobile="7/2/10/10" z={{ desktop: 2, mobile: 11 }}>
+      <h1 id="briefing-title" class="text-h1">Align your brand with the woman you’ve become.</h1>
+    </FluidItem>
+    <FluidItem desktop="9/3/11/13" mobile="10/2/14/10" z={{ desktop: 5, mobile: 20 }}>
+      <p>Discover the <strong>three psychology-backed techniques</strong> we use to create an ‘it factor’ online presence that converts premium buyers while feeling fully <em>you</em>.</p>
+    </FluidItem>
+    <FluidItem desktop="12/3/14/9" mobile="14/2/16/8" z={{ desktop: 3, mobile: 15 }}>
+      <Button href="#the-briefing-opt-in" variant="outline" fill>access the briefing</Button>
+    </FluidItem>
+  </FluidSection>
+
+  <!-- 2. The problem -->
+  <FluidSection rows={{ mobile: 49, desktop: 26 }} columnGap={32} theme="light" aria-labelledby="briefing-problem">
+    <FluidItem desktop="4/3/7/25" mobile="2/2/10/10" z={{ desktop: 2, mobile: 3 }}>
+      <h2 id="briefing-problem" class="text-h2">
+        When you’ve outgrown the brand and website that worked in the beginning,(congrats on the growth!) <span class="red">your brand becomes a liability:</span>
+      </h2>
+    </FluidItem>
+    <FluidItem desktop="8/3/25/12" mobile="10/2/22/10" z={15}>
+      <Image class="media-fill" src={laptop} alt="Woman in pinstripe trousers typing on a laptop resting on her lap" widths={[480, 720, 1080]} sizes="(max-width: 767px) 88vw, 37vw" />
+    </FluidItem>
+    <FluidItem desktop="9/13/19/25" mobile="23/2/44/10" z={6} class="pain-points">
+      <ul>
+        <li>You’re losing clients to competitors who lack your depth, simply because their brand <strong>“looks the part”</strong> though your expertise is deeper and your work is stronger.</li>
+        <li>You find yourself undercharging or defending your fees because your current brand isn’t doing the heavy lifting of <strong>pre-selling your value</strong> before the first call.</li>
+        <li>Your brand looks polished, but it no longer captures the true caliber of your work. So you <strong>hesitate to share it</strong>.</li>
+        <li>You’re <strong>missing out</strong> on podcasts, press features and big-stage opportunities. Even when people find your website, they never seem to make the invitation.</li>
+        <li>You’re wasting hours in <strong>explanation mode</strong> on potential client calls, forcing yourself to over-explain what should have been obvious from the moment they landed on your website.</li>
+        <li>You're craving more <strong>premium clients</strong> but can’t seem to attract the people who are ready to pay what you know your work is worth.</li>
+      </ul>
+    </FluidItem>
+    <FluidItem desktop="20/13/24/25" mobile="44/2/49/10" z={14}>
+      <p class="text-h3">When your brand language, design, and digital presence reflect all you’ve evolved into, <span class="red">your revenue rises to match.</span></p>
+    </FluidItem>
+  </FluidSection>
+
+  <!-- 3. The offer + sign-up -->
+  <FluidSection rows={{ mobile: 38, desktop: 24 }} insetPanel="light" id="the-briefing-opt-in" aria-labelledby="briefing-offer">
+    <FluidItem desktop="2/8/4/20" mobile="2/2/3/10" z={3} align={{ desktop: 'center', mobile: 'start' }}>
+      <p class="eyebrow centered terracotta">THE BRIEFING</p>
+    </FluidItem>
+    <FluidItem desktop="4/6/8/22" mobile="3/2/7/10" z={2}>
+      <h2 id="briefing-offer" class="text-h1 centered">Close the gap between your brilliance and your brand</h2>
+    </FluidItem>
+    <FluidItem desktop="7/6/12/22" mobile="5/2/12/10" z={1} align="start">
+      <FlodeskForm formId="69d596efe68a100c349d0d1b" height={{ desktop: 300, mobile: 432 }} />
+    </FluidItem>
+    <FluidItem desktop="12/8/15/20" mobile="13/2/17/10" z={4} align={{ desktop: 'center', mobile: 'start' }}>
+      <p class="centered">
+        The Briefing, a private audio series, walks you through the 3 invisible, psychology-backed techniques required to translate your gifts into the perfect combination of language and design.
+      </p>
+    </FluidItem>
+    <FluidItem desktop="16/4/17/24" mobile="17/2/19/10" z={8}>
+      <hr class="rule rule--red" />
+    </FluidItem>
+    {
+      techniques.map((t) => (
+        <FluidItem desktop={t.desktop} mobile={t.mobile} z={t.z} align="start" class="rte">
+          <h3 class="text-h3">{t.title}</h3>
+          <p>{t.body}</p>
+        </FluidItem>
+      ))
+    }
+  </FluidSection>
+
+  <!-- 4. Social proof -->
+  <FluidSection rows={{ mobile: 11, desktop: 11 }} columnGap={32} aria-labelledby="briefing-trusted">
+    <FluidItem desktop="2/4/6/24" mobile="2/2/7/10" z={{ desktop: 5, mobile: 10 }} align={{ desktop: 'end', mobile: 'center' }}>
+      <h2 id="briefing-trusted" class="text-h2 centered">The <span class="red">Electric Brand Experience</span> is Trusted <br />by 100+ Visionary Founders</h2>
+    </FluidItem>
+    <FluidItem desktop="5/1/6/9" mobile="7/2/8/10" z={{ desktop: 6, mobile: 11 }}>
+      <hr class="rule rule--cream" />
+    </FluidItem>
+    <FluidItem desktop="5/19/6/27" mobile="7/8/8/10" z={{ desktop: 7, mobile: 12 }}>
+      <hr class="rule rule--cream" />
+    </FluidItem>
+    <FluidItem desktop="8/1/10/27" mobile="8/1/10/11" z={{ desktop: 8, mobile: 13 }}>
+      <Marquee speed={60} class="quotes">
+        {quotes.map((q) => <li class="quote">{q}</li>)}
+      </Marquee>
+    </FluidItem>
+  </FluidSection>
+
+  <!-- 5. Your guide -->
+  <FluidSection rows={{ mobile: 32, desktop: 20 }} columnGap={27} theme="light" class="guide" aria-labelledby="briefing-guide">
+    <FluidItem desktop="4/5/18/12" mobile="3/2/19/10" z={{ desktop: 6, mobile: 5 }}>
+      <Image class="media-fill" src={emily} alt="Founder Emily Paulsen seated on a velvet sofa in a patterned blouse and jeans" widths={[480, 720, 1062]} sizes="(max-width: 767px) 88vw, 27vw" />
+    </FluidItem>
+    <FluidItem desktop="6/14/7/22" mobile="3/2/5/10" z={{ desktop: 7, mobile: 4 }} align="start">
+      <p class="eyebrow red">YOUR GUIDE | FOUNDER &amp; CREATIVE DIRECTOR</p>
+    </FluidItem>
+    <FluidItem desktop="7/14/9/24" mobile="20/2/22/10" z={1} align="start">
+      <h2 id="briefing-guide" class="text-h1 burgundy">EMILY PAULSEN</h2>
+    </FluidItem>
+    <FluidItem desktop="9/14/13/24" mobile="22/2/25/10" z={{ desktop: 6, mobile: 3 }}>
+      <p class="text-h3">Leading a team with 35+ years of expertise developing brands that drive business through human connection.</p>
+    </FluidItem>
+    <FluidItem desktop="13/14/16/24" mobile="26/2/31/10" z={2} align="start">
+      <p>
+        Different from a traditional agency, designer, or a doer, Electric Collab is your strategic partner. Through an immersive process based in meaningful collaboration, we translate your biggest ideas into a crystal-clear brand that feels like you.
+      </p>
+    </FluidItem>
+  </FluidSection>
+
+  <!-- 6. Closing call to action -->
+  <FluidSection rows={{ mobile: 16, desktop: 12 }} id="briefing-opt-in" aria-labelledby="briefing-cta">
+    <FluidItem desktop="3/5/7/23" mobile="3/2/8/10" z={11}>
+      <h2 id="briefing-cta" class="text-h1 centered">
+        Access <span class="red">The Briefing</span> and align your brand <br />to the level of your industry leadership, now.
+      </h2>
+    </FluidItem>
+    <FluidItem desktop="7/7/8/21" mobile="8/2/11/10" z={26} align={{ desktop: 'start', mobile: 'center' }}>
+      <p class="eyebrow centered subtitle">3-part audio series for the established founder ready for a brand they're unshakably proud of.</p>
+    </FluidItem>
+    <FluidItem desktop="9/11/11/17" mobile="12/3/14/9" z={{ desktop: 4, mobile: 16 }}>
+      <Button href="#the-briefing-opt-in" variant="outline" fill>access the briefing</Button>
+    </FluidItem>
+  </FluidSection>
 </BaseLayout>
+
+<style>
+  /* Hero: portrait under a 76% cream wash, focal point on the face (as live). */
+  .hero-portrait {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 49.32% 9.6%;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-cream);
+    opacity: 0.76;
+  }
+
+  .centered {
+    text-align: center;
+  }
+
+  .red {
+    color: var(--color-red);
+  }
+
+  .terracotta {
+    color: var(--color-terracotta);
+  }
+
+  .burgundy {
+    color: var(--color-burgundy);
+  }
+
+  .eyebrow strong {
+    font-weight: inherit;
+  }
+
+  /* Bulleted pain points (Squarespace list spacing). */
+  :global(.pain-points ul) {
+    margin: 0;
+    padding: 0.5em 0 0.5em 40px;
+  }
+
+  :global(.pain-points li + li) {
+    margin-top: 0.5em;
+  }
+
+  /* Marquee quotes: Vogue at Squarespace's size-2 heading scale. */
+  :global(.quotes .quote) {
+    margin-right: 2.2em;
+    font-family: var(--font-heading);
+    font-size: min(calc(var(--type-unit) + 1rem), max(calc(var(--type-cap) + 1rem), 2rem));
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  /* "Your guide" sits on white; body copy there is black on live. */
+  .guide {
+    background-color: #fff;
+    color: #000;
+  }
+</style>

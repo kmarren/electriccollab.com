@@ -1609,6 +1609,21 @@
       "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/8c408d3c-d210-48f1-aa91-abca4e3a43a2/27.png",
       "dest": "src/assets/images/electric-evolution/l-advisors-cards.png",
       "note": "Electric Evolution portal"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/1ce82bca-3c70-4077-a93b-7a683609bde7/Emily+Paulsen+Headshot+Extended.jpg?format=2500w",
+      "dest": "src/assets/images/the-briefing/emily-headshot-extended.jpg",
+      "note": "The Briefing"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/c3a4a3f8-11f9-4b06-b9e2-94125949ecd9/pexels-darina-belonogova-7959774.jpg?format=2500w",
+      "dest": "src/assets/images/the-briefing/laptop-pinstripes.jpg",
+      "note": "The Briefing"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/63feee1202ca0172318bd767/3c4cdaaf-ceee-432e-904a-a0b51c8d0536/Paulsen___2026-5.jpg?format=2500w",
+      "dest": "src/assets/images/the-briefing/emily-paulsen.jpg",
+      "note": "The Briefing"
     }
   ],
   "videos": [

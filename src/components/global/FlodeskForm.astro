@@ -1,0 +1,58 @@
+---
+/**
+ * Inline Flodesk sign-up form (as on The Briefing page). Flodesk renders the
+ * form and its styles into the container; space is reserved for it so the
+ * page doesn't shift when it appears. Shares Flodesk's script with the popup
+ * (FlodeskPopup.astro), which is only injected once.
+ */
+export interface Props {
+  formId: string;
+  /** Rendered form height in px (desktop, mobile), to reserve its space. */
+  height: { desktop: number; mobile: number };
+}
+
+const { formId, height } = Astro.props;
+const id = `fd-form-${formId}`;
+---
+
+<div id={id} class="flodesk-form" style={`--h-d: ${height.desktop}px; --h-m: ${height.mobile}px`}></div>
+
+<script is:inline data-form-id={formId}>
+  (function (script) {
+    var formId = script.dataset.formId;
+    if (!window.fd)
+      (function (w, d, t, h, s, n) {
+        w.FlodeskObject = n;
+        var fn = function () {
+          (w[n].q = w[n].q || []).push(arguments);
+        };
+        w[n] = w[n] || fn;
+        var f = d.getElementsByTagName(t)[0];
+        var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
+        var sm = d.createElement(t);
+        sm.async = true;
+        sm.type = 'module';
+        sm.src = h + s + '.mjs' + v;
+        f.parentNode.insertBefore(sm, f);
+        var sn = d.createElement(t);
+        sn.async = true;
+        sn.noModule = true;
+        sn.src = h + s + '.js' + v;
+        f.parentNode.insertBefore(sn, f);
+      })(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
+    window.fd('form', { formId: formId, containerEl: '#fd-form-' + formId });
+  })(document.currentScript);
+</script>
+
+<style>
+  .flodesk-form {
+    width: 100%;
+    min-height: var(--h-m);
+  }
+
+  @media (min-width: 768px) {
+    .flodesk-form {
+      min-height: var(--h-d);
+    }
+  }
+</style>
