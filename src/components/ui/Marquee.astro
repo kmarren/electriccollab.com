@@ -2,7 +2,8 @@
 /**
  * Continuously scrolling strip (replaces the live site's auto-scroll carousel
  * plugin). The slotted items are rendered twice so the loop is seamless; the
- * copy is hidden from assistive tech. Pauses on hover and for reduced motion.
+ * copy is hidden from assistive tech. Stops for reduced motion, and pauses on
+ * hover only with `pauseOnHover` (as live does for the services work carousel).
  *
  * Speed is either a fixed loop `duration` (seconds per set of items) or a
  * constant `speed` in px/s, which a tiny script converts to a duration from
@@ -11,14 +12,15 @@
 export interface Props {
   duration?: number;
   speed?: number;
+  pauseOnHover?: boolean;
   class?: string;
 }
 
-const { duration = 60, speed, class: className } = Astro.props;
+const { duration = 60, speed, pauseOnHover = false, class: className } = Astro.props;
 const items = await Astro.slots.render('default');
 ---
 
-<div class:list={['marquee', className]} style={`--marquee-duration: ${duration}s`} data-marquee-speed={speed}>
+<div class:list={['marquee', { 'pause-on-hover': pauseOnHover }, className]} style={`--marquee-duration: ${duration}s`} data-marquee-speed={speed}>
   <div class="track">
     <ul class="set" set:html={items} />
     <ul class="set" aria-hidden="true" inert set:html={items} />
@@ -36,7 +38,7 @@ const items = await Astro.slots.render('default');
     animation: marquee var(--marquee-duration) linear infinite;
   }
 
-  .marquee:hover .track {
+  .pause-on-hover:hover .track {
     animation-play-state: paused;
   }
 

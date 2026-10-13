@@ -13,7 +13,7 @@ const slides = carousel.map((slide) => ({ ...slide, image: files[`../../assets/i
 ---
 
 <section class="work-carousel theme-dark" aria-label="Selected brand work">
-  <Marquee speed={60}>
+  <Marquee speed={60} pauseOnHover>
     {
       slides.map((slide) => (
         <li class="slide">
