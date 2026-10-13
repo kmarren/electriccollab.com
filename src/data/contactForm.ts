@@ -2,23 +2,15 @@
  * The contact page application form, reproduced field-for-field from the live
  * Squarespace form ("Contact Form 3"). Labels and options are verbatim,
  * including the live typo "Next Availlable".
- *
- * `name` is the key submissions are stored under in Netlify Forms (and shown
- * in notification emails), so names are written to be readable there.
  */
 
-export type Field =
-  | { type: 'name'; label: string; required: true }
-  | { type: 'email' | 'text' | 'website'; name: string; label: string; required: boolean; placeholder?: string }
-  | { type: 'textarea'; name: string; label: string; required: boolean }
-  | { type: 'checkbox' | 'radio'; name: string; label: string; required: boolean; options: string[] }
-  | { type: 'select'; name: string; label: string; required: boolean; placeholder: string; options: string[] };
+import type { SiteForm } from './forms';
 
-export const contactForm = {
-  /** Netlify form name (shown in the Netlify dashboard). */
+export const contactForm: SiteForm = {
   name: 'application',
   submitLabel: 'Submit Application',
-  successPath: '/thank-you',
+  success: { path: '/thank-you' },
+  failureMessage: 'Sorry, something went wrong sending your application. Please try again, or email emily@electriccollab.com.',
   fields: [
     { type: 'name', label: 'Name', required: true },
     { type: 'email', name: 'Email', label: 'Email', required: true },
@@ -90,5 +82,5 @@ export const contactForm = {
     },
     { type: 'textarea', name: '90-day win', label: 'What would make this project a clear win 90 days after launch?', required: true },
     { type: 'textarea', name: 'Anything else', label: 'Anything else you think I should know?', required: true },
-  ] satisfies Field[],
+  ],
 };

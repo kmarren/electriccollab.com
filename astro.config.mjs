@@ -33,8 +33,9 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      // Utility pages that should never be indexed.
-      filter: (page) => !page.endsWith('/thank-you'),
+      // Pages that should never be indexed: the thank-you page and the
+      // client-only Electric Evolution portal (both also carry noindex).
+      filter: (page) => !/\/(thank-you|electric-evolution-members)$/.test(page),
     }),
   ],
 });

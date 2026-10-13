@@ -6,6 +6,7 @@
  *
  *   variant="receive"  — large serif title, 24px icon, solid red dividers
  *   variant="faq"      — uppercase label title, 14px icon, faint red dividers
+ *   variant="plain"    — body-text title, 14px icon, solid red dividers
  *
  * `content` is trusted HTML authored in src/data.
  */
@@ -17,7 +18,7 @@ export interface AccordionItem {
 export interface Props {
   items: AccordionItem[];
   name: string;
-  variant?: 'receive' | 'faq';
+  variant?: 'receive' | 'faq' | 'plain';
   /** Draw a divider above the first item. */
   topDivider?: boolean;
   /** Heading level for item titles (keeps the document outline valid). */
@@ -56,6 +57,10 @@ const Heading = `h${headingLevel}` as 'h3' | 'h4';
     --pad: 30px;
   }
 
+  .accordion--plain {
+    --icon-size: 14px;
+  }
+
   details {
     border-bottom: 1px solid var(--divider-color);
   }
@@ -89,6 +94,13 @@ const Heading = `h${headingLevel}` as 'h3' | 'h4';
   .accordion--receive .title {
     font-family: var(--font-heading);
     font-size: var(--fs-h3);
+  }
+
+  .accordion--plain .title {
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    letter-spacing: normal;
+    text-transform: none;
   }
 
   .accordion--faq .title {
@@ -139,6 +151,15 @@ const Heading = `h${headingLevel}` as 'h3' | 'h4';
     margin-block: 16px;
     font-size: 1rem;
     line-height: 1.5;
+  }
+
+  .accordion--plain .content :global(ol) {
+    margin: 0;
+    padding-left: 40px;
+  }
+
+  .accordion--plain .content :global(li p) {
+    margin-block: 0.5em;
   }
 
   .content :global(p + p) {

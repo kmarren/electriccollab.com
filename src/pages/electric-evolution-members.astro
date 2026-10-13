@@ -1,11 +1,213 @@
 ---
-// Placeholder route so internal links resolve. Page content is migrated in a
-// later phase; title/description already match the live Squarespace page.
+/**
+ * Electric Evolution portal: past clients' page for requesting brand updates.
+ * Hidden from search engines (a client-only page, reached from the footer).
+ *
+ *   1. Video hero: welcome + intro line
+ *   2. What Electric Evolution is (two columns)
+ *   3. "Electric Evolution Offers You:" panel
+ *   4. "Submit a Request" panel with the request form (#eerequestform, the
+ *      live page's anchor, linked from the button in section 3)
+ *   5. FAQs
+ */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FluidSection from '../components/layout/FluidSection.astro';
+import FluidItem from '../components/layout/FluidItem.astro';
+import AutoplayVideo from '../components/ui/AutoplayVideo.astro';
+import Accordion from '../components/ui/Accordion.astro';
+import Button from '../components/ui/Button.astro';
+import NetlifyForm from '../components/forms/NetlifyForm.astro';
+import { Image } from 'astro:assets';
+import { evolutionForm } from '../data/evolutionForm';
+import businessCards from '../assets/images/electric-evolution/business-cards.png';
+import emily from '../assets/images/electric-evolution/emily-paulsen.jpg';
+import kathryneCard from '../assets/images/electric-evolution/kathryne-cole-card.png';
+import arriveePackaging from '../assets/images/electric-evolution/arrivee-packaging.png';
+import lAdvisorsCards from '../assets/images/electric-evolution/l-advisors-cards.png';
+
+const commonUpdates = [
+  {
+    title: 'COMMON UPDATES COULD INCLUDE:',
+    content:
+      '<ol><li><p>The creation of new brand assets like a business card, presentation deck, email signature, custom stationary, merchandise, etc. </p></li><li><p>Website updates like showcasing a new team member, adding a new service, developing a speaking page or prioritizing fresh media features. </p></li><li><p>Technical troubleshooting, photoshoot direction, or a general strategy discussion as your industry evolves.</p></li></ol>',
+  },
+];
+
+const faqLeft = [
+  {
+    title: 'HOW MUCH SHOULD I EXPECT TO PAY FOR INDIVIDUAL DELIVERABLES?',
+    content:
+      '<p>We decided to keep ongoing access to our team complimentary, and bill projects individually so you only pay for things you need. <br><br>Every deliverable we create or change we execute will be billed at our standard hourly rate. You will be provided a quote for approval up front so there are no surprises along the way.</p>',
+  },
+  {
+    title: 'ARE THERE ANY UPDATES THAT WOULD NOT BE HANDLED THROUGH THIS PORTAL?',
+    content:
+      '<p>A submission through the Electric Evolution portal is always the best place to start. If you need support with a larger update, it may make sense to treat the work as a small project instead of billing hourly so you can budget for a set project price. </p>',
+  },
+];
+
+const faqRight = [
+  {
+    title: 'WHAT IF I HAVE AN EMERGENCY, SAME-DAY REQUEST?',
+    content: '<p>While we cannot always accommodate urgent requests, we will try our best! Start by submitting a request here, and we’ll be in touch as quickly as possible.</p>',
+  },
+  {
+    title: 'WHAT IF I HAVE A NEW WEBSITE PROJECT ON A PLATFORM OTHER THAN SQUARESPACE?',
+    content:
+      '<p>We still wholeheartedly believe in and specialize in Squarespace. If you’re seeking support with a different website or CRM platform we may not be able to help, but we will try to connect you with someone from our network who can.</p>',
+  },
+];
 ---
 
 <BaseLayout
   title="Electric Evolution Private Membership Site | Chicago, IL | Electric Collab"
+  description="Electric Evolution: past Electric Collab clients' private portal for requesting messaging, design and website updates."
   noindex
 >
+  <!-- 1. Hero -->
+  <FluidSection rows={{ mobile: 9, desktop: 11 }} padded clearHeader class="hero" aria-labelledby="ee-title">
+    <AutoplayVideo slot="background" src="/videos/electric-evolution/hero" width={1080} height={1620} background eager style="opacity: 0.31" />
+    <FluidItem desktop="3/7/4/21" mobile="2/2/4/10" z={{ desktop: 2, mobile: 1 }} align={{ desktop: 'center', mobile: 'start' }}>
+      <h1 id="ee-title" class="eyebrow centered">WELCOME TO THE ELECTRIC EVOLUTION PORTAL</h1>
+    </FluidItem>
+    <FluidItem desktop="5/7/9/21" mobile="4/2/9/10" z={{ desktop: 3, mobile: 2 }} align={{ desktop: 'center', mobile: 'start' }}>
+      <p class="text-h2 centered">Your brand is built to last (hooray!) but we know bold, innovative founders rarely stand still.</p>
+    </FluidItem>
+  </FluidSection>
+
+  <!-- 2. Intro -->
+  <FluidSection rows={{ mobile: 45, desktop: 6 }} theme="light" medium aria-label="About Electric Evolution">
+    <FluidItem desktop="1/4/7/13" mobile="2/3/24/9" z={{ desktop: 6, mobile: 5 }} align="start">
+      <p class="text-h3">
+        As your business grows and the market shifts, Electric Evolution allows us to serve as an on-call brand team you can trust to <span class="red">strategize and execute updates</span> so you don’t have to.
+      </p>
+    </FluidItem>
+    <FluidItem desktop="1/15/7/24" mobile="24/3/46/9" z={{ desktop: 7, mobile: 6 }} align="start" class="rte">
+      <p>
+        When you inevitably expand your service suite, hire more team, get paid to speak, grow your audience, or invent a new framework, we’re here to evolve your messaging, design, and website so you can keep the business moving.
+      </p>
+      <p>
+        <strong>This is your private portal</strong> to submit a request for support anytime. We suggest bookmarking it for easy access in the future, and you can always find it in the footer of <a href="/" target="_blank" rel="noopener">electriccollab.com</a>.
+      </p>
+      <p>Thank you for trusting us as your ongoing brand partner!</p>
+    </FluidItem>
+  </FluidSection>
+
+  <!-- 3. What it offers -->
+  <FluidSection rows={{ mobile: 89, desktop: 32 }} columnGap={0} theme="light" padded aria-labelledby="ee-offers">
+    <FluidItem desktop="1/4/33/24" mobile="2/2/90/10" z={1}>
+      <div class="panel" aria-hidden="true"></div>
+    </FluidItem>
+    <FluidItem desktop="3/8/6/20" mobile="3/2/6/10" z={{ desktop: 2, mobile: 4 }} align={{ desktop: 'center', mobile: 'start' }}>
+      <h2 id="ee-offers" class="text-h1 centered">Electric Evolution Offers You:</h2>
+    </FluidItem>
+    <FluidItem desktop="6/6/8/22" mobile="6/3/7/9" z={{ desktop: 8, mobile: 10 }}>
+      <hr class="rule rule--red" />
+    </FluidItem>
+    <FluidItem desktop="8/6/20/10" mobile="7/3/15/9" z={{ desktop: 4, mobile: 5 }}>
+      <Image class="media-fill" src={businessCards} alt="Charcoal evgn business cards with gold foil logos" widths={[400, 600, 900]} sizes="(max-width: 767px) 66vw, 17vw" />
+    </FluidItem>
+    <FluidItem desktop="20/6/22/22" mobile="15/3/16/9" z={{ desktop: 8, mobile: 10 }}>
+      <hr class="rule rule--red" />
+    </FluidItem>
+    <FluidItem desktop="9/11/15/22" mobile="16/3/29/9" z={{ desktop: 4, mobile: 6 }} align={{ desktop: 'center', mobile: 'start' }} class="rte">
+      <h3 class="text-h3">Skip-The-Line Access for A La Carte Updates</h3>
+      <p class="small">
+        <strong>Use the form below</strong> to submit requests for updates or additions to your messaging, design or website, and our team will bump you up in our project queue to take care of it right away. Deliverables will be billed at our hourly rate, and a quote will be provided for your approval before any work begins.<br /><br />As a past client, you have priority access to our team so we can complete the tweaks you need in days instead of months.
+      </p>
+    </FluidItem>
+    <FluidItem desktop="15/11/17/22" mobile="30/3/33/9" z={{ desktop: 9, mobile: 11 }} align={{ desktop: 'center', mobile: 'start' }}>
+      <Accordion name="ee-common-updates" items={commonUpdates} variant="plain" headingLevel={4} />
+    </FluidItem>
+    <FluidItem desktop="17/11/19/17" mobile="33/3/35/10" z={{ desktop: 10, mobile: 12 }}>
+      <Button href="#eerequestform" variant="accent" class="request-button">Take me to the request form</Button>
+    </FluidItem>
+    <FluidItem desktop="22/18/32/22" mobile="64/3/74/9" z={{ desktop: 5, mobile: 7 }}>
+      <Image class="media-fill" src={emily} alt="Founder Emily Paulsen in a red velvet suit, seated in a pink velvet armchair" widths={[400, 600, 900]} sizes="(max-width: 767px) 66vw, 17vw" />
+    </FluidItem>
+    <FluidItem desktop="23/6/30/17" mobile="75/3/90/9" z={{ desktop: 5, mobile: 8 }} align={{ desktop: 'center', mobile: 'start' }} class="rte">
+      <h3 class="text-h3">Ongoing Brand Cohesion That Protects Your Reputation</h3>
+      <p class="small">
+        You worked hard during our project to launch a compelling brand experience you’re proud of…and we want to keep it that way! As things expand, it’s critical your unique value stays front and center, services are clear, and your emotional connection to premium clients stays intact.
+      </p>
+      <p class="small">
+        By working with Electric Collab as your in-house brand team, we can ensure every evolution feels consistent with the brand we originally built while protecting your reputation out in the real world.
+      </p>
+    </FluidItem>
+  </FluidSection>
+
+  <!-- 4. Request form -->
+  <FluidSection rows={{ mobile: 52, desktop: 35 }} columnGap={0} theme="light" padded id="eerequestform" aria-labelledby="ee-request">
+    <FluidItem desktop="2/4/35/24" mobile="2/2/43/10" z={1}>
+      <div class="panel" aria-hidden="true"></div>
+    </FluidItem>
+    <FluidItem desktop="3/10/5/22" mobile="3/2/5/10" z={4} align={{ desktop: 'end', mobile: 'start' }}>
+      <h2 id="ee-request" class="text-h2">Submit a Request</h2>
+    </FluidItem>
+    <FluidItem desktop="2/4/13/8" mobile="5/3/10/9" z={{ desktop: 3, mobile: 2 }}>
+      <Image class="media-fill" src={kathryneCard} alt="Kathryne Cole business card over a burgundy monogram" widths={[300, 500, 800]} sizes="(max-width: 767px) 66vw, 17vw" />
+    </FluidItem>
+    <FluidItem desktop="5/6/7/23" mobile="10/3/12/9" z={{ desktop: 2, mobile: 9 }}>
+      <hr class="rule rule--red" />
+    </FluidItem>
+    <FluidItem desktop="7/10/33/23" mobile="12/3/41/9" z={{ desktop: 5, mobile: 10 }} align="start">
+      <NetlifyForm form={evolutionForm} />
+    </FluidItem>
+    <FluidItem desktop="13/4/24/8" mobile="43/3/48/9" z={{ desktop: 4, mobile: 3 }}>
+      <Image class="media-fill" src={arriveePackaging} alt="Arrivée subscription box dielines in burgundy" widths={[300, 500, 714]} sizes="(max-width: 767px) 66vw, 17vw" />
+    </FluidItem>
+    <FluidItem desktop="24/4/35/8" mobile="48/3/53/9" z={{ desktop: 4, mobile: 3 }}>
+      <Image class="media-fill" src={lAdvisorsCards} alt="L Advisors business cards for Melanie Steinbach" widths={[300, 500, 800]} sizes="(max-width: 767px) 66vw, 17vw" />
+    </FluidItem>
+  </FluidSection>
+
+  <!-- 5. FAQs -->
+  <FluidSection rows={{ mobile: 20, desktop: 13 }} theme="light" aria-labelledby="ee-faqs">
+    <FluidItem desktop="3/4/5/11" mobile="3/2/5/10" z={1} align="start">
+      <h2 id="ee-faqs" class="text-h2">FAQs</h2>
+    </FluidItem>
+    <FluidItem desktop="5/4/11/13" mobile="5/2/12/10" z={2} align="start">
+      <Accordion name="ee-faq-1" items={faqLeft} variant="faq" />
+    </FluidItem>
+    <FluidItem desktop="5/15/9/24" mobile="12/2/19/10" z={3} align="start">
+      <Accordion name="ee-faq-2" items={faqRight} variant="faq" />
+    </FluidItem>
+  </FluidSection>
 </BaseLayout>
+
+<style>
+  .hero {
+    background-color: var(--color-terracotta);
+    color: var(--color-cream);
+  }
+
+  .centered {
+    text-align: center;
+  }
+
+  .red {
+    color: var(--color-red);
+  }
+
+  .small {
+    font-size: var(--fs-small);
+    line-height: 1.5;
+  }
+
+  /* Squarespace shape block: cream rectangle with a 1px red outline. */
+  .panel {
+    flex: 1;
+    background-color: var(--color-cream);
+    border: 1px solid var(--color-red);
+  }
+
+  .rule {
+    margin: 0;
+  }
+
+  /* As on live: the button shrinks with its grid cell and its label wraps left-aligned. */
+  :global(.button.request-button) {
+    justify-content: flex-start;
+    text-align: left;
+  }
+</style>

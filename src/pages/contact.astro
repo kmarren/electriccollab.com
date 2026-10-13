@@ -12,7 +12,8 @@ import Button from '../components/ui/Button.astro';
 import DrawUnderline from '../components/ui/DrawUnderline.astro';
 import ParallaxBackground from '../components/ui/ParallaxBackground.astro';
 import Testimonial from '../components/global/Testimonial.astro';
-import ContactForm from '../components/contact/ContactForm.astro';
+import NetlifyForm from '../components/forms/NetlifyForm.astro';
+import { contactForm } from '../data/contactForm';
 import silk from '../assets/images/contact/silk-background.jpg';
 import brandBook from '../assets/images/contact/brand-book.jpg';
 import waxSeal from '../assets/images/contact/wax-seal.png';
@@ -99,7 +100,7 @@ const SILK_FOCUS = '84.1% 11.2%';
     </FluidItem>
 
     <FluidItem desktop="15/6/88/22" mobile="16/2/134/10" z={3} align="start">
-      <ContactForm />
+      <NetlifyForm form={contactForm} />
     </FluidItem>
 
     <FluidItem desktop="90/6/92/22" mobile="135/2/141/10" z={4} align={{ desktop: 'start', mobile: 'center' }}>
