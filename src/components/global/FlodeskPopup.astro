@@ -41,3 +41,25 @@ const { formId } = Astro.props;
     else window.addEventListener('load', load, { once: true });
   })(document.currentScript);
 </script>
+
+<style is:global>
+  /*
+   * Live site's custom CSS: the popup docks to the bottom-right corner and
+   * slides in from the right instead of Flodesk's default centred modal.
+   * !important is needed to beat Flodesk's own injected styles.
+   */
+  .fd-modal__dialog {
+    position: absolute !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    transform: translate(110%, 0) !important;
+    transition: all 1s !important;
+    transform-style: preserve-3d;
+  }
+
+  .fd-is-open .fd-modal__dialog {
+    transform: translate(0%, 0) !important;
+  }
+</style>
