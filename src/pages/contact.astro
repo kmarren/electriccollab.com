@@ -148,6 +148,14 @@ const SILK_FOCUS = '84.1% 11.2%';
     border: 2px solid var(--color-red);
   }
 
+  /* Full-bleed on phones: the live shape's side and bottom strokes are clipped. */
+  @media (max-width: 767px) {
+    .panel {
+      border-inline: 0;
+      border-bottom: 0;
+    }
+  }
+
   :global(.seal) {
     object-fit: contain;
   }

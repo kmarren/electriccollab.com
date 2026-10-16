@@ -160,6 +160,7 @@ const isCurrent = (href: string) => currentPath === href || currentPath.startsWi
   .site-header--boxed-cta .nav-desktop .cta {
     padding: 8px 16px;
     border-bottom: 0;
+    border-radius: 4px;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 5px;
@@ -266,11 +267,14 @@ const isCurrent = (href: string) => currentPath === href || currentPath.startsWi
     list-style: none;
   }
 
+  /* Live: line-height matches the font size with 20px padding below, so the
+     label rides at the top of its 45px (38px on phones) row. */
   .mobile-nav a {
     display: block;
+    padding-bottom: 20px;
     font-family: var(--font-body);
     font-size: 25px;
-    line-height: 45px;
+    line-height: 25px;
     text-decoration: none;
   }
 
@@ -282,6 +286,11 @@ const isCurrent = (href: string) => currentPath === href || currentPath.startsWi
     margin-top: 27px;
   }
 
+  /* Live draws these glyphs at 19px inside the same 25px slots. */
+  .mobile-menu :global(.mobile-social svg) {
+    transform: scale(0.76);
+  }
+
   .mobile-cta {
     display: flex;
     align-items: center;
@@ -289,11 +298,9 @@ const isCurrent = (href: string) => currentPath === href || currentPath.startsWi
     width: 210px;
     height: 54px;
     margin-top: 92px;
-    font-family: var(--font-eyebrow);
+    font-family: var(--font-body);
     font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    text-transform: lowercase;
     text-decoration: none;
     color: #000;
     border-bottom: 2px solid currentColor;
@@ -304,10 +311,11 @@ const isCurrent = (href: string) => currentPath === href || currentPath.startsWi
       gap: 11.5px;
     }
 
+    /* Live asks for "Essential Sans", which isn't a loaded face, so phones
+       see the browser's sans-serif fallback; the body stack matches that. */
     .mobile-nav a {
-      font-family: var(--font-eyebrow);
       font-size: 18px;
-      line-height: 38px;
+      line-height: 18px;
       letter-spacing: 0.5px;
     }
 
@@ -321,6 +329,10 @@ const isCurrent = (href: string) => currentPath === href || currentPath.startsWi
 
     .mobile-cta {
       margin-top: 54px;
+      font-family: var(--font-eyebrow);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
   }
 

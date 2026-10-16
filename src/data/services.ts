@@ -27,7 +27,7 @@ export const phases: Phase[] = [
   },
   {
     label: '3 | DIGITAL PRESENCE',
-    title: 'Custom, AI-Amplified Website that Pre-sells your Premium Value',
+    title: 'Custom, AI-Optimized Website that Pre-sells your Premium Value',
     body: 'A beautifully designed, strategically built website is one of the most powerful assets in your business. We write every word, craft every page with a focus on UX Design, and build an intentional digital experience that guides visitors from curiosity to conversion. Expect a custom website that wins aligned clients right away with room for your business to grow.',
     receive:
       '<p>Full design and development, conversion copy, sourced photography and video, tech integrations and a seamless site launch including SEO, AEO, accessibility, and analytics. As full-service as it gets.</p>',

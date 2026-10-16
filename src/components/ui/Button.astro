@@ -8,7 +8,11 @@
  *   underline — transparent with a 2px bottom rule ("explore more work")
  *
  * `fill` stretches the button to its grid block, as Squarespace's
- * fluid-engine buttons do. Labels are lowercased by CSS, as on the live site.
+ * fluid-engine buttons do. `align` places an unfilled button horizontally in
+ * its block. Labels are lowercased by CSS, as on the live site.
+ *
+ * Hover states match the live theme and switch instantly (no transition):
+ * solid and accent fade to 80% opacity; outline and underline fill in.
  */
 import type { HTMLAttributes } from 'astro/types';
 
@@ -16,15 +20,16 @@ export interface Props extends HTMLAttributes<'a'> {
   href: string;
   variant?: 'solid' | 'accent' | 'outline' | 'underline';
   fill?: boolean;
+  align?: 'start' | 'center';
   weight?: 400 | 700;
   /** Label color for solid buttons (burgundy by default; red on red panels). */
   textColor?: 'burgundy' | 'red';
 }
 
-const { href, variant = 'solid', fill = false, weight = 700, textColor = 'burgundy', class: className, ...attrs } = Astro.props;
+const { href, variant = 'solid', fill = false, align = 'start', weight = 700, textColor = 'burgundy', class: className, ...attrs } = Astro.props;
 ---
 
-<a href={href} class:list={['button', `button--${variant}`, { 'button--fill': fill }, className]} style={`--weight: ${weight}; --text-color: var(--color-${textColor})`} {...attrs}>
+<a href={href} class:list={['button', `button--${variant}`, { 'button--fill': fill, 'button--center': align === 'center' }, className]} style={`--weight: ${weight}; --text-color: var(--color-${textColor})`} {...attrs}>
   <slot />
 </a>
 
@@ -43,6 +48,10 @@ const { href, variant = 'solid', fill = false, weight = 700, textColor = 'burgun
     text-transform: lowercase;
     text-decoration: none;
     text-align: center;
+  }
+
+  .button--center {
+    align-self: center;
   }
 
   .button--fill {
@@ -74,5 +83,28 @@ const { href, variant = 'solid', fill = false, weight = 700, textColor = 'burgun
     background: transparent;
     color: inherit;
     border-bottom: 2px solid currentColor;
+  }
+
+  .button--solid:hover,
+  .button--accent:hover {
+    opacity: 0.8;
+  }
+
+  /* Outline: fills with the section's text color; the border keeps its color. */
+  .button--outline:hover {
+    background-color: var(--color-cream);
+    color: var(--color-red);
+    border-color: var(--color-cream);
+  }
+
+  :global(.theme-light) .button--outline:hover {
+    background-color: var(--color-burgundy);
+    color: var(--color-periwinkle);
+    border-color: var(--color-burgundy);
+  }
+
+  .button--underline:hover {
+    background-color: var(--color-cream);
+    color: var(--color-red);
   }
 </style>

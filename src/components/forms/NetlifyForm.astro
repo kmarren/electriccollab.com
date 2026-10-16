@@ -316,6 +316,11 @@ const idFor = (name: string) => `f-${form.name}-` + name.toLowerCase().replace(/
     padding-bottom: 2.2px;
   }
 
+  /* Under a description ("Check all that apply:") the live list starts lower. */
+  .field--radio .description ~ .options {
+    margin-top: 7.9px;
+  }
+
   .option {
     display: flex;
     align-items: center;

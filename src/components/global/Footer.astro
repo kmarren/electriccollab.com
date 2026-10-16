@@ -28,7 +28,7 @@ const palette = ['periwinkle', 'burgundy', 'red', 'terracotta', 'blush', 'olive'
     </FluidItem>
 
     <FluidItem desktop="6/22/8/25" mobile="2/6/6/10" z={{ mobile: 10, desktop: 11 }}>
-      <SocialLinks size={25} gap={15} />
+      <SocialLinks size={22.5} gap={15.5} />
     </FluidItem>
 
     <FluidItem desktop="4/7/6/16" mobile="6/2/8/10" z={{ mobile: 6, desktop: 7 }} align="start">
@@ -119,9 +119,9 @@ const palette = ['periwinkle', 'burgundy', 'red', 'terracotta', 'blush', 'olive'
     line-height: var(--lh-h3);
   }
 
+  /* Button supplies the 80% opacity; the footer CTA's label also turns red. */
   .site-footer :global(.footer-cta:hover) {
     color: #cd060d;
-    opacity: 0.8;
   }
 
   .footer-links {
