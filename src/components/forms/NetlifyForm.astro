@@ -386,19 +386,32 @@ const idFor = (name: string) => `f-${form.name}-` + name.toLowerCase().replace(/
   }
 
   /* ---- File upload ---------------------------------------------------------- */
+  /* Live: a 110px box, icon 22px from the top, label 11px below it. */
   .dropzone {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 11px;
-    padding: 22px 0;
+    box-sizing: border-box;
+    height: 110px;
+    padding: 21px 0 0;
     border: 1px dashed var(--color-burgundy);
     font-size: var(--fs-body);
+    line-height: normal;
     cursor: pointer;
   }
 
   /* Terracotta circle with a plus. */
+  /* A chosen file's name replaces the label; keep it on one line in the fixed box. */
+  .dropzone-text {
+    max-width: calc(100% - 22px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .dropzone-icon {
+    flex-shrink: 0;
     width: 33px;
     height: 33px;
     border-radius: 50%;
