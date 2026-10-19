@@ -3,7 +3,7 @@
 Astro rebuild of [electriccollab.com](https://www.electriccollab.com), migrated from Squarespace.
 This is a faithful migration, not a redesign. See [AGENTS.md](AGENTS.md) for project goals and rules.
 
-**Status:** every page on the live site is migrated: homepage, "our services" (`/electric-brand-experience`), "our work" (`/portfolio`) and all 21 case studies, "the studio" (`/about`), contact (`/contact` + `/thank-you`), the blog (`/blog`, 17 posts, RSS at `/blog/rss.xml`), The Briefing (`/the-briefing`), the Electric Evolution portal and terms (both noindex), and the privacy policy and terms & conditions. Next: pre-launch QA (see the launch checklist).
+**Status:** every page on the live site is migrated: homepage, "our services" (`/electric-brand-experience`), "our work" (`/portfolio`) and all 21 case studies, "the studio" (`/about`), contact (`/contact` + `/thank-you`), the blog (`/blog`, 17 posts, RSS at `/blog/rss.xml`), The Briefing (`/the-briefing`), the Electric Evolution portal and terms (both noindex), and the privacy policy and terms & conditions. Pre-launch QA against the live site is done at desktop, tablet and phone widths. Next: the launch checklist below.
 
 ## Commands
 
@@ -24,14 +24,16 @@ src/
   pages/                       one file per route; URLs match the Squarespace site exactly
   components/
     layout/                    FluidSection + FluidItem — Squarespace's grid, reproduced
-    global/                    Header, Footer, SEO, JsonLd, CookieConsent, FlodeskPopup, ItemPagination
+    global/                    Header, Footer, SEO, JsonLd, CookieConsent, FlodeskPopup, FlodeskForm,
+                               ItemPagination, Testimonial
     home/                      homepage sections (Hero, PressMarquee, ServicesIntro, …)
     services/                  services page sections (Phase, HowItWorks, Faq, …)
     portfolio/                 portfolio index tile
     forms/                     NetlifyForm (contact application, Electric Evolution requests)
     case-study/                case-study template (CaseStudy)
     blog/                      blog index card (BlogCard)
-    ui/                        Button, Accordion, Marquee, DrawUnderline, AutoplayVideo, SocialLinks
+    ui/                        Button, Accordion, Marquee, DrawUnderline, AutoplayVideo, ParallaxBackground,
+                               SocialLinks
   content/portfolio/           one Markdown entry per project: homepage card, /portfolio tile,
                                and `caseStudy` page data (sections → text/image/video blocks
                                with their live grid placement; schema in src/content.config.ts)
@@ -39,7 +41,8 @@ src/
                                (Markdown, rendered by src/pages/[legal].astro)
   content/blog/                one Markdown file per post (frontmatter: title, dates, author,
                                card image); images in src/assets/images/blog/<slug>/
-  data/                        site constants, nav, press logos, testimonials, services copy
+  data/                        site constants, nav, press logos, testimonials, services copy, form fields
+  lib/                         search-indexing switch, structured data (JSON-LD) builders
   styles/                      tokens.css (colors, type scale, layout), fonts.css, global.css
   scripts/                     smooth scroll (Lenis), scroll lock
   assets/images/               source images (optimized to WebP/AVIF at build time)
@@ -64,6 +67,34 @@ live site uses. Copying those coordinates is what keeps every breakpoint pixel-a
 ```
 
 Type sizes follow the theme's own fluid formula (see `src/styles/tokens.css`).
+
+## Editing content
+
+| What | Where |
+| --- | --- |
+| Blog posts | `src/content/blog/` (one Markdown file each; images in `src/assets/images/blog/<slug>/`) |
+| Case studies, homepage cards, `/portfolio` tiles | `src/content/portfolio/` |
+| Privacy policy, terms | `src/content/legal/` |
+| Testimonials, press logos, services copy, nav, form fields | `src/data/` |
+| Copy on the main pages (home, services, studio, contact, The Briefing) | the page components in `src/pages/` and `src/components/` |
+
+The collections in `src/content/` have schemas in `src/content.config.ts`, so a headless CMS
+can connect to them directly. Main-page copy would have to move into data or content files
+first to become editable in a CMS.
+
+## Deliberate differences from the live site
+
+These were reviewed and approved. Don't change them back to match Squarespace:
+
+- **The Briefing header:** "GET STARTED" is readable. On live it's cream on a cream header.
+- **Wide column gaps:** these are capped at `100vw / 24` (see `FluidSection`). Live's founder
+  section overflows at tablet widths (text cut off, sideways scroll), so it's taller here.
+- **Electric Evolution request form:** "support type" allows several answers (live said
+  "check all that apply" but allowed one), and it takes one 8 MB attachment instead of five.
+- **Laura Czuba case study:** omits four live video blocks that never finished processing.
+- **accessiBe:** the live site's accessibility overlay isn't included (client decision pending).
+- **Mobile menu on phones:** uses the body sans-serif. Live requests an undefined
+  "Essential Sans" font, so browsers show their default sans-serif.
 
 ## Integrations
 
@@ -95,7 +126,10 @@ attachment up to 8 MB (Netlify's limit per submission). Submitting only works on
 
 ## Deploying (Netlify)
 
-`netlify.toml` holds the build settings, legacy redirects (`/home` → `/`) and cache headers.
+`netlify.toml` holds the build settings, legacy redirects (`/home` → `/`, and the old
+`/blog?format=rss` feed → `/blog/rss.xml`) and cache headers. Every page URL matches
+Squarespace, so no other redirects are needed. Nothing loads from Squarespace: all images,
+videos and fonts are self-hosted.
 
 Search indexing is **off by default** (`robots.txt` disallows all and every page
 is `noindex`), so preview deploys never compete with the live Squarespace site.
@@ -108,4 +142,10 @@ At launch, set `PUBLIC_ALLOW_INDEXING=true` in Netlify's environment variables.
 - [ ] Client approval of the full site
 - [ ] `PUBLIC_ALLOW_INDEXING=true` set in Netlify
 - [ ] Netlify form detection enabled + notification email set; test submission received
-- [ ] Custom domain pointed at Netlify; Squarespace subscription kept until verified
+- [ ] Netlify plan's monthly form-submission limit covers expected volume
+- [ ] Decide where contact-form opt-ins go (no mailing-list connection exists yet; submissions
+      only land in Netlify)
+- [ ] Custom domain pointed at Netlify, **keeping the existing email (MX) records**; HTTPS active
+- [ ] Squarespace subscription kept until the new site and email are verified
+- [ ] Sitemap (`/sitemap-index.xml`) submitted in Google Search Console
+- [ ] accessiBe: keep (add back) or cancel
