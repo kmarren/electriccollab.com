@@ -1,7 +1,8 @@
 ---
 /**
- * Featured work: twelve project covers in three grid sections (rows of four on
- * desktop, two on mobile), then "explore more work". Hovering (or focusing) a
+ * Featured work: a "Solidify your distinct reputation…" heading, twelve project
+ * covers in three grid sections (rows of four on desktop, two on mobile), then
+ * "explore more work". Hovering (or focusing) a
  * cover reveals a burgundy overlay with the project name, category and link.
  *
  * Card content comes from the portfolio collection (`homepage` data); the grid
@@ -21,23 +22,23 @@ interface Placement {
 /** Live-site grid areas per project, grouped into the three original sections. */
 const sections: { rows: { mobile: number; desktop: number }; cards: Record<string, Placement> }[] = [
   {
-    rows: { mobile: 17, desktop: 14 },
+    rows: { mobile: 23, desktop: 19 },
     cards: {
       'suzanne-falk': {
-        image: { desktop: '3/2/14/8', mobile: '2/2/10/6', z: { desktop: 3, mobile: 3 } },
-        overlay: { desktop: '3/2/14/8', mobile: '2/2/7/6', z: { desktop: 12, mobile: 13 } },
+        image: { desktop: '8/2/19/8', mobile: '7/2/15/6', z: { desktop: 3, mobile: 3 } },
+        overlay: { desktop: '8/2/19/8', mobile: '7/2/15/6', z: { desktop: 12, mobile: 13 } },
       },
       'mb-graubard-consulting': {
-        image: { desktop: '3/8/14/14', mobile: '2/6/10/10', z: { desktop: 8, mobile: 9 } },
-        overlay: { desktop: '3/8/14/14', mobile: '2/6/10/10', z: { desktop: 13, mobile: 14 } },
+        image: { desktop: '8/8/19/14', mobile: '7/6/15/10', z: { desktop: 8, mobile: 9 } },
+        overlay: { desktop: '8/8/19/14', mobile: '7/6/15/10', z: { desktop: 13, mobile: 14 } },
       },
       evgn: {
-        image: { desktop: '3/14/14/20', mobile: '10/2/17/6', z: { desktop: 5, mobile: 5 } },
-        overlay: { desktop: '3/14/14/20', mobile: '10/2/17/6', z: { desktop: 10, mobile: 11 } },
+        image: { desktop: '8/14/19/20', mobile: '15/2/23/6', z: { desktop: 5, mobile: 5 } },
+        overlay: { desktop: '8/14/19/20', mobile: '15/2/23/6', z: { desktop: 10, mobile: 11 } },
       },
       'surrogacy-reimagined': {
-        image: { desktop: '3/20/14/26', mobile: '10/6/17/10', z: { desktop: 5, mobile: 5 } },
-        overlay: { desktop: '3/20/14/26', mobile: '10/6/17/10', z: { desktop: 11, mobile: 12 } },
+        image: { desktop: '8/20/19/26', mobile: '15/6/23/10', z: { desktop: 5, mobile: 5 } },
+        overlay: { desktop: '8/20/19/26', mobile: '15/6/23/10', z: { desktop: 11, mobile: 12 } },
       },
     },
   },
@@ -46,7 +47,7 @@ const sections: { rows: { mobile: number; desktop: number }; cards: Record<strin
     cards: {
       'l-advisors': {
         image: { desktop: '1/2/12/8', mobile: '1/2/9/6', z: { desktop: 5, mobile: 5 } },
-        overlay: { desktop: '1/2/12/8', mobile: '1/2/8/6', z: { desktop: 15, mobile: 16 } },
+        overlay: { desktop: '1/2/12/8', mobile: '1/2/7/6', z: { desktop: 15, mobile: 16 } },
       },
       'love-social': {
         image: { desktop: '1/8/12/14', mobile: '1/6/9/10', z: { desktop: 4, mobile: 2 } },
@@ -54,7 +55,7 @@ const sections: { rows: { mobile: number; desktop: number }; cards: Record<strin
       },
       helloseo: {
         image: { desktop: '1/14/12/20', mobile: '9/2/17/6', z: { desktop: 4, mobile: 4 } },
-        overlay: { desktop: '1/14/12/20', mobile: '9/2/17/6', z: { desktop: 17, mobile: 18 } },
+        overlay: { desktop: '1/14/12/20', mobile: '9/2/16/6', z: { desktop: 17, mobile: 18 } },
       },
       'the-whisper-group': {
         image: { desktop: '1/20/12/26', mobile: '9/6/17/10', z: { desktop: 5, mobile: 6 } },
@@ -75,7 +76,7 @@ const sections: { rows: { mobile: number; desktop: number }; cards: Record<strin
       },
       'ashlee-piper': {
         image: { desktop: '1/14/12/20', mobile: '9/6/17/10', z: { desktop: 5, mobile: 5 } },
-        overlay: { desktop: '1/14/12/20', mobile: '9/6/16/10', z: { desktop: 17, mobile: 18 } },
+        overlay: { desktop: '1/14/12/20', mobile: '9/6/15/10', z: { desktop: 17, mobile: 18 } },
       },
       'jennifer-gennari': {
         image: { desktop: '1/20/12/26', mobile: '1/6/9/10', z: { desktop: 4, mobile: 4 } },
@@ -92,10 +93,15 @@ const bySlug = new Map(projects.map((p) => [p.id, p]));
 ---
 
 <div class="work" aria-labelledby="work-title">
-  <h2 id="work-title" class="visually-hidden">Our work</h2>
   {
     sections.map((section, index) => (
       <FluidSection as="div" rows={section.rows} theme="dark">
+        {index === 0 && (
+          <FluidItem desktop="3/7/7/21" mobile="2/2/7/10" z={{ desktop: 14, mobile: 15 }}>
+            <h2 id="work-title" class="heading">Solidify your distinct reputation, attract the clients your work is ready for.</h2>
+          </FluidItem>
+        )}
+
         {Object.entries(section.cards).map(([slug, placement]) => {
           const project = bySlug.get(slug);
           return project ? <ProjectCard project={project} {...placement} /> : null;
@@ -112,3 +118,9 @@ const bySlug = new Map(projects.map((p) => [p.id, p]));
     ))
   }
 </div>
+
+<style>
+  .heading {
+    text-align: center;
+  }
+</style>

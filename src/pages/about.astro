@@ -9,7 +9,6 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FluidSection from '../components/layout/FluidSection.astro';
 import FluidItem from '../components/layout/FluidItem.astro';
-import Button from '../components/ui/Button.astro';
 import AutoplayVideo from '../components/ui/AutoplayVideo.astro';
 import Testimonial from '../components/global/Testimonial.astro';
 import PressMarquee from '../components/home/PressMarquee.astro';
@@ -24,58 +23,54 @@ import marci from '../assets/images/team/marci-angeles.jpg';
   description="Meet Emily Paulsen, the Chicago-based founder of Electric Collab, turning founders' expertise into standout brand identities."
 >
   <!-- Mission ------------------------------------------------------------- -->
-  <FluidSection rows={{ mobile: 20, desktop: 17 }} theme="dark" class="about-hero" aria-labelledby="about-title">
+  <FluidSection rows={{ mobile: 19, desktop: 14 }} theme="dark" class="about-hero" aria-labelledby="about-title">
     <AutoplayVideo slot="background" src="/videos/about-theater-seats" width={1280} height={714} background eager class="hero-video" />
 
-    <FluidItem desktop="5/5/10/23" mobile="5/2/10/10" z={11}>
-      <h1 id="about-title" class="centered">In a sea of AI sameness, we help companies scale by being themselves.{'\u00a0'}</h1>
+    <FluidItem desktop="5/5/10/17" mobile="5/2/10/10" z={11}>
+      <h1 id="about-title">In a sea of AI sameness, we help companies scale by being themselves.{'\u00a0'}</h1>
     </FluidItem>
 
-    <FluidItem desktop="10/6/13/22" mobile="10/2/16/10" z={16}>
-      <p class="centered">
-        I built Electric Collab to be a psychology-based brand studio because consumer behavior is at the center of everything we do. Over 5+ years in business, our work has led entrepreneurs to triple revenue, book out quarters in advance, secure TED Talks, hire 6-figure teams, shift industries, win major media coverage, and build wealth while feeling fully expressed.
+    <FluidItem desktop="9/15/13/23" mobile="10/2/17/10" z={16} align={{ desktop: 'end', mobile: 'center' }}>
+      <p>
+        I built Electric Collab to be a psychology-based brand studio because consumer behavior is at the center of everything we do. Our work has led entrepreneurs to triple revenue, book out quarters in advance, secure TED Talks, hire 6-figure teams, shift industries, win major media coverage, and build wealth while feeling fully expressed.
       </p>
-    </FluidItem>
-
-    <FluidItem desktop="14/11/16/17" mobile="16/2/19/10" z={15}>
-      <Button href="/contact" variant="underline" class="hero-cta">apply to reserve your start date</Button>
     </FluidItem>
   </FluidSection>
 
   <!-- Emily + Danielle ------------------------------------------------------ -->
-  <FluidSection rows={{ mobile: 75, desktop: 44 }} columnGap={32} theme="light" aria-label="Our team">
+  <FluidSection rows={{ mobile: 77, desktop: 44 }} columnGap={32} theme="light" aria-label="Our team">
     <FluidItem desktop="4/5/5/12" mobile="2/2/3/10" z={{ desktop: 3, mobile: 9 }} align={{ desktop: 'start', mobile: 'end' }}>
       <p class="eyebrow role">FOUNDER   |   BRAND EXPERT</p>
     </FluidItem>
     <FluidItem desktop="5/5/7/13" mobile="3/2/5/10" z={{ desktop: 5, mobile: 10 }} align={{ desktop: 'end', mobile: 'center' }}>
       <h2 class="text-h1 name">Emily Paulsen</h2>
     </FluidItem>
-    <FluidItem desktop="3/15/21/23" mobile="5/2/20/10" z={8}>
+    <FluidItem desktop="1/15/21/23" mobile="5/2/20/10" z={8}>
       <Image class="media-fill" src={emilySeated} alt="Emily Paulsen in a red velvet suit seated on a vintage sofa" widths={[326, 420, 652, 840]} sizes="(max-width: 767px) 84vw, 29vw" />
     </FluidItem>
-    <FluidItem desktop="8/5/25/13" mobile="21/2/38/10" z={1} align={{ desktop: 'start', mobile: 'center' }} class="rte">
+    <FluidItem desktop="8/5/25/13" mobile="21/2/39/10" z={1} align={{ desktop: 'start', mobile: 'center' }} class="rte">
       <h3>The meanest thing you could say to me? That I’m just like everyone else.</h3>
       <p>
         I’m not sure where I get off wanting to be so original, but I disdain the idea of being basic, boring, and blending into the background. If you’re committed to carving your own path through the wild world of entrepreneurship, perhaps you feel the same way!?<br /><br /><strong>Your brand should amplify that individual spark</strong><em>. </em>The unique combination of talent, experience, expertise, and drive that naturally sets you apart. That’s exactly what Electric Collab is all about.{'\u00a0 \u00a0'}
       </p>
       <h3>Over a decade of brand &amp; marketing experience with companies ranging from Abercrombie &amp; Fitch and The Wendy’s Company to start-ups and small businesses.</h3>
     </FluidItem>
-    <FluidItem desktop="22/15/25/23" mobile="38/2/43/10" z={2} align={{ desktop: 'start', mobile: 'center' }}>
+    <FluidItem desktop="22/15/25/23" mobile="39/2/44/10" z={2} align={{ desktop: 'start', mobile: 'center' }}>
       <p>
         As a Brand Manager, Visual Designer, Marketing Director and certified UX Designer (brag) I've spent years honing the ability to identify owner brilliance, crisply articulate value, and craft compelling brands that make a big impact.
       </p>
     </FluidItem>
 
-    <FluidItem desktop="28/15/29/22" mobile="45/2/46/10" z={{ desktop: 4, mobile: 10 }} align={{ desktop: 'start', mobile: 'end' }}>
+    <FluidItem desktop="28/15/29/22" mobile="46/2/47/10" z={{ desktop: 4, mobile: 10 }} align={{ desktop: 'start', mobile: 'end' }}>
       <p class="eyebrow role">LEAD GRAPHIC DESIGNER</p>
     </FluidItem>
-    <FluidItem desktop="29/15/31/23" mobile="46/2/48/10" z={{ desktop: 6, mobile: 11 }} align={{ desktop: 'end', mobile: 'center' }}>
+    <FluidItem desktop="29/15/31/23" mobile="47/2/49/10" z={{ desktop: 6, mobile: 11 }} align={{ desktop: 'end', mobile: 'center' }}>
       <h2 class="text-h1 name">Danielle Pollera</h2>
     </FluidItem>
-    <FluidItem desktop="27/5/44/13" mobile="48/2/61/10" z={4}>
+    <FluidItem desktop="27/5/44/13" mobile="49/2/62/10" z={4}>
       <Image class="media-fill" src={danielle} alt="Portrait of Danielle Pollera" widths={[326, 420, 652, 840]} sizes="(max-width: 767px) 84vw, 29vw" />
     </FluidItem>
-    <FluidItem desktop="31/15/42/23" mobile="62/2/75/10" z={2} align={{ desktop: 'end', mobile: 'center' }} class="rte">
+    <FluidItem desktop="31/15/42/23" mobile="63/2/76/10" z={2} align={{ desktop: 'end', mobile: 'center' }} class="rte">
       <h3>Specializing in strategic brand identities and visual storytelling, bringing brands to life with bold, refined visuals.</h3>
       <p>
         With a background in both creative direction and marketing strategy, she blends artistic intuition, thoughtful collaboration, and high-level design thinking to every project. From developing visual brand identities to creating high-converting collateral and custom illustrations, Danielle’s goal is always the same: ensure each brand shows up with the clarity, cohesion, and confidence that wins ideal clients while allowing brand leaders to feel wildly proud of their identity.{'\u00a0 \u00a0'}
@@ -121,9 +116,9 @@ import marci from '../assets/images/team/marci-angeles.jpg';
     />
     <Testimonial
       id="emily-dean"
-      rows={{ mobile: 13, desktop: 8 }}
+      rows={{ mobile: 14, desktop: 8 }}
       photo={{ desktop: '2/5/8/9', mobile: '1/2/5/5' }}
-      quote={{ desktop: '2/11/8/24', mobile: '5/2/12/10' }}
+      quote={{ desktop: '2/11/8/24', mobile: '5/2/13/10' }}
     />
     <Testimonial
       id="mary-wiegand"
@@ -138,14 +133,6 @@ import marci from '../assets/images/team/marci-angeles.jpg';
   /* The live video background is shown at 19% opacity over burgundy. */
   :global(.hero-video) {
     opacity: 0.19;
-  }
-
-  .centered {
-    text-align: center;
-  }
-
-  .about-hero :global(.hero-cta) {
-    align-self: center;
   }
 
   .role {
