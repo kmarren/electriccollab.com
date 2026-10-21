@@ -124,16 +124,24 @@ Spam is filtered by Netlify plus a hidden honeypot field. The request form accep
 attachment up to 8 MB (Netlify's limit per submission). Submitting only works on Netlify
 (deploy previews included), not `astro dev`.
 
-## Deploying (Netlify)
+## Deploying (Netlify and Cloudflare)
 
-`netlify.toml` holds the build settings, legacy redirects (`/home` → `/`, and the old
-`/blog?format=rss` feed → `/blog/rss.xml`) and cache headers. Every page URL matches
-Squarespace, so no other redirects are needed. Nothing loads from Squarespace: all images,
+The site deploys from `main` to both Netlify and Cloudflare Workers (static assets).
+
+- `public/_headers` and `public/_redirects` hold the cache/security headers and the
+  `/home` → `/` redirect. Both hosts read them.
+- The old `/blog?format=rss` feed → `/blog/rss.xml` redirect matches a query string,
+  which `_redirects` can't do on Cloudflare: it lives in `netlify.toml` for Netlify and
+  in `worker/index.js` for Cloudflare (the Worker runs only for `/blog`).
+- `netlify.toml` holds Netlify's build settings; `wrangler.jsonc` holds Cloudflare's.
+
+Every page URL matches Squarespace, so no other redirects are needed. Nothing loads from Squarespace: all images,
 videos and fonts are self-hosted.
 
 Search indexing is **off by default** (`robots.txt` disallows all and every page
 is `noindex`), so preview deploys never compete with the live Squarespace site.
-At launch, set `PUBLIC_ALLOW_INDEXING=true` in Netlify's environment variables.
+At launch, set `PUBLIC_ALLOW_INDEXING=true` on the production host: Netlify's environment
+variables, or Cloudflare's **build** variables (Settings → Build), since it's read at build time.
 
 ### Launch checklist
 

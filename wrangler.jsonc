@@ -1,15 +1,21 @@
 // Cloudflare Workers configuration: serves the static Astro build from dist/.
-// No Worker script and no Astro adapter; the site stays fully static.
+// No Astro adapter; the site stays fully static. Headers and simple redirects
+// come from public/_headers and public/_redirects (shared with Netlify).
 {
   "$schema": "https://unpkg.com/wrangler@4/config-schema.json",
   "name": "electriccollab",
   "compatibility_date": "2026-10-01",
+  // Only handles the legacy /blog?format=rss redirect (see the file).
+  "main": "./worker/index.js",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     // Pages are emitted as about.html etc. (see astro.config.mjs). This serves
     // them at /about and redirects /about.html and /about/ there, matching the
     // live Squarespace URLs.
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "none"
+    "not_found_handling": "none",
+    // Run the Worker only for /blog; everything else skips it.
+    "run_worker_first": ["/blog"]
   }
 }

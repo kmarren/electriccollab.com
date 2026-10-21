@@ -1,6 +1,8 @@
 # Netlify build & deploy configuration.
 # Pages are emitted as `about.html` etc. (see astro.config.mjs); Netlify's
 # Pretty URLs serve them at `/about`, matching the live Squarespace URLs.
+# Response headers and simple redirects live in public/_headers and
+# public/_redirects, shared with Cloudflare (see wrangler.jsonc).
 
 [build]
   command = "npm run build"
@@ -10,40 +12,12 @@
   NODE_VERSION = "22"
 
 # ---- Redirects ---------------------------------------------------------------
-# Legacy Squarespace URL for the homepage.
-[[redirects]]
-  from = "/home"
-  to = "/"
-  status = 301
-
 # Squarespace served the blog feed at /blog?format=rss; keep existing subscribers.
-# `force` is needed because /blog itself is a real page.
+# `force` is needed because /blog itself is a real page. (Cloudflare can't
+# match query strings in _redirects; worker/index.js handles it there.)
 [[redirects]]
   from = "/blog"
   to = "/blog/rss.xml"
   status = 301
   force = true
   query = { format = "rss" }
-
-# ---- Headers -----------------------------------------------------------------
-# Fingerprinted build assets (CSS, JS, optimized images) never change.
-[[headers]]
-  for = "/_astro/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/fonts/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/videos/*"
-  [headers.values]
-    Cache-Control = "public, max-age=604800"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"

@@ -10,7 +10,7 @@ export default defineConfig({
   // Squarespace serves every page without a trailing slash (e.g. /about).
   // Emitting `about.html` instead of `about/index.html` lets Netlify's Pretty
   // URLs serve identical paths, preserving existing links and search rankings.
-  // Legacy-URL redirects (e.g. /home → /) live in netlify.toml as true 301s.
+  // Legacy-URL redirects (e.g. /home → /) live in public/_redirects as true 301s.
   trailingSlash: 'never',
   build: {
     format: 'file',

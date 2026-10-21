@@ -1,6 +1,6 @@
 /**
  * RSS feed of every blog post, newest first. Replaces Squarespace's
- * /blog?format=rss, which netlify.toml redirects here.
+ * /blog?format=rss, which netlify.toml (Netlify) and worker/index.js (Cloudflare) redirect here.
  */
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
