@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Asset pipeline cache (full-resolution video masters)
 scripts/.cache/
+
+# Wrangler local dev state
+.wrangler/
