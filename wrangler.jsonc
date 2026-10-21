@@ -1,0 +1,15 @@
+// Cloudflare Workers configuration: serves the static Astro build from dist/.
+// No Worker script and no Astro adapter; the site stays fully static.
+{
+  "$schema": "https://unpkg.com/wrangler@4/config-schema.json",
+  "name": "electriccollab",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    // Pages are emitted as about.html etc. (see astro.config.mjs). This serves
+    // them at /about and redirects /about.html and /about/ there, matching the
+    // live Squarespace URLs.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  }
+}
