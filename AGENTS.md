@@ -36,3 +36,13 @@ The final deliverable should be production-ready and available for client review
 ## Responsive Design and Cross-Device Fidelity
 
 The migrated website must faithfully reproduce the existing Squarespace site's appearance and functionality across all screen sizes, including desktop, tablet, and mobile. Responsive behavior should match the original website, including layouts, typography, spacing, navigation, images, and interactive elements. Do not optimize solely for desktop or assume that mobile layouts should simply scale down from desktop. Reference the existing site's behavior at multiple viewport sizes and test the Astro implementation across common screen widths to ensure visual consistency, usability, and functional accuracy. Any responsive design changes that deviate from the original site should be flagged for approval.
+## Accessibility
+
+Accessibility is a priority and must be built into the site's code, not added on afterward. Target WCAG 2.2 AA.
+
+- Use semantic HTML: native elements (`<button>`, `<a>`, `<nav>`, `<main>`, `<header>`, `<footer>`) and a logical heading order, not generic `<div>`s with click handlers. Reach for ARIA only when no native element fits.
+- Every interactive element must work with a keyboard and show a visible focus state. Menus, popups and dialogs must manage focus and close with Escape.
+- Give meaningful images descriptive `alt` text and decorative images `alt=""`. Every form field needs a programmatically associated label, and errors must be announced, not shown only by color.
+- Respect `prefers-reduced-motion` for animation, video autoplay and smooth scrolling.
+- Do not add accessibility overlay widgets (e.g. accessiBe, UserWay). They don't fix the underlying code, often conflict with screen readers, and provide no ADA or WCAG compliance. The live site's accessiBe widget is intentionally left off.
+- Where the live site has an accessibility problem, fixing it in code is encouraged as long as the visible design and behavior stay the same. If a fix would change the visual design or behavior, flag it for approval, as with any other deviation.
