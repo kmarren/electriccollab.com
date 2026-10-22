@@ -118,7 +118,8 @@ fields in `src/data/` (listed in `src/data/siteForms.ts`):
 How a submission flows:
 
 1. The browser checks the fields (Squarespace-style errors), then runs Cloudflare
-   **Turnstile**, an invisible spam check, and posts the form.
+   **Turnstile**, a spam check that stays hidden unless a visitor looks suspicious, and
+   posts the form.
 2. The Worker (`worker/forms.ts`) drops honeypot hits, verifies the Turnstile token and
    re-checks every answer against the same field list.
 3. It emails the answers via **Resend** to the form's `notify.to`, with Reply-To set to
@@ -135,8 +136,10 @@ to `siteForms.ts`, and render `<SiteForm form={...} />`. No Worker changes neede
 
 ### Setup (per Cloudflare account)
 
-1. **Turnstile**: Cloudflare → Turnstile → Add widget, mode **Invisible**, hostnames for
-   the production domain(s) and the `workers.dev` preview. Put the site key in
+1. **Turnstile**: Cloudflare → Turnstile → Add widget, mode **Managed**, hostnames for
+   the production domain(s) and the `workers.dev` preview. (The code keeps it hidden
+   unless a visitor must verify. Invisible mode would require referencing Cloudflare's
+   Turnstile Privacy Addendum in the site's privacy policy.) Put the site key in
    `integrations.turnstileSiteKey` (`src/data/site.ts`); add the secret key as the Worker
    secret `TURNSTILE_SECRET_KEY`.
 2. **Resend**: add the domain and its DNS records, then create an API key with sending

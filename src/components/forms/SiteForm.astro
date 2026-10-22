@@ -6,8 +6,9 @@
  *
  * How it works:
  * - The script validates fields in the browser and shows Squarespace-style
- *   errors, then gets a token from Cloudflare Turnstile (an invisible spam
- *   check, like Squarespace's invisible reCAPTCHA) and posts everything to
+ *   errors, then gets a token from Cloudflare Turnstile (a spam check that's
+ *   hidden unless a visitor looks suspicious, like Squarespace's invisible
+ *   reCAPTCHA) and posts everything to
  *   /api/forms/<name>. The Worker re-validates against the same field list.
  * - On success it either goes to the success page or swaps the form for the
  *   thank-you message. On failure it shows the form's failure message.
@@ -169,7 +170,7 @@ const idFor = (name: string) => `f-${form.name}-` + name.toLowerCase().replace(/
       })
     }
 
-    <!-- Turnstile renders here; in invisible mode it shows nothing. -->
+    <!-- Turnstile renders here; it stays empty unless a visitor must verify. -->
     <div data-turnstile></div>
 
     <button class="submit" type="submit" data-submit>{form.submitLabel}</button>
@@ -557,7 +558,10 @@ const idFor = (name: string) => `f-${form.name}-` + name.toLowerCase().replace(/
       widgetId = turnstile.render(container, {
         sitekey,
         execution: 'execute',
+        // Managed mode: hidden unless Cloudflare needs the visitor to verify,
+        // in which case a checkbox appears here and the timeout is lifted.
         appearance: 'interaction-only',
+        'before-interactive-callback': () => clearTimeout(timer),
         callback: (value: string) => {
           clearTimeout(timer);
           resolve(value);
