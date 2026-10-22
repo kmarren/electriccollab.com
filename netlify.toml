@@ -14,7 +14,7 @@
 # ---- Redirects ---------------------------------------------------------------
 # Squarespace served the blog feed at /blog?format=rss; keep existing subscribers.
 # `force` is needed because /blog itself is a real page. (Cloudflare can't
-# match query strings in _redirects; worker/index.js handles it there.)
+# match query strings in _redirects; worker/index.ts handles it there.)
 [[redirects]]
   from = "/blog"
   to = "/blog/rss.xml"

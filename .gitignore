@@ -28,3 +28,6 @@ scripts/.cache/
 
 # Wrangler local dev state
 .wrangler/
+
+# Local Worker secrets (see .dev.vars.example)
+.dev.vars

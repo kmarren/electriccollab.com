@@ -1,12 +1,18 @@
 // Cloudflare Workers configuration: serves the static Astro build from dist/.
 // No Astro adapter; the site stays fully static. Headers and simple redirects
 // come from public/_headers and public/_redirects (shared with Netlify).
+//
+// Secrets (set in the dashboard under Settings → Variables and Secrets, or with
+// `npx wrangler secret put <NAME>`; for local testing use .dev.vars):
+//   RESEND_API_KEY        sends the form notification emails
+//   TURNSTILE_SECRET_KEY  verifies the forms' spam check
+//   FORM_WEBHOOK_URL      optional: forwards contact applications (e.g. to Zapier)
 {
   "$schema": "https://unpkg.com/wrangler@4/config-schema.json",
   "name": "electriccollab",
   "compatibility_date": "2026-10-01",
-  // Only handles the legacy /blog?format=rss redirect (see the file).
-  "main": "./worker/index.js",
+  // Handles form submissions and the legacy /blog?format=rss redirect.
+  "main": "./worker/index.ts",
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
@@ -15,7 +21,13 @@
     // live Squarespace URLs.
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "none",
-    // Run the Worker only for /blog; everything else skips it.
-    "run_worker_first": ["/blog"]
-  }
+    // Run the Worker only for these paths; everything else skips it.
+    "run_worker_first": ["/blog", "/api/*"]
+  },
+  // Sender for form emails. Until electriccollab.com is verified in Resend this
+  // is unset, and Resend's test sender is used (it can only email the Resend
+  // account owner). Then set: "Electric Collab Website <forms@electriccollab.com>".
+  "vars": {},
+  // Keeps Worker logs (e.g. a failed form email) viewable in the dashboard.
+  "observability": { "enabled": true }
 }

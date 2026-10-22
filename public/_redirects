@@ -1,6 +1,6 @@
 # Redirects, read by both Netlify and Cloudflare (same syntax on both).
 # The RSS redirect (/blog?format=rss) matches on a query string, which
-# Cloudflare's _redirects can't do; it lives in netlify.toml and worker/index.js.
+# Cloudflare's _redirects can't do; it lives in netlify.toml and worker/index.ts.
 
 # Legacy Squarespace URL for the homepage.
 /home  /  301

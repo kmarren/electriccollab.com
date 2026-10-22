@@ -1,11 +1,9 @@
 /**
  * The Electric Evolution portal request form, from the live Squarespace form
  * ("Electric Evolution Request"). Labels, options and the thank-you message
- * are verbatim. Two deliberate differences, approved during the migration:
- * - "What Type of Support" takes several answers (live said "Check all that
- *   apply" but only allowed one).
- * - Attachments: one file up to 8 MB (Netlify's limit; live allowed five),
- *   with a note pointing to the link field for anything more.
+ * are verbatim. One deliberate difference, approved during the migration:
+ * "What Type of Support" takes several answers (live said "Check all that
+ * apply" but only allowed one). Attachments: up to five files, as on live.
  */
 import type { SiteForm } from './forms';
 
@@ -18,6 +16,7 @@ export const evolutionForm: SiteForm = {
       'Thank you for reaching out! A member of the Electric Collab team will be in touch within 24 business hours with next steps. We can’t wait to work together again!',
   },
   failureMessage: 'Sorry, something went wrong sending your request. Please try again, or email emily@electriccollab.com.',
+  notify: { to: ['emily@electriccollab.com'], subject: 'New Electric Evolution request' },
   fields: [
     { type: 'name', label: 'Name', required: true },
     { type: 'email', name: 'Email', label: 'Email', required: true },
@@ -36,8 +35,8 @@ export const evolutionForm: SiteForm = {
       type: 'file',
       name: 'Attachment',
       label: 'Include Screenshots or Files That May Help Us Understand Your Request',
-      description: 'One file, up to 8 MB. For more or larger files, share a link above.',
       required: false,
+      maxFiles: 5,
     },
   ],
 };

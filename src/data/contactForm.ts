@@ -11,6 +11,8 @@ export const contactForm: SiteForm = {
   submitLabel: 'Submit Application',
   success: { path: '/thank-you' },
   failureMessage: 'Sorry, something went wrong sending your application. Please try again, or email emily@electriccollab.com.',
+  notify: { to: ['emily@electriccollab.com'], subject: 'New application' },
+  webhook: true,
   fields: [
     { type: 'name', label: 'Name', required: true },
     { type: 'email', name: 'Email', label: 'Email', required: true },

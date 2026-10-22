@@ -1,0 +1,6 @@
+# Local settings for `npx wrangler dev`. Copy to .dev.vars (git-ignored).
+# These are Cloudflare's always-pass Turnstile test secret and a dry run that
+# logs form emails to the terminal instead of sending them.
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
+FORM_EMAIL_DRY_RUN=true
+# RESEND_API_KEY=re_...   (only to really send while testing)

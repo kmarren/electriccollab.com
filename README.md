@@ -29,7 +29,7 @@ src/
     home/                      homepage sections (Hero, PressMarquee, ServicesIntro, …)
     services/                  services page sections (Phase, HowItWorks, Faq, …)
     portfolio/                 portfolio index tile
-    forms/                     NetlifyForm (contact application, Electric Evolution requests)
+    forms/                     SiteForm (contact application, Electric Evolution requests)
     case-study/                case-study template (CaseStudy)
     blog/                      blog index card (BlogCard)
     ui/                        Button, Accordion, Marquee, DrawUnderline, AutoplayVideo, ParallaxBackground,
@@ -90,7 +90,8 @@ These were reviewed and approved. Don't change them back to match Squarespace:
 - **Wide column gaps:** these are capped at `100vw / 24` (see `FluidSection`). Live's founder
   section overflows at tablet widths (text cut off, sideways scroll), so it's taller here.
 - **Electric Evolution request form:** "support type" allows several answers (live said
-  "check all that apply" but allowed one), and it takes one 8 MB attachment instead of five.
+  "check all that apply" but allowed one). Attachments: up to five, as on live, within 10 MB
+  each and 25 MB total (they're emailed as attachments).
 - **Laura Czuba case study:** omits four live video blocks that never finished processing.
 - **accessiBe:** the live site's accessibility overlay isn't included (client decision pending).
 - **Mobile menu on phones:** uses the body sans-serif. Live requests an undefined
@@ -104,25 +105,63 @@ These were reviewed and approved. Don't change them back to match Squarespace:
   `/the-briefing` use the same embeds as before; display rules live in Flodesk.
 - **Smooth scrolling**: Lenis, same settings as the old site; disabled for reduced motion.
 
-## Forms (Netlify Forms)
+## Forms (Cloudflare Worker + Turnstile + Resend)
 
-Both site forms use one component, `src/components/forms/NetlifyForm.astro`, with their
-fields in `src/data/`:
+Both site forms use one component, `src/components/forms/SiteForm.astro`, with their
+fields in `src/data/` (listed in `src/data/siteForms.ts`):
 
-| Form | Page | Fields | Netlify form name | After sending |
+| Form | Page | Fields | Posts to | After sending |
 | --- | --- | --- | --- | --- |
-| Application | `/contact` | `contactForm.ts` | `application` | redirects to `/thank-you` |
-| Electric Evolution request | `/electric-evolution-members` | `evolutionForm.ts` | `electric-evolution-request` | thank-you message replaces the form |
+| Application | `/contact` | `contactForm.ts` | `/api/forms/application` | redirects to `/thank-you` |
+| Electric Evolution request | `/electric-evolution-members` | `evolutionForm.ts` | `/api/forms/electric-evolution-request` | thank-you message replaces the form |
 
-Submissions appear in Netlify → **Forms → (form name)**. One-time setup in Netlify:
+How a submission flows:
 
-1. **Forms → Enable form detection** (then redeploy so Netlify registers both forms).
-2. **Forms → Form notifications → Add notification → Email**, once per form, for the
-   address that should receive it.
+1. The browser checks the fields (Squarespace-style errors), then runs Cloudflare
+   **Turnstile**, an invisible spam check, and posts the form.
+2. The Worker (`worker/forms.ts`) drops honeypot hits, verifies the Turnstile token and
+   re-checks every answer against the same field list.
+3. It emails the answers via **Resend** to the form's `notify.to`, with Reply-To set to
+   the person who submitted. Files (up to five on the request form, 10 MB each, 25 MB
+   total) arrive as attachments.
+4. Forms with `webhook: true` also send the answers as JSON to the `FORM_WEBHOOK_URL`
+   secret, if set (e.g. a Zapier "Catch Hook" that adds the contact to Flodesk).
 
-Spam is filtered by Netlify plus a hidden honeypot field. The request form accepts one
-attachment up to 8 MB (Netlify's limit per submission). Submitting only works on Netlify
-(deploy previews included), not `astro dev`.
+There is no submissions dashboard: the inbox is the record. Turnstile needs JavaScript,
+so the forms do too (as on Squarespace); a no-JavaScript post gets a page pointing to email.
+
+**Adding a form** (this site or another client's): write a `SiteForm` data file, add it
+to `siteForms.ts`, and render `<SiteForm form={...} />`. No Worker changes needed.
+
+### Setup (per Cloudflare account)
+
+1. **Turnstile**: Cloudflare → Turnstile → Add widget, mode **Invisible**, hostnames for
+   the production domain(s) and the `workers.dev` preview. Put the site key in
+   `integrations.turnstileSiteKey` (`src/data/site.ts`); add the secret key as the Worker
+   secret `TURNSTILE_SECRET_KEY`.
+2. **Resend**: add the domain and its DNS records, then create an API key with sending
+   access and add it as the Worker secret `RESEND_API_KEY`. Once the domain is verified,
+   set the `FORM_FROM` var in `wrangler.jsonc` (e.g.
+   `"Electric Collab Website <forms@electriccollab.com>"`). Until then Resend's test
+   sender is used, which can only email the Resend account owner.
+3. Optional: the Worker secret `FORM_WEBHOOK_URL`.
+4. Submit each form once on the live site and confirm the email arrives.
+
+Secrets go in the Worker's **Settings → Variables and Secrets** (type Secret). Failed
+emails are logged in the Worker's **Logs** tab.
+
+### Testing locally
+
+`astro dev` has no Worker, so submitting fails there. To test the whole flow:
+
+```sh
+cp .dev.vars.example .dev.vars   # Turnstile test secret + email dry run
+PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000BB npm run build
+npx wrangler dev                  # http://localhost:8787
+```
+
+With the dry run, the email that would be sent (including attachment names) prints to the
+terminal. Add `RESEND_API_KEY` to `.dev.vars` and remove the dry run to send for real.
 
 ## Deploying (Netlify and Cloudflare)
 
@@ -132,7 +171,7 @@ The site deploys from `main` to both Netlify and Cloudflare Workers (static asse
   `/home` → `/` redirect. Both hosts read them.
 - The old `/blog?format=rss` feed → `/blog/rss.xml` redirect matches a query string,
   which `_redirects` can't do on Cloudflare: it lives in `netlify.toml` for Netlify and
-  in `worker/index.js` for Cloudflare (the Worker runs only for `/blog`).
+  in `worker/index.ts` for Cloudflare (the Worker runs only for `/blog` and `/api/*`).
 - `netlify.toml` holds Netlify's build settings; `wrangler.jsonc` holds Cloudflare's.
 
 Every page URL matches Squarespace, so no other redirects are needed. Nothing loads from Squarespace: all images,
@@ -149,7 +188,7 @@ variables, or Cloudflare's **build** variables (Settings → Build), since it's 
       `noindex` on purpose)
 - [ ] Client approval of the full site
 - [ ] `PUBLIC_ALLOW_INDEXING=true` set in Netlify
-- [ ] Netlify form detection enabled + notification email set; test submission received
+- [ ] Forms: Turnstile site key + secret, Resend API key and verified domain, `FORM_FROM` set; test submission of each form received
 - [ ] Netlify plan's monthly form-submission limit covers expected volume
 - [ ] Decide where contact-form opt-ins go (no mailing-list connection exists yet; submissions
       only land in Netlify)

@@ -16,7 +16,7 @@ import FluidItem from '../components/layout/FluidItem.astro';
 import AutoplayVideo from '../components/ui/AutoplayVideo.astro';
 import Accordion from '../components/ui/Accordion.astro';
 import Button from '../components/ui/Button.astro';
-import NetlifyForm from '../components/forms/NetlifyForm.astro';
+import SiteForm from '../components/forms/SiteForm.astro';
 import { Image } from 'astro:assets';
 import { evolutionForm } from '../data/evolutionForm';
 import businessCards from '../assets/images/electric-evolution/business-cards.png';
@@ -151,7 +151,7 @@ const faqRight = [
       <hr class="rule rule--red" />
     </FluidItem>
     <FluidItem desktop="7/10/33/23" mobile="12/3/41/9" z={{ desktop: 5, mobile: 10 }} align="start">
-      <NetlifyForm form={evolutionForm} />
+      <SiteForm form={evolutionForm} />
     </FluidItem>
     <FluidItem desktop="13/4/24/8" mobile="43/3/48/9" z={{ desktop: 4, mobile: 3 }}>
       <Image class="media-fill" src={arriveePackaging} alt="Arrivée subscription box dielines in burgundy" widths={[300, 500, 714]} sizes="(max-width: 767px) 66vw, 17vw" />

@@ -1,10 +1,10 @@
 /**
  * robots.txt — crawling is blocked unless PUBLIC_ALLOW_INDEXING=true.
  *
- * The Astro site is reviewed on a Netlify preview domain while the Squarespace
- * site stays live; letting search engines index that copy would create
- * duplicate content. Set PUBLIC_ALLOW_INDEXING=true in Netlify only when the
- * custom domain is switched over.
+ * The Astro site is reviewed on preview domains (workers.dev, Netlify) while the
+ * Squarespace site stays live; letting search engines index that copy would
+ * create duplicate content. Set PUBLIC_ALLOW_INDEXING=true (a Cloudflare build
+ * variable) only when the custom domain is switched over.
  */
 import type { APIRoute } from 'astro';
 import { allowIndexing } from '../lib/indexing';

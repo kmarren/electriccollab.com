@@ -1,9 +1,10 @@
 /**
- * Shapes for the site's Netlify Forms (see src/components/forms/NetlifyForm.astro).
+ * Shapes for the site's forms (see src/components/forms/SiteForm.astro, and
+ * worker/forms.ts, which receives submissions on Cloudflare).
  *
- * A field's `name` is the key submissions are stored under in Netlify (and
- * shown in notification emails), so names are written to be readable there.
- * `description` is the smaller help text Squarespace shows under a label.
+ * A field's `name` is the key a submission arrives under; the notification
+ * email lists each answer under its `label`. `description` is the smaller help
+ * text Squarespace shows under a label.
  */
 type Base = { label: string; required: boolean; description?: string };
 
@@ -14,11 +15,11 @@ export type Field =
   /** `spacing: 'radio'` keeps radio-button row spacing on a checkbox list. */
   | ({ type: 'checkbox' | 'radio'; name: string; options: string[]; spacing?: 'radio' } & Base)
   | ({ type: 'select'; name: string; placeholder: string; options: string[] } & Base)
-  /** One file per field, 8 MB max (Netlify Forms' limit per submission). */
-  | ({ type: 'file'; name: string } & Base);
+  /** Up to `maxFiles` files (default 1); size limits are in FILE_LIMITS. */
+  | ({ type: 'file'; name: string; maxFiles?: number } & Base);
 
 export interface SiteForm {
-  /** Netlify form name (shown in the Netlify dashboard). */
+  /** URL-safe id: submissions post to /api/forms/<name>. */
   name: string;
   submitLabel: string;
   /** Submit button color: red (contact) or burgundy (Electric Evolution). */
@@ -27,5 +28,16 @@ export interface SiteForm {
   success: { path: string } | { message: string };
   /** Shown above the form if sending fails. */
   failureMessage: string;
+  /** Notification email. The sender's name is appended to the subject. */
+  notify: { to: string[]; subject: string };
+  /** Also send the answers to the FORM_WEBHOOK_URL secret (e.g. a Zapier hook), if set. */
+  webhook?: boolean;
   fields: Field[];
 }
+
+/**
+ * Attachment limits, shared by the browser check and the server. Files are
+ * attached to the notification email, so the total stays well under the
+ * email service's 40 MB message limit (attachments grow ~33% when encoded).
+ */
+export const FILE_LIMITS = { perFile: 10 * 1024 * 1024, total: 25 * 1024 * 1024 };

@@ -1,7 +1,7 @@
 ---
 /**
  * "GET STARTED" — the contact page: an intro over silk, who the studio is a
- * fit for, a testimonial, and the application form (Netlify Forms).
+ * fit for, a testimonial, and the application form (see SiteForm.astro).
  * Grid placement mirrors the live page.
  */
 import { Image } from 'astro:assets';
@@ -12,7 +12,7 @@ import Button from '../components/ui/Button.astro';
 import DrawUnderline from '../components/ui/DrawUnderline.astro';
 import ParallaxBackground from '../components/ui/ParallaxBackground.astro';
 import Testimonial from '../components/global/Testimonial.astro';
-import NetlifyForm from '../components/forms/NetlifyForm.astro';
+import SiteForm from '../components/forms/SiteForm.astro';
 import { contactForm } from '../data/contactForm';
 import silk from '../assets/images/contact/silk-background.jpg';
 import brandBook from '../assets/images/contact/brand-book.jpg';
@@ -100,7 +100,7 @@ const SILK_FOCUS = '84.1% 11.2%';
     </FluidItem>
 
     <FluidItem desktop="15/6/88/22" mobile="16/2/134/10" z={3} align="start">
-      <NetlifyForm form={contactForm} />
+      <SiteForm form={contactForm} />
     </FluidItem>
 
     <FluidItem desktop="90/6/92/22" mobile="135/2/141/10" z={4} align={{ desktop: 'start', mobile: 'center' }}>

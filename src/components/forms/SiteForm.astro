@@ -1,28 +1,28 @@
 ---
 /**
- * A Squarespace-style form handled by Netlify Forms (contact application,
- * Electric Evolution requests). Fields come from src/data/*Form.ts.
+ * A Squarespace-style form (contact application, Electric Evolution requests).
+ * Fields come from src/data/*Form.ts; submissions go to the Cloudflare Worker
+ * (worker/forms.ts), which emails them via Resend.
  *
  * How it works:
- * - Netlify finds the form in the built HTML (`data-netlify="true"`) and
- *   stores submissions under the form name, emailing whoever is set up in
- *   Netlify → Forms → Form notifications.
- * - With JavaScript (normal case) the script validates fields, shows
- *   Squarespace-style errors and posts the data to Netlify in the background.
- *   Checkbox answers are joined into one readable value ("A, B, C"). Then it
- *   either goes to the success page or swaps the form for the thank-you message.
- * - Without JavaScript the browser posts the form natively; Netlify still
- *   records it and redirects to the form's `action` (the success page, or this
- *   page's #…-sent anchor, which reveals the message via :target).
- * - Spam: Netlify's built-in filter plus a hidden honeypot field. (Squarespace
- *   used an invisible reCAPTCHA; Netlify's reCAPTCHA is a visible checkbox, so
- *   it's left off to keep the form identical. It can be added if spam appears.)
- * - File fields: one file each, 8 MB max per submission (Netlify's limit);
- *   the form switches to multipart encoding when it has one.
+ * - The script validates fields in the browser and shows Squarespace-style
+ *   errors, then gets a token from Cloudflare Turnstile (an invisible spam
+ *   check, like Squarespace's invisible reCAPTCHA) and posts everything to
+ *   /api/forms/<name>. The Worker re-validates against the same field list.
+ * - On success it either goes to the success page or swaps the form for the
+ *   thank-you message. On failure it shows the form's failure message.
+ * - Turnstile needs JavaScript, so the form does too (as on Squarespace).
+ *   Without it, the Worker answers a native post with a page pointing to email.
+ * - Spam: Turnstile plus a hidden honeypot field.
+ * - File fields: up to `maxFiles` files, within FILE_LIMITS (src/data/forms.ts);
+ *   they arrive as email attachments.
+ * - Turnstile's script loads only once someone starts using a form.
  *
- * Submissions only work on Netlify; on `astro dev` the post fails gracefully.
+ * Submitting needs the Worker, so it fails gracefully on `astro dev`; test with
+ * `npm run build && npx wrangler dev` (see README → Forms).
  */
 import type { SiteForm } from '../../data/forms';
+import { integrations } from '../../data/site';
 
 export interface Props {
   form: SiteForm;
@@ -31,8 +31,8 @@ export interface Props {
 const { form } = Astro.props;
 const fields = form.fields;
 const hasFile = fields.some((f) => f.type === 'file');
+const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || integrations.turnstileSiteKey;
 const sentId = `${form.name}-sent`;
-const action = 'path' in form.success ? form.success.path : `${Astro.url.pathname}#${sentId}`;
 const idFor = (name: string) => `f-${form.name}-` + name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 ---
 
@@ -41,15 +41,14 @@ const idFor = (name: string) => `f-${form.name}-` + name.toLowerCase().replace(/
     class:list={['app-form', `app-form--submit-${form.submitColor ?? 'red'}`]}
     name={form.name}
     method="POST"
-    action={action}
+    action={`/api/forms/${form.name}`}
     enctype={hasFile ? 'multipart/form-data' : undefined}
-    data-netlify="true"
-    netlify-honeypot="bot-field"
     novalidate
-    data-netlify-form
+    data-site-form
     data-failure={form.failureMessage}
+    data-success-path={'path' in form.success ? form.success.path : undefined}
+    data-turnstile-key={turnstileKey}
   >
-    <input type="hidden" name="form-name" value={form.name} />
     <p class="honeypot" aria-hidden="true">
       <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
     </p>
@@ -124,7 +123,16 @@ const idFor = (name: string) => `f-${form.name}-` + name.toLowerCase().replace(/
                 <span class="dropzone-icon" aria-hidden="true" />
                 <span class="dropzone-text" data-file-name>Add a File</span>
               </label>
-              <input class="file-input" id={id} name={field.name} type="file" required={required} aria-describedby={descId} />
+              <input
+                class="file-input"
+                id={id}
+                name={field.name}
+                type="file"
+                multiple={(field.maxFiles ?? 1) > 1}
+                data-max-files={field.maxFiles ?? 1}
+                required={required}
+                aria-describedby={descId}
+              />
             </div>
           );
         }
@@ -160,6 +168,9 @@ const idFor = (name: string) => `f-${form.name}-` + name.toLowerCase().replace(/
         );
       })
     }
+
+    <!-- Turnstile renders here; in invisible mode it shows nothing. -->
+    <div data-turnstile></div>
 
     <button class="submit" type="submit" data-submit>{form.submitLabel}</button>
   </form>
@@ -504,25 +515,73 @@ const idFor = (name: string) => `f-${form.name}-` + name.toLowerCase().replace(/
     line-height: var(--lh-body);
   }
 
-  .sent:target,
   .sent.is-shown {
     display: block;
-  }
-
-  .form-wrap:has(.sent:target) .app-form {
-    display: none;
   }
 </style>
 
 <script>
-  const MAX_UPLOAD = 8 * 1024 * 1024; // Netlify Forms' limit per submission
+  import { FILE_LIMITS } from '../../data/forms';
 
-  document.querySelectorAll<HTMLFormElement>('[data-netlify-form]').forEach((form) => {
+  const MB = 1024 * 1024;
+
+  /** Minimal typing for the parts of the Turnstile API used here. */
+  interface Turnstile {
+    render(container: HTMLElement, options: Record<string, unknown>): string;
+    execute(widgetId: string): void;
+    remove(widgetId: string): void;
+  }
+
+  // Turnstile's script loads once per page, on first use of any form.
+  let turnstileReady: Promise<Turnstile> | null = null;
+  const loadTurnstile = () =>
+    (turnstileReady ??= new Promise<Turnstile>((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      script.async = true;
+      script.onload = () => resolve((window as unknown as { turnstile: Turnstile }).turnstile);
+      script.onerror = () => {
+        turnstileReady = null; // allow a retry on the next submit
+        reject(new Error('Turnstile failed to load'));
+      };
+      document.head.append(script);
+    }));
+
+  /** Runs the invisible check and resolves with a fresh, single-use token. */
+  const getToken = async (container: HTMLElement, sitekey: string, previous: string | null) => {
+    const turnstile = await loadTurnstile();
+    if (previous) turnstile.remove(previous);
+    let widgetId = '';
+    const token = new Promise<string>((resolve, reject) => {
+      const timer = setTimeout(() => reject(new Error('Turnstile timed out')), 30_000);
+      widgetId = turnstile.render(container, {
+        sitekey,
+        execution: 'execute',
+        appearance: 'interaction-only',
+        callback: (value: string) => {
+          clearTimeout(timer);
+          resolve(value);
+        },
+        'error-callback': () => {
+          clearTimeout(timer);
+          reject(new Error('Turnstile error'));
+        },
+      });
+      turnstile.execute(widgetId);
+    });
+    return { token: await token, widgetId };
+  };
+
+  document.querySelectorAll<HTMLFormElement>('[data-site-form]').forEach((form) => {
     const alertBox = form.querySelector<HTMLElement>('[data-form-alert]')!;
     const submit = form.querySelector<HTMLButtonElement>('[data-submit]')!;
     const sent = form.parentElement!.querySelector<HTMLElement>('[data-form-sent]');
     const groups = [...form.querySelectorAll<HTMLElement>('[data-field]')];
-    const hasFile = !!form.querySelector('input[type=file]');
+    const turnstileBox = form.querySelector<HTMLElement>('[data-turnstile]')!;
+    let widgetId: string | null = null;
+
+    // Fetch Turnstile in the background once someone starts filling in the form.
+    form.addEventListener('focusin', () => loadTurnstile().catch(() => {}), { once: true });
 
     const setError = (group: HTMLElement, message: string | null) => {
       const box = group.querySelector<HTMLElement>('.field-error')!;
@@ -539,9 +598,16 @@ const idFor = (name: string) => `f-${form.name}-` + name.toLowerCase().replace(/
       const label = group.dataset.field!;
       const file = group.querySelector<HTMLInputElement>('input[type=file]');
       if (file) {
-        const chosen = file.files?.[0];
-        if (chosen && chosen.size > MAX_UPLOAD) return 'This file is too large. The maximum size is 8 MB; share a link to larger files instead.';
-        return group.hasAttribute('data-required') && !chosen ? `${label} is required.` : null;
+        const chosen = [...(file.files ?? [])];
+        const max = Number(file.dataset.maxFiles ?? 1);
+        if (chosen.length > max) return `Please choose up to ${max} files.`;
+        if (chosen.some((f) => f.size > FILE_LIMITS.perFile)) {
+          return `Each file can be up to ${FILE_LIMITS.perFile / MB} MB; share a link to larger files instead.`;
+        }
+        if (chosen.reduce((sum, f) => sum + f.size, 0) > FILE_LIMITS.total) {
+          return `Files can total up to ${FILE_LIMITS.total / MB} MB; share a link to larger files instead.`;
+        }
+        return group.hasAttribute('data-required') && !chosen.length ? `${label} is required.` : null;
       }
       if (!group.hasAttribute('data-required')) return null;
       const choices = group.querySelectorAll<HTMLInputElement>('input[type=checkbox], input[type=radio]');
@@ -555,11 +621,12 @@ const idFor = (name: string) => `f-${form.name}-` + name.toLowerCase().replace(/
       return null;
     };
 
-    // Show the chosen file's name in the upload box.
+    // Show the chosen file names in the upload box.
     form.querySelectorAll<HTMLInputElement>('input[type=file]').forEach((input) => {
       input.addEventListener('change', () => {
         const text = input.closest('[data-field]')!.querySelector<HTMLElement>('[data-file-name]')!;
-        text.textContent = input.files?.[0]?.name ?? 'Add a File';
+        const names = [...(input.files ?? [])].map((f) => f.name);
+        text.textContent = names.length ? names.join(', ') : 'Add a File';
       });
     });
 
@@ -570,6 +637,13 @@ const idFor = (name: string) => `f-${form.name}-` + name.toLowerCase().replace(/
     };
     form.addEventListener('input', recheck);
     form.addEventListener('change', recheck);
+
+    const fail = () => {
+      alertBox.textContent = form.dataset.failure ?? 'Sorry, something went wrong. Please try again.';
+      alertBox.hidden = false;
+      alertBox.scrollIntoView({ block: 'center' });
+      submit.disabled = false;
+    };
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -587,40 +661,23 @@ const idFor = (name: string) => `f-${form.name}-` + name.toLowerCase().replace(/
         return;
       }
 
-      // One entry per field; checkbox answers joined into one value; files sent as-is.
-      const data = new FormData(form);
-      const payload = new FormData();
-      for (const key of new Set(data.keys())) {
-        const values = data.getAll(key);
-        if (values[0] instanceof File) {
-          if ((values[0] as File).size) payload.append(key, values[0]);
-        } else {
-          payload.append(key, values.map(String).join(', '));
-        }
-      }
-
       submit.disabled = true;
       try {
-        const response = await fetch('/', hasFile
-          ? { method: 'POST', body: payload }
-          : {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-              body: new URLSearchParams(payload as unknown as Record<string, string>).toString(),
-            });
+        const check = await getToken(turnstileBox, form.dataset.turnstileKey!, widgetId);
+        widgetId = check.widgetId;
+        const payload = new FormData(form);
+        payload.set('cf-turnstile-response', check.token);
+        const response = await fetch(form.action, { method: 'POST', body: payload, headers: { Accept: 'application/json' } });
         if (!response.ok) throw new Error(String(response.status));
         if (sent) {
           form.hidden = true;
           sent.classList.add('is-shown');
           sent.focus();
         } else {
-          window.location.assign(form.getAttribute('action') || '/');
+          window.location.assign(form.dataset.successPath || '/');
         }
       } catch {
-        alertBox.textContent = form.dataset.failure ?? 'Sorry, something went wrong. Please try again.';
-        alertBox.hidden = false;
-        alertBox.scrollIntoView({ block: 'center' });
-        submit.disabled = false;
+        fail();
       }
     });
   });
