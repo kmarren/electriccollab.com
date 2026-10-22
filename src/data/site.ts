@@ -34,10 +34,10 @@ export const integrations = {
   flodeskFormId: '67b42b370ff512f5a08e488e',
   /**
    * Cloudflare Turnstile (spam check on the forms; Managed mode). The site key is
-   * public; PUBLIC_TURNSTILE_SITE_KEY overrides it at build time (see README → Forms).
-   * TODO: this is Cloudflare's always-pass test key; replace with the real site key before launch.
+   * public; PUBLIC_TURNSTILE_SITE_KEY overrides it at build time, e.g. with
+   * Cloudflare's always-pass test key for local testing (see README → Forms).
    */
-  turnstileSiteKey: '1x00000000000000000000BB',
+  turnstileSiteKey: '0x4AAAAAAFgI5bGBiZtRv2rm',
 } as const;
 
 export interface NavLink {
