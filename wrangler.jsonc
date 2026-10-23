@@ -24,10 +24,9 @@
     // Run the Worker only for these paths; everything else skips it.
     "run_worker_first": ["/blog", "/api/*"]
   },
-  // Sender for form emails. Until electriccollab.com is verified in Resend this
-  // is unset, and Resend's test sender is used (it can only email the Resend
-  // account owner). Then set: "Electric Collab Website <forms@electriccollab.com>".
-  "vars": {},
+  // Sender for form emails; the domain is verified in Resend. (Without it,
+  // Resend's test sender is used, which can only email the account owner.)
+  "vars": { "FORM_FROM": "Electric Collab Website <forms@electriccollab.com>" },
   // Keeps Worker logs (e.g. a failed form email) viewable in the dashboard.
   "observability": { "enabled": true }
 }
